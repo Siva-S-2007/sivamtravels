@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight, Plus } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useCallback, useEffect } from 'react';
 import { SectionHeading } from './Packages';
 import { useApp } from '@/lib/app-context';
@@ -16,16 +16,15 @@ type GalleryImage = {
 // To add more images, simply append objects to this array.
 // span options: 'row-span-2' for tall, 'col-span-2' for wide, '' for regular.
 const galleryImages: GalleryImage[] = [
-  { src: 'https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&w=800', alt: { en: 'Temple gopuram', ta: 'கோயில் கோபுரம்' }, span: 'row-span-2' },
-  { src: 'https://images.pexels.com/photos/2478248/pexels-photo-2478248.jpeg?auto=compress&cs=tinysrgb&w=800', alt: { en: 'Temple carving', ta: 'கோயில் சிற்பம்' } },
-  { src: 'https://images.pexels.com/photos/2063582/pexels-photo-2063582.jpeg?auto=compress&cs=tinysrgb&w=800', alt: { en: 'Sacred lamp', ta: 'புனித தீபம்' } },
-  { src: 'https://images.pexels.com/photos/2549018/pexels-photo-2549018.jpeg?auto=compress&cs=tinysrgb&w=800', alt: { en: 'Temple corridor', ta: 'கோயில் வராந்தம்' }, span: 'row-span-2' },
-  { src: 'https://images.pexels.com/photos/1454360/pexels-photo-1454360.jpeg?auto=compress&cs=tinysrgb&w=800', alt: { en: 'Pilgrim at prayer', ta: 'பக்தன் பிரார்த்தனை' } },
-  { src: 'https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg?auto=compress&cs=tinysrgb&w=800', alt: { en: 'Temple deity', ta: 'கோயில் மூலவர்' } },
-  { src: 'https://images.pexels.com/photos/326900/pexels-photo-326900.jpeg?auto=compress&cs=tinysrgb&w=800', alt: { en: 'Temple entrance', ta: 'கோயில் நுழைவாயில்' } },
-  { src: 'https://images.pexels.com/photos/161747/stupa-pokhara-nepal-monument-161747.jpeg?auto=compress&cs=tinysrgb&w=800', alt: { en: 'Sacred architecture', ta: 'புனித கட்டிடக்கலை' } },
-  { src: 'https://images.pexels.com/photos/2063582/pexels-photo-2063582.jpeg?auto=compress&cs=tinysrgb&w=800', alt: { en: 'Evening aarti', ta: 'மாலை ஆரத்தி' } },
-  { src: 'https://images.pexels.com/photos/2478248/pexels-photo-2478248.jpeg?auto=compress&cs=tinysrgb&w=800', alt: { en: 'Stone pillars', ta: 'கல் தூண்கள்' } },
+  { src: '/gallery/suryangallery.png', alt: { en: 'Suriyan Temple', ta: 'சூரியன் கோயில்' }, span: 'row-span-2' },
+  { src: '/gallery/chandrangallery.png', alt: { en: 'Chandran Temple', ta: 'சந்திரன் கோயில்' } },
+  { src: '/gallery/sevvaigallery.png', alt: { en: 'Sevvai Temple', ta: 'செவ்வாய் கோயில்' } },
+  { src: '/gallery/budhangallery.png', alt: { en: 'Budhan Temple', ta: 'புதன் கோயில்' }, span: 'row-span-2' },
+  { src: '/gallery/gurugallery.png', alt: { en: 'Guru Temple', ta: 'குரு கோயில்' } },
+  { src: '/gallery/sukrangallery.png', alt: { en: 'Sukran Temple', ta: 'சுக்கிரன் கோயில்' } },
+  { src: '/gallery/sanigallery.png', alt: { en: 'Sani Temple', ta: 'சனி கோயில்' } },
+  { src: '/gallery/rahugallery.png', alt: { en: 'Rahu Temple', ta: 'ராகு கோயில்' } },
+  { src: '/gallery/ketugallery.png', alt: { en: 'Kethu Temple', ta: 'கேது கோயில்' } },
 ];
 
 export default function Gallery() {
@@ -81,9 +80,6 @@ export default function Gallery() {
               <div className="absolute bottom-0 left-0 right-0 translate-y-2 p-4 font-heading text-lg text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                 {img.alt[lang]}
               </div>
-              <span className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-ivory/80 text-maroon opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <Plus className="h-4 w-4" />
-              </span>
             </motion.button>
           ))}
         </div>

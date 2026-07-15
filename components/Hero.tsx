@@ -11,14 +11,16 @@ export default function Hero() {
   return (
     <section id="home" className="relative flex h-screen min-h-[640px] items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
-        <div
-          className="h-full w-full bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://images.pexels.com/photos/2549018/pexels-photo-2549018.jpeg?auto=compress&cs=tinysrgb&w=1920')",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-maroon/70 via-charcoal/60 to-charcoal/85" />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="h-full w-full object-cover"
+        >
+          <source src="/hero.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-maroon/70 via-charcoal/55 to-charcoal/85" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(0,0,0,0.55)_100%)]" />
       </div>
 

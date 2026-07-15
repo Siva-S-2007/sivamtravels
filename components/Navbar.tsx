@@ -69,13 +69,13 @@ export default function Navbar() {
           </span>
         </a>
 
-        <ul className="hidden items-center gap-9 lg:flex">
+        <ul className="hidden items-center gap-6 xl:flex">
           {links.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
                 className={cn(
-                  'group relative font-body text-sm tracking-wide transition-colors',
+                  'group relative whitespace-nowrap font-body text-sm tracking-wide transition-colors',
                   scrolled ? 'text-charcoal/80 hover:text-maroon' : 'text-white/85 hover:text-white'
                 )}
               >
@@ -123,7 +123,7 @@ export default function Navbar() {
 
           <button
             onClick={() => setOpen((v) => !v)}
-            className={cn('lg:hidden', scrolled ? 'text-maroon' : 'text-white')}
+            className={cn('xl:hidden', scrolled ? 'text-maroon' : 'text-white')}
             aria-label="Toggle menu"
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

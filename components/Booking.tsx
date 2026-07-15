@@ -14,7 +14,6 @@ export default function Booking() {
     name: '',
     phone: '',
     date: '',
-    pickup: '',
     travelers: '',
     requests: '',
   });
@@ -31,7 +30,6 @@ export default function Booking() {
       `${lang === 'ta' ? 'தொலைபேசி' : 'Phone'}: ${form.phone}\n\n` +
       `${lang === 'ta' ? 'தேர்ந்தெடுத்த திட்டம்' : 'Selected Package'}:\n${pkgName}\n\n` +
       `${lang === 'ta' ? 'பயண தேதி' : 'Travel Date'}: ${form.date || '-'}\n` +
-      `${lang === 'ta' ? 'பிக்அப் இடம்' : 'Pickup Location'}: ${form.pickup || '-'}\n` +
       `${lang === 'ta' ? 'பயணிகள்' : 'Travellers'}: ${form.travelers || '-'}\n\n` +
       `${lang === 'ta' ? 'சிறப்பு கோரிக்கைகள்' : 'Special Requests'}: ${form.requests || '-'}\n\n` +
       `${lang === 'ta' ? 'இந்த யாத்திரை குறித்து தயவுசெய்து என்னை தொடர்பு கொள்ளுங்கள்.' : 'Kindly contact me regarding this pilgrimage.'}\n\n` +
@@ -57,8 +55,8 @@ export default function Booking() {
             className="relative min-h-[420px] overflow-hidden rounded-2xl border border-gold/20"
           >
             <img
-              src="https://images.pexels.com/photos/1454360/pexels-photo-1454360.jpeg?auto=compress&cs=tinysrgb&w=1000"
-              alt="Devotee in prayer"
+              src="/deities/rahu.jpg"
+              alt="Rahu deity"
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-maroon/80 via-maroon/20 to-transparent" />
@@ -145,24 +143,14 @@ export default function Booking() {
                 </Field>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                <Field icon={<CalendarDays className="h-4 w-4" />} label={t('booking.travelDate')}>
-                  <input
-                    type="date"
-                    value={form.date}
-                    onChange={(e) => setForm({ ...form, date: e.target.value })}
-                    className="w-full bg-transparent text-sm text-white placeholder-white/40 focus:outline-none [color-scheme:dark]"
-                  />
-                </Field>
-                <Field icon={<MapPin className="h-4 w-4" />} label={t('booking.pickupLocation')}>
-                  <input
-                    value={form.pickup}
-                    onChange={(e) => setForm({ ...form, pickup: e.target.value })}
-                    placeholder={t('booking.pickupPlaceholder')}
-                    className="w-full bg-transparent text-sm text-white placeholder-white/40 focus:outline-none"
-                  />
-                </Field>
-              </div>
+              <Field icon={<CalendarDays className="h-4 w-4" />} label={t('booking.travelDate')}>
+                <input
+                  type="date"
+                  value={form.date}
+                  onChange={(e) => setForm({ ...form, date: e.target.value })}
+                  className="w-full bg-transparent text-sm text-white placeholder-white/40 focus:outline-none [color-scheme:dark]"
+                />
+              </Field>
 
               <Field icon={<Users className="h-4 w-4" />} label={t('booking.travelers')}>
                 <input

@@ -19,7 +19,7 @@ export type ModalData = {
 export const navagrahaModalData: Record<string, ModalData> = {
   surya: {
     id: 'surya',
-    bannerImage: 'https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    bannerImage: '/deities/suryan.jpg',
     overview: {
       en: 'Suryanar Kovil is the premier Navagraha temple dedicated exclusively to the Sun God, Surya. Located near Kumbakonam, it is unique because it features dedicated shrines for all other eight planetary deities facing Surya. Worship here is believed to bestow health, vitality, and success in life.',
       ta: 'சூரியநார் கோவில் சூரிய பகவானுக்கு அர்ப்பணிக்கப்பட்ட முதன்மை நவகிரக கோயில். கும்பகோணம் அருகே அமைந்துள்ள இது, மற்ற எட்டு கிரக தெய்வங்களுக்கும் தனித்தனி சன்னதிகள் கொண்டதால் தனித்துவமானது. இங்கு வழிபட ஆரோக்கியம், உயிரோட்டம், வாழ்வில் வெற்றி கிடைக்கும் என்பது நம்பிக்கை.',
@@ -52,7 +52,7 @@ export const navagrahaModalData: Record<string, ModalData> = {
   },
   chandra: {
     id: 'chandra',
-    bannerImage: 'https://images.pexels.com/photos/2478248/pexels-photo-2478248.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    bannerImage: '/gallery/chandrangallery.png',
     overview: {
       en: 'Thingalur Kailasanathar Temple is dedicated to Chandra, the Moon God. While the primary deity is Lord Shiva as Kailasanathar, Chandra is worshipped here in a prominent shrine to bring mental peace, emotional stability, and relief from psychological stresses.',
       ta: 'திங்களூர் கைலாசநாதர் கோயில் சந்திர பகவானுக்கு அர்ப்பணிக்கப்பட்டது. மூலவர் கைலாசநாதராக இறைவன் இருந்தாலும், சந்திரன் இங்கு முக்கிய சன்னதியில் வழிபடப்படுகிறார். மன அமைதி, உணர்ச்சி சமநிலை, மன அழுத்தம் நீக்கம் கிடைக்கும்.',
@@ -85,7 +85,7 @@ export const navagrahaModalData: Record<string, ModalData> = {
   },
   angaraka: {
     id: 'angaraka',
-    bannerImage: 'https://images.pexels.com/photos/2063582/pexels-photo-2063582.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    bannerImage: '/gallery/sevvaigallery.png',
     overview: {
       en: 'Vaitheeswaran Kovil is the powerful Navagraha temple for Angarakan (Mars). Lord Shiva is worshipped here as Vaitheeswaran, the "Divine Healer," who cures all mental and physical ailments. This temple is also world-renowned as the center for Nadi Astrology.',
       ta: 'வைத்தீஸ்வரன் கோயில் அங்காரகனுக்கான (செவ்வாய்) வல்ல நவகிரக கோயில். இறைவன் வைத்தீஸ்வரனாக — "தெய்வீக வைத்தியராக" வழிபடப்படுகிறார். இது நாடி ஜோதிடத்திற்கு உலகப் புகழ்பெற்ற மையம்.',
@@ -118,7 +118,7 @@ export const navagrahaModalData: Record<string, ModalData> = {
   },
   budha: {
     id: 'budha',
-    bannerImage: 'https://images.pexels.com/photos/2549018/pexels-photo-2549018.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    bannerImage: '/deities/budhan.jpg',
     overview: {
       en: 'Thiruvenkadu Swetharanyeswarar Temple is the dedicated Navagraha sthalam for Budhan (Mercury). Lord Shiva is worshipped here as Swetharanyeswarar in a vast "white forest" complex. Budhan governs intellect, education, and communication, making this a vital stop for student success.',
       ta: 'திருவெண்காடு ஸ்ரீவேதாரண்யேஸ்வரர் கோயில் புதனுக்கான நவகிரக தலம். இறைவன் ஸ்ரீவேதாரண்யேஸ்வரராக "வெள்ளை காட்டில்" வழிபடப்படுகிறார். புதன் அறிவு, கல்வி, தொடர்பாடலை ஆள்கிறார்.',
@@ -151,7 +151,7 @@ export const navagrahaModalData: Record<string, ModalData> = {
   },
   guru: {
     id: 'guru',
-    bannerImage: 'https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    bannerImage: '/gallery/gurugallery.png',
     overview: {
       en: 'Alangudi is revered as the Navagraha sthalam for Guru (Jupiter), the planet of wisdom, fortune, and marriage. Here, Lord Shiva is known as Apatsahayavar (The Savior from Dangers), and Lord Dakshinamurthy is worshipped as the planetary representation of Guru.',
       ta: 'ஆலங்குடி குருவுக்கான (வியாழன்) நவகிரஹ தலம். ஞானம், அதிர்ஷ்டம், திருமணம் தரும் கிரகம். இறைவன் ஆபத்சகாயேஸ்வரராக (துன்ப நேரத்தில் உதவுபவர்) வழிபடப்படுகிறார். தட்சிணாமூர்த்தி குருவாக வழிபடப்படுகிறார்.',
@@ -184,7 +184,7 @@ export const navagrahaModalData: Record<string, ModalData> = {
   },
   sukra: {
     id: 'sukra',
-    bannerImage: 'https://images.pexels.com/photos/2478248/pexels-photo-2478248.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    bannerImage: '/deities/sukran.jpg',
     overview: {
       en: 'Kanjanur Agniswarar Temple is the Navagraha shrine dedicated to Sukran (Venus), the planet governing wealth, art, luxury, and marital bliss. Uniquely, Sukran is located invisibly within the main Shiva Lingam (Agniswarar) itself, rather than in a separate physical idol.',
       ta: 'காஞ்சனூர் அக்னீஸ்வரர் கோயில் சுக்கிரனுக்கான (வெள்ளி) நவகிரக தலம். செழுமை, கலை, ஆடம்பரம், திருமண இன்பம் தரும் கிரகம். தனிப்பட்ட முறையில் சுக்கிரன் முதன்மை சிவலிங்கத்துக்குள்ளேயே அகண்யமாக உள்ளார்.',
@@ -217,7 +217,7 @@ export const navagrahaModalData: Record<string, ModalData> = {
   },
   shani: {
     id: 'shani',
-    bannerImage: 'https://images.pexels.com/photos/2063582/pexels-photo-2063582.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    bannerImage: '/deities/shani.jpg',
     overview: {
       en: 'Thirunallar Saniswaran Temple is the most powerful Navagraha sthalam for Sani (Saturn), the planet of karma, discipline, and justice. Lord Shiva is worshipped as Darbaranyeswarar, and Sani resides in a separate shrine where he is treated with utmost devotion to relieve the effects of Sade Sati.',
       ta: 'திருநள்ளாறு சனீஸ்வரன் கோயில் சனிக்கான (கர்ம, ஒழுக்கம், நீதி கிரகம்) வல்ல நவகிரக தலம். இறைவன் தர்பாரண்யேஸ்வரராக வழிபடப்படுகிறார். சனி தனி சன்னதியில் சாடே சாதி தீய விளைவுகளை நீக்க வழிபடப்படுகிறார்.',
@@ -250,7 +250,7 @@ export const navagrahaModalData: Record<string, ModalData> = {
   },
   rahu: {
     id: 'rahu',
-    bannerImage: 'https://images.pexels.com/photos/2549018/pexels-photo-2549018.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    bannerImage: '/deities/rahu.jpg',
     overview: {
       en: 'Thirunageswaram Rahu Temple is dedicated to the shadow planet Rahu. Lord Shiva is worshipped as Naganathaswamy. The temple is world-famous for a miraculous phenomenon: during the milk abhishekam to Rahu, the milk turns pale blue before flowing into the tank.',
       ta: 'திருநாகேஸ்வரம் ராகு கோயில் நிழல் கிரகமான ராகுவுக்கு அர்ப்பணிக்கப்பட்டது. இறைவன் நாகநாதசுவாமியாக வழிபடப்படுகிறார். ராகுவுக்கு பால் அபிஷேகம் செய்யும் போது பால் நீல நிறமாக மாறும் அதிசயத்திற்கு உலகப் புகழ்.',
@@ -283,7 +283,7 @@ export const navagrahaModalData: Record<string, ModalData> = {
   },
   ketu: {
     id: 'ketu',
-    bannerImage: 'https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    bannerImage: '/deities/kethu.jpg',
     overview: {
       en: 'Keezhaperumpallam Naganatha Temple is the Navagraha sthalam for Ketu, the south lunar node. Located near the ancient port town of Poompuhar where the Cauvery meets the sea, it is a serene, off-the-beaten-path temple ideal for deep meditation and spiritual liberation.',
       ta: 'கீழப்பெரும்பள்ளம் நாகநாத கோயில் கேதுவுக்கான நவகிரக தலம். காவிரி கடலைச் சந்திக்கும் பூம்புகார் துறைமுகம் அருகே, ஆழ்ந்த தியானத்திற்கும் முக்திக்கும் ஏற்ற அமைதியான தலம்.',

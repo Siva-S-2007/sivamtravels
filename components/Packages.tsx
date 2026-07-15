@@ -7,9 +7,9 @@ import { packages, type Package } from '@/lib/data';
 import { useApp } from '@/lib/app-context';
 
 const heroImages = [
-  'https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  'https://images.pexels.com/photos/2478248/pexels-photo-2478248.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  'https://images.pexels.com/photos/2063582/pexels-photo-2063582.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  '/gallery/suryangallery.png',
+  '/gallery/sevvaigallery.png',
+  '/gallery/sanigallery.png',
 ];
 
 export default function Packages() {
@@ -216,7 +216,7 @@ export function SectionHeading({
       transition={{ duration: 0.6 }}
       className="mx-auto max-w-3xl text-center"
     >
-      <p className="font-title text-xs tracking-[0.4em] text-gold sm:text-sm">{eyebrow}</p>
+      <p className="font-title text-sm font-semibold tracking-[0.3em] text-gold sm:text-base">{eyebrow}</p>
       <h2
         className={`mt-4 font-heading text-4xl font-medium sm:text-5xl lg:text-[3.25rem] ${
           light ? 'text-white' : 'text-maroon'
