@@ -76,7 +76,7 @@ export default function Navbar() {
                 href={l.href}
                 className={cn(
                   'group relative whitespace-nowrap font-body text-sm tracking-wide transition-colors',
-                  scrolled ? 'text-charcoal/80 hover:text-maroon' : 'text-white/85 hover:text-white'
+                  scrolled ? 'text-charcoal/80 hover:text-maroon' : 'text-gold hover:text-gold/80'
                 )}
               >
                 {t(l.label)}
@@ -94,7 +94,7 @@ export default function Navbar() {
               'group relative flex items-center gap-2 rounded-full border px-3.5 py-2 font-body text-xs tracking-wide transition-all duration-300',
               scrolled
                 ? 'border-gold/30 text-charcoal/70 hover:border-gold/60 hover:text-maroon'
-                : 'border-white/30 text-white/80 hover:border-gold/60 hover:text-gold'
+                : 'border-gold/40 text-gold hover:border-gold/60 hover:text-gold/80'
             )}
             aria-label="Toggle language"
           >

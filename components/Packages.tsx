@@ -35,7 +35,7 @@ export default function Packages() {
               transition={{ duration: 0.6, delay: i * 0.12 }}
               className="group relative overflow-hidden rounded-2xl border border-gold/15 bg-white shadow-soft transition-all duration-500 hover:-translate-y-1.5 hover:shadow-luxe"
             >
-              <div className="relative h-56 overflow-hidden">
+              <div className="relative aspect-[16/10] overflow-hidden">
                 <img
                   src={heroImages[i]}
                   alt={pkg.title[lang]}

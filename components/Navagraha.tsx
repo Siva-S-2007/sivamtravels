@@ -106,7 +106,7 @@ export default function Navagraha() {
                           borderColor: isActive ? d.color : 'rgba(197,160,70,0.4)',
                           boxShadow: isActive
                             ? `0 0 28px -2px ${d.color}cc, 0 0 12px -4px ${d.color}66`
-                            : '0 0 0 1px rgba(197,160,70,0.2)',
+                            : `0 0 16px -6px ${d.color}99, 0 0 6px -8px ${d.color}66`,
                         }}
                       >
                         {/* Counter-rotation wrapper to keep label upright */}
