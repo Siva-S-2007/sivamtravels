@@ -296,6 +296,7 @@ export type Deity = {
   id: string;
   name: Bi;
   planet: Bi;
+  planetTamil: Bi;
   temple: Bi;
   deity: Bi;
   location: Bi;
@@ -315,6 +316,7 @@ export const navagraha: Deity[] = [
     id: 'surya',
     name: { en: 'Surya', ta: 'சூரியன்' },
     planet: { en: 'Sun', ta: 'சூரியன்' },
+    planetTamil: { en: 'சூரியன் (Suriyan)', ta: 'சூரியன் (Suriyan)' },
     temple: { en: 'Suryanarayanaswamy Temple', ta: 'சூரியநாராயணசுவாமி கோயில்' },
     deity: { en: 'Surya Bhagavan', ta: 'சூரிய பகவான்' },
     location: { en: 'Suryanar Kovil, near Kumbakonam', ta: 'சூரியனார் கோவில், கும்பகோணம் அருகே' },
@@ -351,6 +353,7 @@ export const navagraha: Deity[] = [
     id: 'chandra',
     name: { en: 'Chandra', ta: 'சந்திரன்' },
     planet: { en: 'Moon', ta: 'சந்திரன்' },
+    planetTamil: { en: 'சந்திரன் (Chandran)', ta: 'சந்திரன் (Chandran)' },
     temple: { en: 'Kailasanathar Temple', ta: 'கைலாசநாதர் கோயில்' },
     deity: { en: 'Lord Shiva as Kailasanathar', ta: 'கைலாசநாதராக இறைவன்' },
     location: { en: 'Thingalur, near Thiruvaiyaru', ta: 'திங்களூர், திருவையாறு அருகே' },
@@ -387,6 +390,7 @@ export const navagraha: Deity[] = [
     id: 'angaraka',
     name: { en: 'Angaraka', ta: 'அங்காரகன்' },
     planet: { en: 'Mars', ta: 'செவ்வாய்' },
+    planetTamil: { en: 'செவ்வாய் (Sevvai)', ta: 'செவ்வாய் (Sevvai)' },
     temple: { en: 'Vaitheeswaran Temple', ta: 'வைத்தீஸ்வரன் கோயில்' },
     deity: { en: 'Lord Shiva as Vaitheeswaran', ta: 'வைத்தீஸ்வரனாக இறைவன்' },
     location: { en: 'Vaitheeswaran Kovil, near Sirkazhi', ta: 'வைத்தீஸ்வரன் கோவில், சீர்காழி அருகே' },
@@ -423,6 +427,7 @@ export const navagraha: Deity[] = [
     id: 'budha',
     name: { en: 'Budha', ta: 'புதன்' },
     planet: { en: 'Mercury', ta: 'புதன்' },
+    planetTamil: { en: 'புதன் (Budhan)', ta: 'புதன் (Budhan)' },
     temple: { en: 'Swetharanyeswarar Temple', ta: 'ஸ்ரீவேதாரண்யேஸ்வரர் கோயில்' },
     deity: { en: 'Lord Shiva as Swetharanyeswarar', ta: 'ஸ்ரீவேதாரண்யேஸ்வரராக இறைவன்' },
     location: { en: 'Thiruvenkadu, near Sirkazhi', ta: 'திருவெண்காடு, சீர்காழி அருகே' },
@@ -459,6 +464,7 @@ export const navagraha: Deity[] = [
     id: 'guru',
     name: { en: 'Guru', ta: 'குரு' },
     planet: { en: 'Jupiter', ta: 'குரு' },
+    planetTamil: { en: 'குரு (Guru)', ta: 'குரு (Guru)' },
     temple: { en: 'Apatsahayeswarar Temple', ta: 'ஆபத்சகாயேஸ்வரர் கோயில்' },
     deity: { en: 'Lord Shiva as Dakshinamurthy', ta: 'தட்சிணாமூர்த்தியாக இறைவன்' },
     location: { en: 'Alangudi, near Kumbakonam', ta: 'ஆலங்குடி, கும்பகோணம் அருகே' },
@@ -495,6 +501,7 @@ export const navagraha: Deity[] = [
     id: 'sukra',
     name: { en: 'Sukra', ta: 'சுக்ரன்' },
     planet: { en: 'Venus', ta: 'சுக்ரன்' },
+    planetTamil: { en: 'சுக்கிரன் (Sukran)', ta: 'சுக்கிரன் (Sukran)' },
     temple: { en: 'Agneeswarar Temple', ta: 'அக்னீஸ்வரர் கோயில்' },
     deity: { en: 'Lord Shiva as Agneeswarar', ta: 'அக்னீஸ்வரராக இறைவன்' },
     location: { en: 'Kanjanur, near Kumbakonam', ta: 'காஞ்சனூர், கும்பகோணம் அருகே' },
@@ -531,9 +538,10 @@ export const navagraha: Deity[] = [
     id: 'shani',
     name: { en: 'Shani', ta: 'சனி' },
     planet: { en: 'Saturn', ta: 'சனி' },
-    temple: { en: 'Kailasanathar Temple', ta: 'கைலாசநாதர் கோயில்' },
-    deity: { en: 'Lord Shiva as Kailasanathar', ta: 'கைலாசநாதராக இறைவன்' },
-    location: { en: 'Thingalur, near Thiruvaiyaru', ta: 'திங்களூர், திருவையாறு அருகே' },
+    planetTamil: { en: 'சனி (Sani)', ta: 'சனி (Sani)' },
+    temple: { en: 'Saniswaran Temple', ta: 'சனீஸ்வரன் கோயில்' },
+    deity: { en: 'Lord Shiva as Darbaranyeswarar', ta: 'தர்பாரண்யேஸ்வரராக இறைவன்' },
+    location: { en: 'Thirunallar, Karaikal', ta: 'திருநள்ளாறு, காரைக்கால்' },
     bestDay: { en: 'Saturday', ta: 'சனி' },
     bestTime: { en: '4:30 PM – 6:00 PM', ta: 'மாலை 4:30 – 6:00' },
     significance: {
@@ -567,6 +575,7 @@ export const navagraha: Deity[] = [
     id: 'rahu',
     name: { en: 'Rahu', ta: 'ராகு' },
     planet: { en: 'North Node', ta: 'ராகு' },
+    planetTamil: { en: 'ராகு (Rahu)', ta: 'ராகு (Rahu)' },
     temple: { en: 'Naganathaswamy Temple', ta: 'நாகநாதசுவாமி கோயில்' },
     deity: { en: 'Lord Shiva as Naganathaswamy', ta: 'நாகநாதசுவாமியாக இறைவன்' },
     location: { en: 'Thirunageswaram, near Kumbakonam', ta: 'திருநாகேஸ்வரம், கும்பகோணம் அருகே' },
@@ -603,6 +612,7 @@ export const navagraha: Deity[] = [
     id: 'ketu',
     name: { en: 'Ketu', ta: 'கேது' },
     planet: { en: 'South Node', ta: 'கேது' },
+    planetTamil: { en: 'கேது (Kethu)', ta: 'கேது (Kethu)' },
     temple: { en: 'Naganathaswamy Temple', ta: 'நாகநாதசுவாமி கோயில்' },
     deity: { en: 'Lord Shiva as Naganathaswamy', ta: 'நாகநாதசுவாமியாக இறைவன்' },
     location: { en: 'Keezhaperumpallam, near Poompuhar', ta: 'கீழப்பெரும்பள்ளம், பூம்புகார் அருகே' },
