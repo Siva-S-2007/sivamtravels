@@ -35,11 +35,11 @@ export default function Packages() {
               transition={{ duration: 0.6, delay: i * 0.12 }}
               className="group relative overflow-hidden rounded-2xl border border-gold/15 bg-white shadow-soft transition-all duration-500 hover:-translate-y-1.5 hover:shadow-luxe"
             >
-              <div className="relative aspect-[16/10] overflow-hidden">
+              <div className="relative h-52 overflow-hidden bg-gradient-to-br from-maroon/5 to-gold/5">
                 <img
                   src={heroImages[i]}
                   alt={pkg.title[lang]}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-maroon/80 via-maroon/20 to-transparent" />
                 <span className="absolute left-5 top-5 inline-flex items-center gap-1.5 rounded-full bg-ivory/90 px-3 py-1 font-body text-xs tracking-wide text-maroon">
