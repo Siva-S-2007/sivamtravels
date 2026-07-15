@@ -21,7 +21,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -35,8 +35,8 @@ export default function Navbar() {
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-500',
         scrolled
-          ? 'bg-ivory/85 backdrop-blur-xl border-b border-gold/20 shadow-soft'
-          : 'bg-transparent'
+          ? 'bg-ivory/95 backdrop-blur-xl border-b border-gold/20 shadow-soft'
+          : 'bg-maroon/50 backdrop-blur-md border-b border-white/10'
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
