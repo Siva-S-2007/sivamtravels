@@ -9,7 +9,7 @@ import {
 import { navagraha, type Deity, type Lang } from '@/lib/data';
 import { useApp } from '@/lib/app-context';
 
-const RADIUS = 165;
+const RADIUS = 120;
 
 export default function Navagraha() {
   const { lang, t, setSelectedPackageId, triggerBookingHighlight } = useApp();
@@ -48,7 +48,7 @@ export default function Navagraha() {
         <div className="mt-16 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Mandala */}
           <div className="flex justify-center">
-            <div className="relative h-[380px] w-[380px] sm:h-[440px] sm:w-[440px]">
+            <div className="relative h-[280px] w-[280px] sm:h-[320px] sm:w-[320px]">
               <div className="absolute inset-0 mandala-ring" />
               <div className="absolute inset-[14%] mandala-ring" />
               <div className="absolute inset-[28%] mandala-ring" />
@@ -64,10 +64,10 @@ export default function Navagraha() {
                     ],
                   }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                  className="flex h-20 w-20 items-center justify-center rounded-full border border-gold/40 bg-gradient-to-br from-gold/20 to-maroon"
+                  className="flex h-14 w-14 items-center justify-center rounded-full border border-gold/40 bg-gradient-to-br from-gold/20 to-maroon"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-b from-charcoal to-maroon">
-                    <Orbit className="h-6 w-6 text-gold" />
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-b from-charcoal to-maroon">
+                    <Orbit className="h-4 w-4 text-gold" />
                   </div>
                 </motion.div>
               </div>
@@ -85,7 +85,7 @@ export default function Navagraha() {
                     <motion.span
                       animate={isActive ? { scale: 1.15 } : { scale: 1 }}
                       transition={{ duration: 0.4, ease: 'easeOut' }}
-                      className="relative flex h-14 w-14 items-center justify-center rounded-full border bg-gradient-to-br from-charcoal/80 to-maroon sm:h-16 sm:w-16"
+                      className="relative flex h-11 w-11 items-center justify-center rounded-full border bg-gradient-to-br from-charcoal/80 to-maroon sm:h-12 sm:w-12"
                       style={{
                         borderColor: isActive ? d.color : 'rgba(197,160,70,0.4)',
                         boxShadow: isActive
@@ -94,7 +94,7 @@ export default function Navagraha() {
                       }}
                     >
                       <span
-                        className="font-title text-[10px] tracking-wide sm:text-xs"
+                        className="font-title text-[8px] tracking-wide sm:text-[10px]"
                         style={{ color: isActive ? d.color : '#FAF8F3cc' }}
                       >
                         {d.name[lang]}
@@ -316,15 +316,15 @@ function SectionHeading({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.6 }}
-      className="mx-auto max-w-2xl text-center"
+      className="mx-auto max-w-3xl text-center"
     >
-      <p className="font-title text-xs tracking-[0.4em] text-gold">{eyebrow}</p>
-      <h2 className={`mt-4 font-heading text-4xl font-medium sm:text-5xl ${light ? 'text-white' : 'text-maroon'}`}>
+      <p className="font-title text-xs tracking-[0.4em] text-gold sm:text-sm">{eyebrow}</p>
+      <h2 className={`mt-4 font-heading text-4xl font-medium sm:text-5xl lg:text-[3.25rem] ${light ? 'text-white' : 'text-maroon'}`}>
         {title}
       </h2>
       <span className="mx-auto mt-5 block h-px w-16 bg-gold/50" />
       {subtitle && (
-        <p className={`mt-5 font-body text-base leading-relaxed ${light ? 'text-white/75' : 'text-charcoal/70'}`}>
+        <p className={`mt-6 font-body text-base leading-relaxed sm:text-lg ${light ? 'text-white/75' : 'text-charcoal/70'}`}>
           {subtitle}
         </p>
       )}

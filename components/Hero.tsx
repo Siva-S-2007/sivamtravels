@@ -5,7 +5,8 @@ import { ArrowRight, CalendarHeart } from 'lucide-react';
 import { useApp } from '@/lib/app-context';
 
 export default function Hero() {
-  const { t } = useApp();
+  const { lang, t } = useApp();
+  const isTamil = lang === 'ta';
 
   return (
     <section id="home" className="relative flex h-screen min-h-[640px] items-center justify-center overflow-hidden">
@@ -21,12 +22,12 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(0,0,0,0.55)_100%)]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
+      <div className={`relative z-10 mx-auto px-6 text-center ${isTamil ? 'max-w-3xl' : 'max-w-4xl'}`}>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-title text-xs tracking-[0.45em] text-gold sm:text-sm"
+          className={`font-title text-gold ${isTamil ? 'text-[10px] tracking-[0.3em] sm:text-xs' : 'text-xs tracking-[0.45em] sm:text-sm'}`}
         >
           {t('hero.eyebrow')}
         </motion.p>
@@ -35,7 +36,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="mt-6 font-heading text-5xl font-medium leading-[1.05] text-white text-balance sm:text-6xl lg:text-7xl"
+          className={`mt-6 font-heading font-medium text-white text-balance ${
+            isTamil
+              ? 'text-3xl leading-[1.3] sm:text-4xl lg:text-5xl'
+              : 'text-5xl leading-[1.05] sm:text-6xl lg:text-7xl'
+          }`}
         >
           {t('hero.title1')}
           <span className="block gold-text">{t('hero.title2')}</span>
@@ -45,7 +50,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="mx-auto mt-7 max-w-xl font-body text-base leading-relaxed text-white/80 sm:text-lg"
+          className={`mx-auto mt-7 font-body leading-relaxed text-white/80 ${
+            isTamil ? 'max-w-2xl text-sm sm:text-base' : 'max-w-xl text-base sm:text-lg'
+          }`}
         >
           {t('hero.subtitle')}
         </motion.p>

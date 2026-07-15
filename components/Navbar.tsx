@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles, Languages } from 'lucide-react';
+import { Menu, X, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useApp } from '@/lib/app-context';
 import type { TranslationKey } from '@/lib/translations';
@@ -91,19 +91,18 @@ export default function Navbar() {
           <button
             onClick={toggleLang}
             className={cn(
-              'group relative flex items-center gap-1.5 rounded-full border px-3 py-2 font-body text-xs tracking-wide transition-all duration-300',
+              'group relative flex items-center gap-2 rounded-full border px-3.5 py-2 font-body text-xs tracking-wide transition-all duration-300',
               scrolled
                 ? 'border-gold/30 text-charcoal/70 hover:border-gold/60 hover:text-maroon'
                 : 'border-white/30 text-white/80 hover:border-gold/60 hover:text-gold'
             )}
             aria-label="Toggle language"
           >
-            <Languages className="h-3.5 w-3.5" />
-            <span className={cn('font-medium transition-opacity', lang === 'ta' ? 'opacity-100' : 'opacity-50')}>
+            <span className={cn('font-medium transition-all', lang === 'ta' ? 'text-gold opacity-100' : 'opacity-50')}>
               தமிழ்
             </span>
             <span className="opacity-30">|</span>
-            <span className={cn('font-medium transition-opacity', lang === 'en' ? 'opacity-100' : 'opacity-50')}>
+            <span className={cn('font-medium transition-all', lang === 'en' ? 'text-gold opacity-100' : 'opacity-50')}>
               English
             </span>
           </button>

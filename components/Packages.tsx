@@ -214,11 +214,11 @@ export function SectionHeading({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.6 }}
-      className="mx-auto max-w-2xl text-center"
+      className="mx-auto max-w-3xl text-center"
     >
-      <p className="font-title text-xs tracking-[0.4em] text-gold">{eyebrow}</p>
+      <p className="font-title text-xs tracking-[0.4em] text-gold sm:text-sm">{eyebrow}</p>
       <h2
-        className={`mt-4 font-heading text-4xl font-medium sm:text-5xl ${
+        className={`mt-4 font-heading text-4xl font-medium sm:text-5xl lg:text-[3.25rem] ${
           light ? 'text-white' : 'text-maroon'
         }`}
       >
@@ -226,7 +226,7 @@ export function SectionHeading({
       </h2>
       <span className="mx-auto mt-5 block h-px w-16 bg-gold/50" />
       {subtitle && (
-        <p className={`mt-5 font-body text-base leading-relaxed ${light ? 'text-white/75' : 'text-charcoal/70'}`}>
+        <p className={`mt-6 font-body text-base leading-relaxed sm:text-lg ${light ? 'text-white/75' : 'text-charcoal/70'}`}>
           {subtitle}
         </p>
       )}

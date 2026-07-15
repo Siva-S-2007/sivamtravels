@@ -6,7 +6,7 @@ import { MessageCircle, Send, User, Phone, CalendarDays, MapPin, Users, FileText
 import { packages } from '@/lib/data';
 import { useApp } from '@/lib/app-context';
 
-const WHATSAPP_NUMBER = '919000000000';
+const WHATSAPP_NUMBER = '919342242802';
 
 export default function Booking() {
   const { lang, t, selectedPackageId, setSelectedPackageId, highlightBooking } = useApp();
