@@ -1,0 +1,73 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { Lock, Sparkles } from 'lucide-react';
+import { SectionHeading } from './Packages';
+import { useApp } from '@/lib/app-context';
+import type { Lang } from '@/lib/data';
+
+const journeys: Record<Lang, { title: string; desc: string; img: string }[]> = {
+  en: [
+    { title: '108 Sivalayam', desc: 'A grand pilgrimage to the 108 sacred Shiva temples sung by the Nayanmars.', img: 'https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    { title: 'Pancha Bhootha Sthalams', desc: 'The five elemental temples of Lord Shiva — earth, water, fire, air, and space.', img: 'https://images.pexels.com/photos/2063582/pexels-photo-2063582.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    { title: 'Arupadai Veedu', desc: 'The six battle-camps of Lord Murugan, the most sacred shrines of the Tamil deity.', img: 'https://images.pexels.com/photos/2478248/pexels-photo-2478248.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    { title: 'Divya Desam', desc: 'The 108 temples consecrated by the Alwars in praise of Lord Vishnu.', img: 'https://images.pexels.com/photos/2549018/pexels-photo-2549018.jpeg?auto=compress&cs=tinysrgb&w=800' },
+  ],
+  ta: [
+    { title: '108 சிவாலயம்', desc: 'நாயன்மார்களால் பாடப்பட்ட 108 புனித சிவன் கோயில்களுக்கான பெரும் யாத்திரை.', img: 'https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    { title: 'பஞ்ச பூத ஸ்தலங்கள்', desc: 'இறைவனின் ஐந்து பூத தலங்கள் — நிலம், நீர், நெருப்பு, காற்று, விண்வெளி.', img: 'https://images.pexels.com/photos/2063582/pexels-photo-2063582.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    { title: 'ஆறுபடை வீடு', desc: 'முருகப் பெருமானின் ஆறு போர் முகாம்கள், தமிழ் தெய்வத்தின் மிகப் புனித தலங்கள்.', img: 'https://images.pexels.com/photos/2478248/pexels-photo-2478248.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    { title: 'திவ்ய தேசம்', desc: 'ஆழ்வார்களால் திருமாலைப் போற்றி 108 கோயில்கள்.', img: 'https://images.pexels.com/photos/2549018/pexels-photo-2549018.jpeg?auto=compress&cs=tinysrgb&w=800' },
+  ],
+};
+
+export default function UpcomingJourneys() {
+  const { lang, t } = useApp();
+  const items = journeys[lang];
+
+  return (
+    <section className="relative bg-gradient-to-b from-ivory to-[#F3EFE5] py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <SectionHeading
+          eyebrow={t('upcoming.eyebrow')}
+          title={t('upcoming.title')}
+          subtitle={t('upcoming.subtitle')}
+        />
+
+        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {items.map((j, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="group relative overflow-hidden rounded-2xl border border-gold/15 bg-white shadow-soft"
+            >
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={j.img}
+                  alt={j.title}
+                  className="h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/40 to-transparent" />
+                <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-ivory/90 px-3 py-1 font-body text-xs tracking-wide text-maroon">
+                  <Lock className="h-3 w-3" />
+                  {t('upcoming.comingSoon')}
+                </span>
+                <h3 className="absolute bottom-4 left-5 right-5 font-heading text-xl text-white">{j.title}</h3>
+              </div>
+              <div className="p-5">
+                <p className="font-body text-sm leading-relaxed text-charcoal/70">{j.desc}</p>
+                <div className="mt-4 inline-flex items-center gap-1.5 font-body text-xs tracking-wide text-gold">
+                  <Sparkles className="h-3 w-3" />
+                  {t('upcoming.inPreparation')}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

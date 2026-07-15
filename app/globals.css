@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 0 0% 18%;
+    --card: 40 33% 98%;
+    --card-foreground: 0 0% 18%;
+    --popover: 40 33% 98%;
+    --popover-foreground: 0 0% 18%;
+    --primary: 355 56% 27%;
+    --primary-foreground: 40 33% 97%;
+    --secondary: 43 50% 52%;
+    --secondary-foreground: 0 0% 18%;
+    --muted: 40 20% 92%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 43 50% 52%;
+    --accent-foreground: 0 0% 18%;
+    --destructive: 355 56% 27%;
+    --destructive-foreground: 40 33% 97%;
+    --border: 40 14% 84%;
+    --input: 40 14% 84%;
+    --ring: 43 50% 52%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "cv01";
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-cormorant), Georgia, serif;
+  }
+  .font-title {
+    font-family: var(--font-cinzel), Georgia, serif;
+  }
+  .font-body {
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .gold-text {
+    background: linear-gradient(135deg, #C5A046 0%, #E8D08A 45%, #C5A046 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .mandala-ring {
+    border: 1px solid rgba(197, 160, 70, 0.35);
+    border-radius: 9999px;
+  }
+  .glow-gold {
+    box-shadow: 0 0 0 1px rgba(197, 160, 70, 0.4), 0 0 24px -4px rgba(197, 160, 70, 0.45);
+  }
+  .shadow-soft {
+    box-shadow: 0 1px 2px rgba(45, 45, 45, 0.04), 0 8px 30px -12px rgba(45, 45, 45, 0.12);
+  }
+  .shadow-luxe {
+    box-shadow: 0 2px 4px rgba(45, 45, 45, 0.05), 0 18px 50px -18px rgba(45, 45, 45, 0.22);
+  }
+  .bg-ivory {
+    background-color: #FAF8F3;
+  }
+  .bg-maroon {
+    background-color: #6B1E1E;
+  }
+  .text-maroon {
+    color: #6B1E1E;
+  }
+  .text-gold {
+    color: #C5A046;
+  }
+  .border-gold {
+    border-color: #C5A046;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
