@@ -8,13 +8,13 @@ import type { Lang } from '@/lib/data';
 
 const journeys: Record<Lang, { title: string; desc: string; img: string }[]> = {
   en: [
-    { title: '108 Sivalayam', desc: 'A grand pilgrimage to the 108 sacred Shiva temples sung by the Nayanmars.', img: 'https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    { title: 'Padal Petra Sthalam', desc: 'A grand pilgrimage covering the sacred Padal Petra Shiva Temples, the revered temples glorified in the devotional hymns of the Nayanmars, offering devotees a profound spiritual journey through Tamil Nadu\'s rich Shaivite heritage.', img: 'https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&w=800' },
     { title: 'Pancha Bhootha Sthalams', desc: 'The five elemental temples of Lord Shiva — earth, water, fire, air, and space.', img: 'https://images.pexels.com/photos/2063582/pexels-photo-2063582.jpeg?auto=compress&cs=tinysrgb&w=800' },
     { title: 'Arupadai Veedu', desc: 'The six battle-camps of Lord Murugan, the most sacred shrines of the Tamil deity.', img: 'https://images.pexels.com/photos/2478248/pexels-photo-2478248.jpeg?auto=compress&cs=tinysrgb&w=800' },
     { title: 'Divya Desam', desc: 'The 108 temples consecrated by the Alwars in praise of Lord Vishnu.', img: 'https://images.pexels.com/photos/2549018/pexels-photo-2549018.jpeg?auto=compress&cs=tinysrgb&w=800' },
   ],
   ta: [
-    { title: '108 சிவாலயம்', desc: 'நாயன்மார்களால் பாடப்பட்ட 108 புனித சிவன் கோயில்களுக்கான பெரும் யாத்திரை.', img: 'https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    { title: 'பாடல் பெற்ற ஸ்தலம்', desc: 'நாயன்மார்களின் பக்தி பாடல்களில் புகழப்பட்ட புனித பாடல் பெற்ற சிவன் கோயில்களை உள்ளடக்கிய ஒரு பெரும் யாத்திரை, தமிழ்நாட்டின் சைவ பாரம்பரியம் நிறைந்த ஆன்மீக பயணத்தை பக்தர்களுக்கு வழங்குகிறது.', img: 'https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&w=800' },
     { title: 'பஞ்ச பூத ஸ்தலங்கள்', desc: 'இறைவனின் ஐந்து பூத தலங்கள் — நிலம், நீர், நெருப்பு, காற்று, விண்வெளி.', img: 'https://images.pexels.com/photos/2063582/pexels-photo-2063582.jpeg?auto=compress&cs=tinysrgb&w=800' },
     { title: 'ஆறுபடை வீடு', desc: 'முருகப் பெருமானின் ஆறு போர் முகாம்கள், தமிழ் தெய்வத்தின் மிகப் புனித தலங்கள்.', img: 'https://images.pexels.com/photos/2478248/pexels-photo-2478248.jpeg?auto=compress&cs=tinysrgb&w=800' },
     { title: 'திவ்ய தேசம்', desc: 'ஆழ்வார்களால் திருமாலைப் போற்றி 108 கோயில்கள்.', img: 'https://images.pexels.com/photos/2549018/pexels-photo-2549018.jpeg?auto=compress&cs=tinysrgb&w=800' },

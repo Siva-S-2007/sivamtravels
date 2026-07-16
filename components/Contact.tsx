@@ -1,29 +1,27 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Clock, MessageCircle } from 'lucide-react';
 import { SectionHeading } from './Packages';
 import { useApp } from '@/lib/app-context';
 import type { Lang } from '@/lib/data';
 
-const WHATSAPP_NUMBER = '919000000000';
+const WHATSAPP_NUMBER = '917305707781';
 
-const contactInfo: Record<Lang, { office: string; phone1: string; phone2: string; email1: string; email2: string; mapLabel: string }> = {
+const contactInfo: Record<Lang, { office: string; phone1: string; phone2: string; whatsapp: string; mapLabel: string }> = {
   en: {
-    office: 'No. 12, Temple Road, Kumbakonam, Tamil Nadu 612001, India',
-    phone1: '+91 90000 00000',
-    phone2: '+91 4352 000 000',
-    email1: 'info@sivamtravels.com',
-    email2: 'bookings@sivamtravels.com',
-    mapLabel: 'Kumbakonam, Tamil Nadu',
+    office: 'Sivam Complex, 55/1 Karaikal Main Road, Thirunageswaram (Near Rahu Sthalam), Kumbakonam, Tamil Nadu 612204',
+    phone1: '+91 73057 07781',
+    phone2: '+91 99434 04224',
+    whatsapp: '+91 73057 07781',
+    mapLabel: 'Thirunageswaram, Kumbakonam',
   },
   ta: {
-    office: 'எண். 12, கோயில் சாலை, கும்பகோணம், தமிழ்நாடு 612001, இந்தியா',
-    phone1: '+91 90000 00000',
-    phone2: '+91 4352 000 000',
-    email1: 'info@sivamtravels.com',
-    email2: 'bookings@sivamtravels.com',
-    mapLabel: 'கும்பகோணம், தமிழ்நாடு',
+    office: 'சிவம் காம்ப்ளெக்ஸ், 55/1 காரைக்கால் மெயின் ரோடு, திருநாகேஸ்வரம் (ராகு ஸ்தலம் அருகே), கும்பகோணம், தமிழ்நாடு 612204',
+    phone1: '+91 73057 07781',
+    phone2: '+91 99434 04224',
+    whatsapp: '+91 73057 07781',
+    mapLabel: 'திருநாகேஸ்வரம், கும்பகோணம்',
   },
 };
 
@@ -52,14 +50,14 @@ export default function Contact() {
               {info.office}
             </ContactRow>
             <ContactRow icon={<Phone className="h-5 w-5" />} title={t('contact.phone')}>
-              <a href="tel:+919000000000" className="hover:text-maroon">{info.phone1}</a>
+              <a href="tel:+917305707781" className="hover:text-maroon">{info.phone1}</a>
               <br />
-              <a href="tel:+914352000000" className="hover:text-maroon">{info.phone2}</a>
+              <a href="tel:+919943404224" className="hover:text-maroon">{info.phone2}</a>
             </ContactRow>
-            <ContactRow icon={<Mail className="h-5 w-5" />} title={t('contact.email')}>
-              <a href="mailto:info@sivamtravels.com" className="hover:text-maroon">{info.email1}</a>
-              <br />
-              <a href="mailto:bookings@sivamtravels.com" className="hover:text-maroon">{info.email2}</a>
+            <ContactRow icon={<MessageCircle className="h-5 w-5" />} title="WhatsApp">
+              <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="hover:text-maroon">
+                {info.whatsapp}
+              </a>
             </ContactRow>
             <ContactRow icon={<Clock className="h-5 w-5" />} title={t('contact.hours')}>
               {t('contact.hoursDetail')}

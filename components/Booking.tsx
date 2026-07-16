@@ -2,11 +2,11 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MessageCircle, Send, User, Phone, CalendarDays, MapPin, Users, FileText, Package as PackageIcon } from 'lucide-react';
+import { MessageCircle, Send, User, Phone, CalendarDays, MapPin, Users, FileText, Package as PackageIcon, Car, BedDouble, Baby } from 'lucide-react';
 import { packages } from '@/lib/data';
 import { useApp } from '@/lib/app-context';
 
-const WHATSAPP_NUMBER = '919342242802';
+const WHATSAPP_NUMBER = '917305707781';
 
 export default function Booking() {
   const { lang, t, selectedPackageId, setSelectedPackageId, highlightBooking } = useApp();
@@ -14,26 +14,39 @@ export default function Booking() {
     name: '',
     phone: '',
     date: '',
-    travelers: '',
-    requests: '',
+    pickup: '',
+    adults: '',
+    children: '',
+    vehicle: '',
+    accommodation: 'none',
+    roomType: '',
+    roomCount: '',
+    notes: '',
   });
   const [sent, setSent] = useState(false);
 
   const selectedPackage = packages.find((p) => p.id === selectedPackageId) ?? packages[0];
+  const isGroupTour = selectedPackageId === 'group-tour';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const pkgName = selectedPackage.title[lang];
+    const accommodationText =
+      form.accommodation === 'yes'
+        ? `Yes (${form.roomType || '-'} × ${form.roomCount || '-'})`
+        : 'No';
     const text =
-      `🙏 ${lang === 'ta' ? 'புதிய சுற்றுப்பயண விசாரணை' : 'New Tour Enquiry'}\n\n` +
-      `${lang === 'ta' ? 'பெயர்' : 'Name'}: ${form.name}\n` +
-      `${lang === 'ta' ? 'தொலைபேசி' : 'Phone'}: ${form.phone}\n\n` +
-      `${lang === 'ta' ? 'தேர்ந்தெடுத்த திட்டம்' : 'Selected Package'}:\n${pkgName}\n\n` +
-      `${lang === 'ta' ? 'பயண தேதி' : 'Travel Date'}: ${form.date || '-'}\n` +
-      `${lang === 'ta' ? 'பயணிகள்' : 'Travellers'}: ${form.travelers || '-'}\n\n` +
-      `${lang === 'ta' ? 'சிறப்பு கோரிக்கைகள்' : 'Special Requests'}: ${form.requests || '-'}\n\n` +
-      `${lang === 'ta' ? 'இந்த யாத்திரை குறித்து தயவுசெய்து என்னை தொடர்பு கொள்ளுங்கள்.' : 'Kindly contact me regarding this pilgrimage.'}\n\n` +
-      `${lang === 'ta' ? 'நன்றி.' : 'Thank you.'}`;
+      `*Booking Request*\n\n` +
+      `Name: ${form.name}\n` +
+      `Phone: ${form.phone}\n\n` +
+      `Package: ${pkgName}\n` +
+      `Travel Date: ${form.date || '-'}\n` +
+      `Pickup: ${form.pickup || '-'}\n\n` +
+      `Adults: ${form.adults || '-'}\n` +
+      `Children: ${form.children || '-'}\n\n` +
+      `Vehicle Selected: ${form.vehicle || '-'}\n` +
+      `Accommodation: ${accommodationText}\n` +
+      `Additional Notes: ${form.notes || '-'}`;
 
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
     setSent(true);
@@ -101,7 +114,7 @@ export default function Booking() {
             </div>
 
             <form onSubmit={handleSubmit} className="mt-7 space-y-4">
-              {/* Selected package (pre-filled, read-only display) */}
+              {/* Selected package */}
               <div>
                 <span className="mb-1.5 block font-body text-xs tracking-wide text-white/60">
                   {t('booking.selectedPackage')}
@@ -143,30 +156,144 @@ export default function Booking() {
                 </Field>
               </div>
 
-              <Field icon={<CalendarDays className="h-4 w-4" />} label={t('booking.travelDate')}>
-                <input
-                  type="date"
-                  value={form.date}
-                  onChange={(e) => setForm({ ...form, date: e.target.value })}
-                  className="w-full bg-transparent text-sm text-white placeholder-white/40 focus:outline-none [color-scheme:dark]"
-                />
-              </Field>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <Field icon={<CalendarDays className="h-4 w-4" />} label={t('booking.travelDate')}>
+                  <input
+                    type="date"
+                    value={form.date}
+                    onChange={(e) => setForm({ ...form, date: e.target.value })}
+                    className="w-full bg-transparent text-sm text-white placeholder-white/40 focus:outline-none [color-scheme:dark]"
+                  />
+                </Field>
+                <Field icon={<MapPin className="h-4 w-4" />} label={lang === 'en' ? 'Pickup Location' : 'பிக்அப் இடம்'}>
+                  <input
+                    value={form.pickup}
+                    onChange={(e) => setForm({ ...form, pickup: e.target.value })}
+                    placeholder={lang === 'en' ? 'e.g. Kumbakonam' : 'உ.ம். கும்பகோணம்'}
+                    className="w-full bg-transparent text-sm text-white placeholder-white/40 focus:outline-none"
+                  />
+                </Field>
+              </div>
 
-              <Field icon={<Users className="h-4 w-4" />} label={t('booking.travelers')}>
-                <input
-                  type="number"
-                  min="1"
-                  value={form.travelers}
-                  onChange={(e) => setForm({ ...form, travelers: e.target.value })}
-                  placeholder={t('booking.travelersPlaceholder')}
-                  className="w-full bg-transparent text-sm text-white placeholder-white/40 focus:outline-none"
-                />
-              </Field>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <Field icon={<Users className="h-4 w-4" />} label={lang === 'en' ? 'Number of Adults' : 'பெரியவர்கள் எண்ணிக்கை'}>
+                  <input
+                    type="number"
+                    min="1"
+                    value={form.adults}
+                    onChange={(e) => setForm({ ...form, adults: e.target.value })}
+                    placeholder="0"
+                    className="w-full bg-transparent text-sm text-white placeholder-white/40 focus:outline-none"
+                  />
+                </Field>
+                <Field icon={<Baby className="h-4 w-4" />} label={lang === 'en' ? 'Number of Children' : 'குழந்தைகள் எண்ணிக்கை'}>
+                  <input
+                    type="number"
+                    min="0"
+                    value={form.children}
+                    onChange={(e) => setForm({ ...form, children: e.target.value })}
+                    placeholder="0"
+                    className="w-full bg-transparent text-sm text-white placeholder-white/40 focus:outline-none"
+                  />
+                </Field>
+              </div>
+
+              {/* Vehicle Selection */}
+              {!isGroupTour && (
+                <div>
+                  <span className="mb-1.5 block font-body text-xs tracking-wide text-white/60">
+                    {lang === 'en' ? 'Vehicle Selection' : 'வாகன தேர்வு'}
+                  </span>
+                  <div className="grid grid-cols-2 gap-3">
+                    {['Sedan', 'SUV'].map((v) => (
+                      <button
+                        key={v}
+                        type="button"
+                        onClick={() => setForm({ ...form, vehicle: v })}
+                        className={`flex items-center justify-center gap-2 rounded-xl border px-4 py-3 font-body text-sm transition-all ${
+                          form.vehicle === v
+                            ? 'border-gold bg-gold/20 text-gold'
+                            : 'border-gold/25 bg-white/5 text-white/70 hover:border-gold/50'
+                        }`}
+                      >
+                        <Car className="h-4 w-4" />
+                        {v}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Accommodation */}
+              <div>
+                <span className="mb-1.5 block font-body text-xs tracking-wide text-white/60">
+                  {lang === 'en' ? 'Accommodation' : 'தங்கும் வசதி'}
+                </span>
+                <div className="grid grid-cols-2 gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setForm({ ...form, accommodation: 'yes' })}
+                    className={`flex items-center justify-center gap-2 rounded-xl border px-4 py-3 font-body text-sm transition-all ${
+                      form.accommodation === 'yes'
+                        ? 'border-gold bg-gold/20 text-gold'
+                        : 'border-gold/25 bg-white/5 text-white/70 hover:border-gold/50'
+                    }`}
+                  >
+                    <BedDouble className="h-4 w-4" />
+                    {lang === 'en' ? 'Room Required' : 'அறை தேவை'}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setForm({ ...form, accommodation: 'none', roomType: '', roomCount: '' })}
+                    className={`flex items-center justify-center gap-2 rounded-xl border px-4 py-3 font-body text-sm transition-all ${
+                      form.accommodation === 'none'
+                        ? 'border-gold bg-gold/20 text-gold'
+                        : 'border-gold/25 bg-white/5 text-white/70 hover:border-gold/50'
+                    }`}
+                  >
+                    {lang === 'en' ? 'No Room Required' : 'அறை தேவையில்லை'}
+                  </button>
+                </div>
+              </div>
+
+              {/* Room details (conditional) */}
+              {form.accommodation === 'yes' && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  className="grid gap-4 sm:grid-cols-2"
+                >
+                  <Field icon={<BedDouble className="h-4 w-4" />} label={lang === 'en' ? 'Room Type' : 'அறை வகை'}>
+                    <select
+                      value={form.roomType}
+                      onChange={(e) => setForm({ ...form, roomType: e.target.value })}
+                      className="w-full bg-transparent text-sm text-white focus:outline-none"
+                    >
+                      <option value="" className="bg-maroon text-white">{lang === 'en' ? 'Select' : 'தேர்வு'}</option>
+                      <option value="Single" className="bg-maroon text-white">Single</option>
+                      <option value="Double" className="bg-maroon text-white">Double</option>
+                      <option value="Deluxe Double" className="bg-maroon text-white">Deluxe Double</option>
+                      <option value="Three Bed" className="bg-maroon text-white">Three Bed</option>
+                      <option value="Four Bed" className="bg-maroon text-white">Four Bed</option>
+                    </select>
+                  </Field>
+                  <Field icon={<FileText className="h-4 w-4" />} label={lang === 'en' ? 'Number of Rooms' : 'அறைகள் எண்ணிக்கை'}>
+                    <input
+                      type="number"
+                      min="1"
+                      value={form.roomCount}
+                      onChange={(e) => setForm({ ...form, roomCount: e.target.value })}
+                      placeholder="1"
+                      className="w-full bg-transparent text-sm text-white placeholder-white/40 focus:outline-none"
+                    />
+                  </Field>
+                </motion.div>
+              )}
 
               <Field icon={<FileText className="h-4 w-4" />} label={t('booking.specialRequests')}>
                 <textarea
-                  value={form.requests}
-                  onChange={(e) => setForm({ ...form, requests: e.target.value })}
+                  value={form.notes}
+                  onChange={(e) => setForm({ ...form, notes: e.target.value })}
                   placeholder={t('booking.specialPlaceholder')}
                   rows={3}
                   className="w-full resize-none bg-transparent text-sm text-white placeholder-white/40 focus:outline-none"
