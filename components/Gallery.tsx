@@ -16,15 +16,15 @@ type GalleryImage = {
 // To add more images, simply append objects to this array.
 // span options: 'row-span-2' for tall, 'col-span-2' for wide, '' for regular.
 const galleryImages: GalleryImage[] = [
-  { src: '/gallery/suryangallery.png', alt: { en: 'Suriyan Temple', ta: 'சூரியன் கோயில்' }, span: 'row-span-2' },
+  { src: '/gallery/suryangallery.jpg', alt: { en: 'Suriyan Temple', ta: 'சூரியன் கோயில்' }, span: 'row-span-2' },
   { src: '/gallery/chandrangallery.png', alt: { en: 'Chandran Temple', ta: 'சந்திரன் கோயில்' } },
-  { src: '/gallery/sevvaigallery.png', alt: { en: 'Sevvai Temple', ta: 'செவ்வாய் கோயில்' } },
+  { src: '/gallery/sevvaigallery.jpg', alt: { en: 'Sevvai Temple', ta: 'செவ்வாய் கோயில்' } },
   { src: '/gallery/budhangallery.png', alt: { en: 'Budhan Temple', ta: 'புதன் கோயில்' }, span: 'row-span-2' },
   { src: '/gallery/gurugallery.png', alt: { en: 'Guru Temple', ta: 'குரு கோயில்' } },
-  { src: '/gallery/sukrangallery.png', alt: { en: 'Sukran Temple', ta: 'சுக்கிரன் கோயில்' } },
-  { src: '/gallery/sanigallery.png', alt: { en: 'Sani Temple', ta: 'சனி கோயில்' } },
-  { src: '/gallery/rahugallery.png', alt: { en: 'Rahu Temple', ta: 'ராகு கோயில்' } },
-  { src: '/gallery/ketugallery.png', alt: { en: 'Kethu Temple', ta: 'கேது கோயில்' } },
+  { src: '/gallery/sukrangallery.jpg', alt: { en: 'Sukran Temple', ta: 'சுக்கிரன் கோயில்' } },
+  { src: '/gallery/sanigallery.jpg', alt: { en: 'Sani Temple', ta: 'சனி கோயில்' } },
+  { src: '/gallery/rahugallery.jpg', alt: { en: 'Rahu Temple', ta: 'ராகு கோயில்' } },
+  { src: '/gallery/ketugallery.jpg', alt: { en: 'Kethu Temple', ta: 'கேது கோயில்' } },
 ];
 
 export default function Gallery() {

@@ -12,6 +12,8 @@ export type Package = {
   inclusions: Bi[];
   exclusions: Bi[];
   price: string;
+  priceUnit: Bi;
+  heroImage: string;
 };
 
 export const packages: Package[] = [
@@ -93,7 +95,9 @@ export const packages: Package[] = [
       { en: 'Special pooja charges', ta: 'சிறப்பு பூஜை கட்டணங்கள்' },
       { en: 'Travel insurance', ta: 'பயண காப்பீடு' },
     ],
-    price: '₹4,500',
+    price: '₹3,400',
+    priceUnit: { en: '/ Trip', ta: '/ பயணம்' },
+    heroImage: '/gallery/suryangallery.jpg',
   },
   {
     id: '2-day',
@@ -182,7 +186,9 @@ export const packages: Package[] = [
       { en: 'Personal expenses', ta: 'தனிப்பட்ட செலவுகள்' },
       { en: 'Travel insurance', ta: 'பயண காப்பீடு' },
     ],
-    price: '₹9,800',
+    price: '₹6,800',
+    priceUnit: { en: '/ Trip', ta: '/ பயணம்' },
+    heroImage: '/gallery/gurugallery.png',
   },
   {
     id: '3-day',
@@ -288,7 +294,56 @@ export const packages: Package[] = [
       { en: 'Personal expenses', ta: 'தனிப்பட்ட செலவுகள்' },
       { en: 'Travel insurance', ta: 'பயண காப்பீடு' },
     ],
-    price: '₹15,500',
+    price: '₹10,200',
+    priceUnit: { en: '/ Trip', ta: '/ பயணம்' },
+    heroImage: '/gallery/rahugallery.jpg',
+  },
+  {
+    id: 'group-tour',
+    title: {
+      en: 'Group Tour',
+      ta: 'குழு சுற்றுப்பயணம்',
+    },
+    duration: { en: '1 Day', ta: '1 நாள்' },
+    tagline: {
+      en: 'A budget-friendly shared pilgrimage with fellow devotees.',
+      ta: 'மற்ற பக்தர்களுடன் பகிர்ந்த பட்ஜெட் யாத்திரை.',
+    },
+    overview: {
+      en: 'A budget-friendly shared pilgrimage ideal for individual devotees, couples and small families who wish to experience the Navagraha temples with fellow pilgrims.',
+      ta: 'தனிப்பட்ட பக்தர்கள், தம்பதிகள் மற்றும் சிறு குடும்பங்களுக்கு ஏற்ற பட்ஜெட் நட்பு பகிர்வு யாத்திரை.',
+    },
+    timeline: [
+      {
+        time: '6:00 AM',
+        title: { en: 'Departure from Kumbakonam', ta: 'கும்பகோணத்திலிருந்து புறப்படல்' },
+        description: {
+          en: 'Shared vehicle departs from Kumbakonam with fellow pilgrims.',
+          ta: 'பக்தர்களுடன் பகிர்ந்த வாகனம் கும்பகோணத்திலிருந்து புறப்படுகிறது.',
+        },
+      },
+      {
+        time: '8:00 PM',
+        title: { en: 'Return', ta: 'திரும்புதல்' },
+        description: {
+          en: 'Return to Kumbakonam after completing the Navagraha circuit.',
+          ta: 'நவகிரஹ சுற்றை முடித்து கும்பகோணம் திரும்புக.',
+        },
+      },
+    ],
+    inclusions: [
+      { en: 'Shared AC vehicle', ta: 'பகிர்ந்த ஏசி வாகனம்' },
+      { en: 'Experienced driver', ta: 'அனுபவமிக்க ஓட்டுநர்' },
+      { en: 'Complete Navagraha circuit', ta: 'முழு நவகிரஹ சுற்று' },
+    ],
+    exclusions: [
+      { en: 'Personal expenses', ta: 'தனிப்பட்ட செலவுகள்' },
+      { en: 'Food and beverages', ta: 'உணவு மற்றும் பானங்கள்' },
+      { en: 'Temple entry fees', ta: 'கோயில் நுழைவு கட்டணம்' },
+    ],
+    price: '₹499',
+    priceUnit: { en: '/ Seat', ta: '/ இருக்கை' },
+    heroImage: '/gallery/sanigallery.jpg',
   },
 ];
 

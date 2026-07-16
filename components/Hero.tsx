@@ -18,7 +18,7 @@ export default function Hero() {
           playsInline
           className="absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 object-cover"
         >
-          <source src="/hero.mp4" type="video/mp4" />
+          <source src="/heronew.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-maroon/70 via-charcoal/55 to-charcoal/85" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(0,0,0,0.55)_100%)]" />

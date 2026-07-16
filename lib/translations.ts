@@ -19,6 +19,8 @@ export type TranslationKey =
   | 'packages.explore'
   | 'packages.price'
   | 'packages.perPerson'
+  | 'packages.perTrip'
+  | 'packages.perSeat'
   | 'packages.itinerary'
   | 'packages.inclusions'
   | 'packages.exclusions'
@@ -122,6 +124,8 @@ export const translations: Record<TranslationKey, Record<Lang, string>> = {
   'packages.explore': { en: 'Explore', ta: 'விவரம் பார்க்க' },
   'packages.price': { en: 'From', ta: 'தொடக்க' },
   'packages.perPerson': { en: 'per person', ta: 'ஒருவருக்கு' },
+  'packages.perTrip': { en: 'per trip', ta: 'ஒரு பயணத்திற்கு' },
+  'packages.perSeat': { en: 'per seat', ta: 'ஒரு இருக்கைக்கு' },
   'packages.itinerary': { en: 'ITINERARY', ta: 'பயண அட்டவணை' },
   'packages.inclusions': { en: 'INCLUSIONS', ta: 'சேர்க்கப்பட்டவை' },
   'packages.exclusions': { en: 'EXCLUSIONS', ta: 'சேர்க்காதவை' },
