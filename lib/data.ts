@@ -96,7 +96,7 @@ export const packages: Package[] = [
       { en: 'Travel insurance', ta: 'பயண காப்பீடு' },
     ],
     price: '₹3,400',
-    priceUnit: { en: '/ Trip', ta: '/ பயணம்' },
+    priceUnit: { en: '/ Day', ta: '/ நாள்' },
     heroImage: '/gallery/suryangallery.jpg',
   },
   {
@@ -187,7 +187,7 @@ export const packages: Package[] = [
       { en: 'Travel insurance', ta: 'பயண காப்பீடு' },
     ],
     price: '₹6,800',
-    priceUnit: { en: '/ Trip', ta: '/ பயணம்' },
+    priceUnit: { en: '/ 2 Days', ta: '/ 2 நாட்கள்' },
     heroImage: '/gallery/gurugallery.png',
   },
   {
@@ -295,7 +295,7 @@ export const packages: Package[] = [
       { en: 'Travel insurance', ta: 'பயண காப்பீடு' },
     ],
     price: '₹10,200',
-    priceUnit: { en: '/ Trip', ta: '/ பயணம்' },
+    priceUnit: { en: '/ 3 Days', ta: '/ 3 நாட்கள்' },
     heroImage: '/gallery/rahugallery.jpg',
   },
   {
@@ -341,8 +341,8 @@ export const packages: Package[] = [
       { en: 'Food and beverages', ta: 'உணவு மற்றும் பானங்கள்' },
       { en: 'Temple entry fees', ta: 'கோயில் நுழைவு கட்டணம்' },
     ],
-    price: '₹499',
-    priceUnit: { en: '/ Seat', ta: '/ இருக்கை' },
+    price: '₹1,500',
+    priceUnit: { en: '/ Person', ta: '/ நபர்' },
     heroImage: '/gallery/sanigallery.jpg',
   },
 ];

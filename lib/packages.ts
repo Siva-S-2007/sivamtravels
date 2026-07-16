@@ -3,7 +3,11 @@ import type { Lang, Bi } from './data';
 export type VehiclePrice = {
   vehicle: string;
   capacity: string;
-  price: string;
+  pricePerDay: string;
+  coverage: string;
+  extraKm: string;
+  extraHr: string;
+  models: string;
 };
 
 export type ItineraryStop = {
@@ -36,13 +40,45 @@ export type PackageDetail = {
   itinerary: ItineraryDay[];
   vehiclePricing: VehiclePrice[];
   pricingNote: Bi;
-  galleryImages: string[];
   hasAccommodation: boolean;
   accommodationTitle?: Bi;
   accommodationDescription?: Bi;
   roomPricing?: RoomPrice[];
   accommodationExtraPerson?: string;
 };
+
+const sedanVehicle: VehiclePrice = {
+  vehicle: 'Sedan',
+  capacity: '1–4 Persons',
+  pricePerDay: '₹3,400 / Day',
+  coverage: '12 Hrs / 200 Km',
+  extraKm: '₹13 / Km',
+  extraHr: '₹100 / Hr',
+  models: 'Swift, Etios, Glanza',
+};
+
+const suvVehicle: VehiclePrice = {
+  vehicle: 'SUV',
+  capacity: '5–7 Persons',
+  pricePerDay: '₹4,800 / Day',
+  coverage: '12 Hrs / 200 Km',
+  extraKm: '₹18 / Km',
+  extraHr: '₹100 / Hr',
+  models: 'Ertiga, Xylo, Innova',
+};
+
+const pricingNote: Bi = {
+  en: 'Toll, parking and permit are charged separately. Extra kilometres: Sedan ₹13/km, SUV ₹18/km. Extra hours: ₹100/hr.',
+  ta: 'டோல், பார்க்கிங் மற்றும் பெர்மிட் தனியாக வசூலிக்கப்படும். கூடுதல் கிமீ: செடான் ₹13/கிமீ, SUV ₹18/கிமீ. கூடுதல் மணிநேரம்: ₹100/மணி.',
+};
+
+const roomPricingCommon: RoomPrice[] = [
+  { room: { en: 'Single Bed', ta: 'ஒற்றை படுக்கை' }, nonAc: '₹900', ac: '—' },
+  { room: { en: 'Double Bed', ta: 'இரட்டை படுக்கை' }, nonAc: '₹1,300', ac: '₹1,600' },
+  { room: { en: 'Deluxe Double', ta: 'டீலக்ஸ் இரட்டை' }, nonAc: '₹1,500', ac: '₹1,800' },
+  { room: { en: 'Three Bed', ta: 'மூன்று படுக்கை' }, nonAc: '₹2,300', ac: '₹2,600' },
+  { room: { en: 'Four Bed', ta: 'நான்கு படுக்கை' }, nonAc: '₹3,000', ac: '₹3,300' },
+];
 
 export const packageDetails: PackageDetail[] = [
   {
@@ -59,7 +95,7 @@ export const packageDetails: PackageDetail[] = [
     },
     heroImage: '/gallery/suryangallery.jpg',
     startingPrice: '₹3,400',
-    priceUnit: { en: '/ Trip', ta: '/ பயணம்' },
+    priceUnit: { en: '/ Day', ta: '/ நாள்' },
     highlights: [
       { en: 'Visit all 9 Navagraha Temples', ta: 'அனைத்து 9 நவகிரஹ கோயில்களும்' },
       { en: 'Comfortable private vehicle', ta: 'வசதியான தனியார் வாகனம்' },
@@ -78,17 +114,17 @@ export const packageDetails: PackageDetail[] = [
         ],
       },
       {
-        day: { en: 'Midday', ta: 'மதிய' },
+        day: { en: 'Midday', ta: 'மதிய வேளை' },
         stops: [
           { time: '', title: { en: 'Lunch Break', ta: 'மதிய உணவு இடைவேளை' } },
         ],
       },
       {
-        day: { en: 'Afternoon', ta: 'மாலை' },
+        day: { en: 'Afternoon', ta: 'பிற்பகல்' },
         stops: [
-          { time: '', title: { en: 'Suriyanar (Surya)', ta: 'சூரியனார் (சூரியன்)' } },
+          { time: '', title: { en: 'Suriyanar Kovil (Surya)', ta: 'சூரியனார் கோவில் (சூரியன்)' } },
           { time: '', title: { en: 'Kanjanur (Sukran)', ta: 'காஞ்சனூர் (சுக்கிரன்)' } },
-          { time: '', title: { en: 'Vaitheeswaran (Sevvai)', ta: 'வைத்தீஸ்வரன் (செவ்வாய்)' } },
+          { time: '', title: { en: 'Vaitheeswaran Koil (Sevvai)', ta: 'வைத்தீஸ்வரன் கோவில் (செவ்வாய்)' } },
           { time: '', title: { en: 'Thiruvenkadu (Budhan)', ta: 'திருவெண்காடு (புதன்)' } },
           { time: '', title: { en: 'Keezhaperumpallam (Ketu)', ta: 'கீழப்பெரும்பள்ளம் (கேது)' } },
           { time: '', title: { en: 'Thirunallar (Sani)', ta: 'திருநள்ளாறு (சனி)' } },
@@ -99,35 +135,15 @@ export const packageDetails: PackageDetail[] = [
         stops: [],
       },
     ],
-    vehiclePricing: [
-      { vehicle: 'Sedan', capacity: '1-4 Persons', price: '₹3,400 / Trip' },
-      { vehicle: 'SUV', capacity: '5-7 Persons', price: '₹4,800 / Trip' },
-    ],
-    pricingNote: {
-      en: 'Toll, parking, permit and additional kilometres are charged separately as applicable.',
-      ta: 'டோல், பார்க்கிங், பெர்மிட் மற்றும் கூடுதல் கிலோமீட்டர்கள் தேவையானால் தனியாக வசூலிக்கப்படும்.',
-    },
-    galleryImages: [
-      '/gallery/suryangallery.jpg',
-      '/gallery/chandrangallery.png',
-      '/gallery/sevvaigallery.jpg',
-      '/gallery/budhangallery.png',
-      '/gallery/gurugallery.png',
-      '/gallery/sanigallery.jpg',
-    ],
+    vehiclePricing: [sedanVehicle, suvVehicle],
+    pricingNote,
     hasAccommodation: true,
     accommodationTitle: { en: 'Stay Near Rahu Temple', ta: 'ராகு கோயில் அருகே தங்கும் வசதி' },
     accommodationDescription: {
       en: 'Comfortable rooms available near Thirunageswaram Rahu Temple for devotees wishing to stay overnight.',
       ta: 'திருநாகேஸ்வரம் ராகு கோயில் அருகே இரவு தங்க விரும்பும் பக்தர்களுக்கு வசதியான அறைகள்.',
     },
-    roomPricing: [
-      { room: { en: 'Single Bed', ta: 'ஒற்றை படுக்கை' }, nonAc: '₹900', ac: '—' },
-      { room: { en: 'Double Bed', ta: 'இரட்டை படுக்கை' }, nonAc: '₹1,300', ac: '₹1,600' },
-      { room: { en: 'Deluxe Double', ta: 'டீலக்ஸ் இரட்டை' }, nonAc: '₹1,500', ac: '₹1,800' },
-      { room: { en: 'Three Bed', ta: 'மூன்று படுக்கை' }, nonAc: '₹2,300', ac: '₹2,600' },
-      { room: { en: 'Four Bed', ta: 'நான்கு படுக்கை' }, nonAc: '₹3,000', ac: '₹3,300' },
-    ],
+    roomPricing: roomPricingCommon,
     accommodationExtraPerson: '₹500',
   },
   {
@@ -139,12 +155,12 @@ export const packageDetails: PackageDetail[] = [
       ta: 'அனைத்து நவகிரஹ கோயில்கள் மற்றும் பாரம்பரிய கோயில்களை உள்ளடக்கிய இரண்டு நாள் யாத்திரை.',
     },
     overview: {
-      en: 'A relaxed two-day pilgrimage covering all Navagraha temples along with some of the region\'s most celebrated spiritual and heritage temples. Ideal for devotees who wish to travel at a comfortable pace.',
+      en: "A relaxed two-day pilgrimage covering all Navagraha temples along with some of the region's most celebrated spiritual and heritage temples. Ideal for devotees who wish to travel at a comfortable pace.",
       ta: 'அனைத்து நவகிரஹ கோயில்களும் மற்றும் பகுதியின் பிரபலமான ஆன்மீக மற்றும் பாரம்பரிய கோயில்களும் உள்ளடக்கிய இரண்டு நாள் யாத்திரை. வசதியான வேகத்தில் பயணிக்க விரும்பும் பக்தர்களுக்கு ஏற்றது.',
     },
     heroImage: '/gallery/gurugallery.png',
     startingPrice: '₹6,800',
-    priceUnit: { en: '/ Trip', ta: '/ பயணம்' },
+    priceUnit: { en: '/ 2 Days', ta: '/ 2 நாட்கள்' },
     highlights: [
       { en: '2 Days / 1 Night', ta: '2 நாட்கள் / 1 இரவு' },
       { en: 'All Navagraha Temples', ta: 'அனைத்து நவகிரஹ கோயில்கள்' },
@@ -166,17 +182,15 @@ export const packageDetails: PackageDetail[] = [
         ],
       },
       {
-        day: { en: 'Night Stay', ta: 'இரவு தங்கல்' },
-        stops: [
-          { time: '', title: { en: 'Kumbakonam', ta: 'கும்பகோணம்' } },
-        ],
+        day: { en: 'Night Stay — Kumbakonam', ta: 'இரவு தங்கல் — கும்பகோணம்' },
+        stops: [],
       },
       {
         day: { en: 'Day Two', ta: 'இரண்டாம் நாள்' },
         stops: [
-          { time: '', title: { en: 'Suriyanar (Surya)', ta: 'சூரியனார் (சூரியன்)' } },
+          { time: '', title: { en: 'Suriyanar Kovil (Surya)', ta: 'சூரியனார் கோவில் (சூரியன்)' } },
           { time: '', title: { en: 'Kanjanur (Sukran)', ta: 'காஞ்சனூர் (சுக்கிரன்)' } },
-          { time: '', title: { en: 'Vaitheeswaran (Sevvai)', ta: 'வைத்தீஸ்வரன் (செவ்வாய்)' } },
+          { time: '', title: { en: 'Vaitheeswaran Koil (Sevvai)', ta: 'வைத்தீஸ்வரன் கோவில் (செவ்வாய்)' } },
           { time: '', title: { en: 'Thiruvenkadu (Budhan)', ta: 'திருவெண்காடு (புதன்)' } },
           { time: '', title: { en: 'Keezhaperumpallam (Ketu)', ta: 'கீழப்பெரும்பள்ளம் (கேது)' } },
           { time: '', title: { en: 'Thirunallar (Sani)', ta: 'திருநள்ளாறு (சனி)' } },
@@ -184,34 +198,17 @@ export const packageDetails: PackageDetail[] = [
       },
     ],
     vehiclePricing: [
-      { vehicle: 'Sedan', capacity: '1-4 Persons', price: '₹6,800 / Trip' },
-      { vehicle: 'SUV', capacity: '5-7 Persons', price: '₹8,500 / Trip' },
+      { ...sedanVehicle, pricePerDay: '₹3,400 / Day × 2 = ₹6,800' },
+      { ...suvVehicle, pricePerDay: '₹4,800 / Day × 2 = ₹9,600' },
     ],
-    pricingNote: {
-      en: 'Toll, parking, permit and additional kilometres are charged separately as applicable.',
-      ta: 'டோல், பார்க்கிங், பெர்மிட் மற்றும் கூடுதல் கிலோமீட்டர்கள் தேவையானால் தனியாக வசூலிக்கப்படும்.',
-    },
-    galleryImages: [
-      '/gallery/gurugallery.png',
-      '/gallery/chandrangallery.png',
-      '/gallery/rahugallery.jpg',
-      '/gallery/sukrangallery.jpg',
-      '/gallery/budhangallery.png',
-      '/gallery/ketugallery.jpg',
-    ],
+    pricingNote,
     hasAccommodation: true,
     accommodationTitle: { en: 'Stay Near Rahu Temple', ta: 'ராகு கோயில் அருகே தங்கும் வசதி' },
     accommodationDescription: {
       en: 'Comfortable rooms available near Thirunageswaram Rahu Temple for devotees wishing to stay overnight.',
       ta: 'திருநாகேஸ்வரம் ராகு கோயில் அருகே இரவு தங்க விரும்பும் பக்தர்களுக்கு வசதியான அறைகள்.',
     },
-    roomPricing: [
-      { room: { en: 'Single Bed', ta: 'ஒற்றை படுக்கை' }, nonAc: '₹900', ac: '—' },
-      { room: { en: 'Double Bed', ta: 'இரட்டை படுக்கை' }, nonAc: '₹1,300', ac: '₹1,600' },
-      { room: { en: 'Deluxe Double', ta: 'டீலக்ஸ் இரட்டை' }, nonAc: '₹1,500', ac: '₹1,800' },
-      { room: { en: 'Three Bed', ta: 'மூன்று படுக்கை' }, nonAc: '₹2,300', ac: '₹2,600' },
-      { room: { en: 'Four Bed', ta: 'நான்கு படுக்கை' }, nonAc: '₹3,000', ac: '₹3,300' },
-    ],
+    roomPricing: roomPricingCommon,
     accommodationExtraPerson: '₹500',
   },
   {
@@ -228,7 +225,7 @@ export const packageDetails: PackageDetail[] = [
     },
     heroImage: '/gallery/rahugallery.jpg',
     startingPrice: '₹10,200',
-    priceUnit: { en: '/ Trip', ta: '/ பயணம்' },
+    priceUnit: { en: '/ 3 Days', ta: '/ 3 நாட்கள்' },
     highlights: [
       { en: '3 Days / 2 Nights', ta: '3 நாட்கள் / 2 இரவுகள்' },
       { en: 'Navagraha Temples', ta: 'நவகிரஹ கோயில்கள்' },
@@ -251,10 +248,8 @@ export const packageDetails: PackageDetail[] = [
         ],
       },
       {
-        day: { en: 'Stay', ta: 'தங்கல்' },
-        stops: [
-          { time: '', title: { en: 'Kumbakonam', ta: 'கும்பகோணம்' } },
-        ],
+        day: { en: 'Night Stay — Kumbakonam', ta: 'இரவு தங்கல் — கும்பகோணம்' },
+        stops: [],
       },
       {
         day: { en: 'Day Two', ta: 'இரண்டாம் நாள்' },
@@ -262,6 +257,10 @@ export const packageDetails: PackageDetail[] = [
           { time: '', title: { en: 'Continue Navagraha pilgrimage', ta: 'நவகிரஹ யாத்திரை தொடர்க' } },
           { time: '', title: { en: 'Important temples around Kumbakonam', ta: 'கும்பகோணம் சுற்று கோயில்கள்' } },
         ],
+      },
+      {
+        day: { en: 'Night Stay — Kumbakonam', ta: 'இரவு தங்கல் — கும்பகோணம்' },
+        stops: [],
       },
       {
         day: { en: 'Day Three', ta: 'மூன்றாம் நாள்' },
@@ -272,34 +271,17 @@ export const packageDetails: PackageDetail[] = [
       },
     ],
     vehiclePricing: [
-      { vehicle: 'Sedan', capacity: '1-4 Persons', price: '₹10,200 / Trip' },
-      { vehicle: 'SUV', capacity: '5-7 Persons', price: '₹12,500 / Trip' },
+      { ...sedanVehicle, pricePerDay: '₹3,400 / Day × 3 = ₹10,200' },
+      { ...suvVehicle, pricePerDay: '₹4,800 / Day × 3 = ₹14,400' },
     ],
-    pricingNote: {
-      en: 'Toll, parking, permit and additional kilometres are charged separately as applicable.',
-      ta: 'டோல், பார்க்கிங், பெர்மிட் மற்றும் கூடுதல் கிலோமீட்டர்கள் தேவையானால் தனியாக வசூலிக்கப்படும்.',
-    },
-    galleryImages: [
-      '/gallery/rahugallery.jpg',
-      '/gallery/sanigallery.jpg',
-      '/gallery/sevvaigallery.jpg',
-      '/gallery/suryangallery.jpg',
-      '/gallery/chandrangallery.png',
-      '/gallery/sukrangallery.jpg',
-    ],
+    pricingNote,
     hasAccommodation: true,
     accommodationTitle: { en: 'Stay Near Rahu Temple', ta: 'ராகு கோயில் அருகே தங்கும் வசதி' },
     accommodationDescription: {
       en: 'Comfortable rooms available near Thirunageswaram Rahu Temple for devotees wishing to stay overnight.',
       ta: 'திருநாகேஸ்வரம் ராகு கோயில் அருகே இரவு தங்க விரும்பும் பக்தர்களுக்கு வசதியான அறைகள்.',
     },
-    roomPricing: [
-      { room: { en: 'Single Bed', ta: 'ஒற்றை படுக்கை' }, nonAc: '₹900', ac: '—' },
-      { room: { en: 'Double Bed', ta: 'இரட்டை படுக்கை' }, nonAc: '₹1,300', ac: '₹1,600' },
-      { room: { en: 'Deluxe Double', ta: 'டீலக்ஸ் இரட்டை' }, nonAc: '₹1,500', ac: '₹1,800' },
-      { room: { en: 'Three Bed', ta: 'மூன்று படுக்கை' }, nonAc: '₹2,300', ac: '₹2,600' },
-      { room: { en: 'Four Bed', ta: 'நான்கு படுக்கை' }, nonAc: '₹3,000', ac: '₹3,300' },
-    ],
+    roomPricing: roomPricingCommon,
     accommodationExtraPerson: '₹500',
   },
   {
@@ -315,13 +297,14 @@ export const packageDetails: PackageDetail[] = [
       ta: 'தனிப்பட்ட பக்தர்கள், தம்பதிகள் மற்றும் சிறு குடும்பங்களுக்கு ஏற்ற பட்ஜெட் நட்பு பகிர்வு யாத்திரை, மற்ற பக்தர்களுடன் நவகிரஹ கோயில்களை அனுபவிக்க.',
     },
     heroImage: '/gallery/sanigallery.jpg',
-    startingPrice: '₹499',
-    priceUnit: { en: '/ Seat', ta: '/ இருக்கை' },
+    startingPrice: '₹1,500',
+    priceUnit: { en: '/ Person', ta: '/ நபர்' },
     highlights: [
       { en: 'Shared vehicle', ta: 'பகிரப்பட்ட வாகனம்' },
       { en: 'Complete Navagraha circuit', ta: 'முழு நவகிரஹ சுற்று' },
       { en: 'Experienced driver', ta: 'அனுபவமிக்க ஓட்டுநர்' },
       { en: 'Fixed itinerary', ta: 'நிரந்தர பயணதிட்டம்' },
+      { en: 'Toll, Permit & Parking included', ta: 'டோல், பெர்மிட் & பார்க்கிங் உள்ளடங்கும்' },
       { en: 'Cost-effective travel', ta: 'செலவு குறைந்த பயணம்' },
     ],
     itinerary: [
@@ -329,13 +312,13 @@ export const packageDetails: PackageDetail[] = [
         day: { en: 'Morning', ta: 'காலை' },
         stops: [
           { time: '', title: { en: 'Departure from Kumbakonam', ta: 'கும்பகோணத்திலிருந்து புறப்படல்' } },
-          { time: '', title: { en: 'Suriyanar (Surya)', ta: 'சூரியனார் (சூரியன்)' } },
+          { time: '', title: { en: 'Suriyanar Kovil (Surya)', ta: 'சூரியனார் கோவில் (சூரியன்)' } },
           { time: '', title: { en: 'Kanjanur (Sukran)', ta: 'காஞ்சனூர் (சுக்கிரன்)' } },
           { time: '', title: { en: 'Thingalur (Chandran)', ta: 'திங்களூர் (சந்திரன்)' } },
         ],
       },
       {
-        day: { en: 'Midday', ta: 'மதிய' },
+        day: { en: 'Midday', ta: 'மதிய வேளை' },
         stops: [
           { time: '', title: { en: 'Lunch Break', ta: 'மதிய உணவு இடைவேளை' } },
           { time: '', title: { en: 'Alangudi (Guru)', ta: 'ஆலங்குடி (குரு)' } },
@@ -343,9 +326,9 @@ export const packageDetails: PackageDetail[] = [
         ],
       },
       {
-        day: { en: 'Afternoon', ta: 'மாலை' },
+        day: { en: 'Afternoon', ta: 'பிற்பகல்' },
         stops: [
-          { time: '', title: { en: 'Vaitheeswaran (Sevvai)', ta: 'வைத்தீஸ்வரன் (செவ்வாய்)' } },
+          { time: '', title: { en: 'Vaitheeswaran Koil (Sevvai)', ta: 'வைத்தீஸ்வரன் கோவில் (செவ்வாய்)' } },
           { time: '', title: { en: 'Thiruvenkadu (Budhan)', ta: 'திருவெண்காடு (புதன்)' } },
           { time: '', title: { en: 'Keezhaperumpallam (Ketu)', ta: 'கீழப்பெரும்பள்ளம் (கேது)' } },
           { time: '', title: { en: 'Thirunallar (Sani)', ta: 'திருநள்ளாறு (சனி)' } },
@@ -357,18 +340,20 @@ export const packageDetails: PackageDetail[] = [
       },
     ],
     vehiclePricing: [
-      { vehicle: 'Shared Vehicle', capacity: 'Per Seat', price: '₹499 / Seat' },
+      {
+        vehicle: 'Shared Vehicle',
+        capacity: 'Per Person',
+        pricePerDay: '₹1,500 / Person',
+        coverage: 'Full Navagraha Circuit',
+        extraKm: '—',
+        extraHr: '—',
+        models: 'Shared AC Vehicle',
+      },
     ],
     pricingNote: {
-      en: 'Toll, parking, permit and additional kilometres are charged separately as applicable.',
-      ta: 'டோல், பார்க்கிங், பெர்மிட் மற்றும் கூடுதல் கிலோமீட்டர்கள் தேவையானால் தனியாக வசூலிக்கப்படும்.',
+      en: 'Toll, permit and parking are included in the group tour price.',
+      ta: 'டோல், பெர்மிட் மற்றும் பார்க்கிங் குழு சுற்றுப்பயண விலையில் சேர்க்கப்பட்டுள்ளது.',
     },
-    galleryImages: [
-      '/gallery/sanigallery.jpg',
-      '/gallery/suryangallery.jpg',
-      '/gallery/budhangallery.png',
-      '/gallery/gurugallery.png',
-    ],
     hasAccommodation: false,
   },
 ];

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Clock, ArrowRight, ArrowLeft, Phone, Check, Car, Star, BedDouble, MapPin, Send, User, CalendarDays, Users, Baby, FileText, Package as PackageIcon, Home, LayoutGrid } from 'lucide-react';
+import { Clock, ArrowRight, ArrowLeft, Phone, Check, Car, Star, BedDouble, Send, User, CalendarDays, Users, Baby, FileText, Package as PackageIcon, Home, LayoutGrid } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import type { PackageDetail } from '@/lib/packages';
 import type { Lang } from '@/lib/data';
@@ -16,7 +16,6 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
     name: '',
     phone: '',
     date: '',
-    pickup: '',
     adults: '',
     children: '',
     vehicle: '',
@@ -38,8 +37,7 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
       `Name: ${form.name}\n` +
       `Phone: ${form.phone}\n\n` +
       `Package: ${pkg.title[lang]}\n` +
-      `Travel Date: ${form.date || '-'}\n` +
-      `Pickup: ${form.pickup || '-'}\n\n` +
+      `Travel Date: ${form.date || '-'}\n\n` +
       `Adults: ${form.adults || '-'}\n` +
       `Children: ${form.children || '-'}\n\n` +
       `Vehicle Selected: ${form.vehicle || '-'}\n` +
@@ -176,8 +174,7 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
                                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold/15 font-title text-sm text-gold">
                                   {si + 1}
                                 </span>
-                                <span className="flex items-center gap-2 font-body text-lg text-charcoal">
-                                  <MapPin className="h-4 w-4 text-gold/60" />
+                                <span className="font-body text-lg text-charcoal">
                                   {stop.title[lang]}
                                 </span>
                               </span>
@@ -214,28 +211,43 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
               <table className="w-full">
                 <thead>
                   <tr className="bg-maroon">
-                    <th className="px-6 py-5 text-left font-title text-lg tracking-wide text-gold">
+                    <th className="px-5 py-5 text-left font-title text-base tracking-wide text-gold">
                       {lang === 'en' ? 'Vehicle' : 'வாகனம்'}
                     </th>
-                    <th className="px-6 py-5 text-left font-title text-lg tracking-wide text-gold">
+                    <th className="px-5 py-5 text-left font-title text-base tracking-wide text-gold">
                       {lang === 'en' ? 'Capacity' : 'கொள்ளளவு'}
                     </th>
-                    <th className="px-6 py-5 text-right font-title text-lg tracking-wide text-gold">
-                      {lang === 'en' ? 'Trip Price' : 'பயண விலை'}
+                    <th className="px-5 py-5 text-left font-title text-base tracking-wide text-gold">
+                      {lang === 'en' ? 'Price' : 'விலை'}
+                    </th>
+                    <th className="hidden px-5 py-5 text-left font-title text-base tracking-wide text-gold sm:table-cell">
+                      {lang === 'en' ? 'Coverage' : 'உள்ளடக்கம்'}
+                    </th>
+                    <th className="hidden px-5 py-5 text-left font-title text-base tracking-wide text-gold lg:table-cell">
+                      {lang === 'en' ? 'Extra Km' : 'கூடுதல் கிமீ'}
+                    </th>
+                    <th className="hidden px-5 py-5 text-left font-title text-base tracking-wide text-gold lg:table-cell">
+                      {lang === 'en' ? 'Extra Hr' : 'கூடுதல் மணி'}
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {pkg.vehiclePricing.map((v, i) => (
                     <tr key={i} className="border-t border-gold/10 transition-colors hover:bg-gold/5">
-                      <td className="px-6 py-5">
+                      <td className="px-5 py-5">
                         <span className="flex items-center gap-2.5 font-body text-lg text-charcoal">
                           <Car className="h-5 w-5 text-gold/60" />
-                          {v.vehicle}
+                          <span>
+                            {v.vehicle}
+                            <span className="block font-body text-xs text-charcoal/50">{v.models}</span>
+                          </span>
                         </span>
                       </td>
-                      <td className="px-6 py-5 font-body text-lg text-charcoal/70">{v.capacity}</td>
-                      <td className="px-6 py-5 text-right font-title text-lg text-maroon">{v.price}</td>
+                      <td className="px-5 py-5 font-body text-lg text-charcoal/70">{v.capacity}</td>
+                      <td className="px-5 py-5 font-title text-lg text-maroon">{v.pricePerDay}</td>
+                      <td className="hidden px-5 py-5 font-body text-base text-charcoal/70 sm:table-cell">{v.coverage}</td>
+                      <td className="hidden px-5 py-5 font-body text-base text-charcoal/70 lg:table-cell">{v.extraKm}</td>
+                      <td className="hidden px-5 py-5 font-body text-base text-charcoal/70 lg:table-cell">{v.extraHr}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -304,32 +316,6 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
         </section>
       )}
 
-      {/* Gallery */}
-      <section className="bg-gradient-to-b from-maroon/5 to-transparent py-24 lg:py-28">
-        <div className="mx-auto max-w-6xl px-6 lg:px-10">
-          <SectionLabel center>{lang === 'en' ? 'Gallery' : 'படத்தொகுப்பு'}</SectionLabel>
-          <div className="mt-14 grid grid-cols-2 gap-5 md:grid-cols-3">
-            {pkg.galleryImages.map((img, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
-                className="group relative aspect-[4/3] overflow-hidden rounded-xl border border-gold/15 shadow-soft"
-              >
-                <img
-                  src={img}
-                  alt={`${pkg.title[lang]} ${i + 1}`}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-maroon/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Booking Form */}
       <section id="booking" className="relative overflow-hidden bg-maroon py-24 lg:py-32">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_30%,_rgba(197,160,70,0.1),_transparent_50%)]" />
@@ -388,17 +374,6 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
                   className="w-full bg-transparent text-lg text-white placeholder-white/40 focus:outline-none [color-scheme:dark]"
                 />
               </Field>
-              <Field icon={<MapPin className="h-5 w-5" />} label={lang === 'en' ? 'Pickup Location' : 'பிக்அப் இடம்'}>
-                <input
-                  value={form.pickup}
-                  onChange={(e) => setForm({ ...form, pickup: e.target.value })}
-                  placeholder={lang === 'en' ? 'e.g. Kumbakonam' : 'உ.ம். கும்பகோணம்'}
-                  className="w-full bg-transparent text-lg text-white placeholder-white/40 focus:outline-none"
-                />
-              </Field>
-            </div>
-
-            <div className="grid gap-5 sm:grid-cols-2">
               <Field icon={<Users className="h-5 w-5" />} label={lang === 'en' ? 'Number of Adults' : 'பெரியவர்கள் எண்ணிக்கை'}>
                 <input
                   type="number"
@@ -409,17 +384,18 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
                   className="w-full bg-transparent text-lg text-white placeholder-white/40 focus:outline-none"
                 />
               </Field>
-              <Field icon={<Baby className="h-5 w-5" />} label={lang === 'en' ? 'Number of Children' : 'குழந்தைகள் எண்ணிக்கை'}>
-                <input
-                  type="number"
-                  min="0"
-                  value={form.children}
-                  onChange={(e) => setForm({ ...form, children: e.target.value })}
-                  placeholder="0"
-                  className="w-full bg-transparent text-lg text-white placeholder-white/40 focus:outline-none"
-                />
-              </Field>
             </div>
+
+            <Field icon={<Baby className="h-5 w-5" />} label={lang === 'en' ? 'Number of Children' : 'குழந்தைகள் எண்ணிக்கை'}>
+              <input
+                type="number"
+                min="0"
+                value={form.children}
+                onChange={(e) => setForm({ ...form, children: e.target.value })}
+                placeholder="0"
+                className="w-full bg-transparent text-lg text-white placeholder-white/40 focus:outline-none"
+              />
+            </Field>
 
             {/* Vehicle */}
             {!isGroupTour && (
