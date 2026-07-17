@@ -59,22 +59,22 @@ export default function Gallery() {
           subtitle={t('gallery.subtitle')}
         />
 
-        {/* Masonry grid — auto-flows with any number of images */}
-        <div className="mt-16 columns-1 gap-4 sm:columns-2 lg:columns-3 [&>*]:mb-4 [&>*]:break-inside-avoid">
+        {/* Masonry grid — edge-to-edge, no gaps */}
+        <div className="mt-16 columns-1 sm:columns-2 lg:columns-3 [&>*]:break-inside-avoid">
           {galleryImages.map((img, i) => (
             <motion.button
               key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: (i % 6) * 0.06 }}
               onClick={() => setLightbox(i)}
-              className="group relative block w-full overflow-hidden rounded-2xl border border-gold/15 shadow-soft"
+              className="group relative block w-full overflow-hidden"
             >
               <img
                 src={img.src}
                 alt={img.alt[lang]}
-                className="aspect-[4/3] w-full object-contain transition-transform duration-700 group-hover:scale-105"
+                className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               <div className="absolute bottom-0 left-0 right-0 translate-y-2 p-4 font-heading text-lg text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">

@@ -60,7 +60,14 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-12 lg:px-10 lg:pb-16">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <span className="inline-flex items-center gap-2 rounded-full bg-gold/90 px-5 py-2 font-body text-sm tracking-wide text-maroon">
+            <button
+              onClick={() => router.push('/')}
+              className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 font-body text-base text-white backdrop-blur-sm transition-all hover:bg-white/25"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              {lang === 'en' ? 'Back to Home' : 'முகப்பிற்கு திரும்பு'}
+            </button>
+            <span className="inline-flex items-center gap-2 rounded-full bg-gold/90 px-5 py-2 font-body text-base tracking-wide text-maroon">
               <Clock className="h-4 w-4" />
               {pkg.duration[lang]}
             </span>
@@ -82,29 +89,11 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
         </div>
       </section>
 
-      {/* Back button + nav bar */}
-      <div className="border-b border-gold/15 bg-ivory">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-10">
-          <button
-            onClick={() => router.push('/')}
-            className="inline-flex items-center gap-2 font-body text-sm text-maroon transition-colors hover:text-gold"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            {lang === 'en' ? 'Back to Home' : 'முகப்பிற்கு திரும்பு'}
-          </button>
-          <div className="flex items-center gap-5">
-            <a href="/#navagraha" className="font-body text-sm text-charcoal/70 transition-colors hover:text-maroon">{lang === 'en' ? 'Navagraha' : 'நவகிரகம்'}</a>
-            <a href="/#gallery" className="font-body text-sm text-charcoal/70 transition-colors hover:text-maroon">{lang === 'en' ? 'Gallery' : 'படத்தொகுப்பு'}</a>
-            <a href="/#contact" className="font-body text-sm text-charcoal/70 transition-colors hover:text-maroon">{lang === 'en' ? 'Contact' : 'தொடர்பு'}</a>
-          </div>
-        </div>
-      </div>
-
       {/* Overview */}
       <section className="py-16 lg:py-20">
         <div className="mx-auto max-w-4xl px-6 lg:px-10">
           <SectionLabel>{lang === 'en' ? 'Overview' : 'மேலோட்டம்'}</SectionLabel>
-          <p className="mt-6 font-body text-lg leading-relaxed text-charcoal/80 sm:text-xl">{pkg.overview[lang]}</p>
+          <p className="mt-6 font-body text-xl leading-relaxed text-charcoal/80 sm:text-2xl">{pkg.overview[lang]}</p>
         </div>
       </section>
 
@@ -125,7 +114,7 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gold/15 text-gold">
                   <Check className="h-5 w-5" />
                 </span>
-                <span className="font-body text-base text-charcoal/80">{h[lang]}</span>
+                <span className="font-body text-lg text-charcoal/80">{h[lang]}</span>
               </motion.div>
             ))}
           </div>
@@ -140,10 +129,10 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
             <table className="w-full border-collapse">
               <thead>
                 <tr className="bg-maroon">
-                  <th className="border border-maroon/60 px-5 py-3 text-left font-title text-sm tracking-widest text-gold">
+                  <th className="border border-maroon/60 px-5 py-4 text-left font-title text-base tracking-widest text-gold">
                     {lang === 'en' ? 'DAY' : 'நாள்'}
                   </th>
-                  <th className="border border-maroon/60 px-5 py-3 text-left font-title text-sm tracking-widest text-gold">
+                  <th className="border border-maroon/60 px-5 py-4 text-left font-title text-base tracking-widest text-gold">
                     {lang === 'en' ? 'TEMPLES / STOPS' : 'கோயில்கள் / நிறுத்தங்கள்'}
                   </th>
                 </tr>
@@ -155,24 +144,24 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
                       <tr key={`${di}-${si}`} className="transition-colors hover:bg-gold/5">
                         {si === 0 ? (
                           <td
-                            className="border border-charcoal/15 bg-maroon/5 px-5 py-3 align-top font-heading text-base font-medium text-maroon"
+                            className="border border-charcoal/15 bg-maroon/5 px-5 py-4 align-top font-heading text-2xl font-semibold text-maroon"
                             rowSpan={day.stops.length}
                           >
                             {day.day[lang]}
                           </td>
                         ) : null}
-                        <td className="border border-charcoal/15 px-5 py-3 font-body text-base text-charcoal">
-                          <span className="mr-3 inline-block w-6 text-center font-title text-sm text-gold/60">{si + 1}.</span>
+                        <td className="border border-charcoal/15 px-5 py-4 font-body text-lg text-charcoal">
+                          <span className="mr-3 inline-block w-6 text-center font-title text-base text-gold/60">{si + 1}.</span>
                           {stop.title[lang]}
                         </td>
                       </tr>
                     ))
                   ) : (
                     <tr key={di}>
-                      <td className="border border-charcoal/15 bg-maroon/5 px-5 py-3 font-heading text-base font-medium text-maroon">
+                      <td className="border border-charcoal/15 bg-maroon/5 px-5 py-4 font-heading text-2xl font-semibold text-maroon">
                         {day.day[lang]}
                       </td>
-                      <td className="border border-charcoal/15 px-5 py-3 font-body text-base text-charcoal/50">
+                      <td className="border border-charcoal/15 px-5 py-4 font-body text-lg text-charcoal/50">
                         —
                       </td>
                     </tr>
@@ -322,7 +311,7 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
             <h2 className="mt-5 font-heading text-3xl font-medium text-white sm:text-4xl lg:text-5xl">
               {lang === 'en' ? `Book Your ${pkg.title.en}` : `உங்கள் ${pkg.title.ta} பதிவு செய்க`}
             </h2>
-            <p className="mt-3 font-body text-base text-white/70">
+            <p className="mt-3 font-body text-lg text-white/70">
               {lang === 'en' ? 'Fill in your details and we will send your booking request directly to our team.' : 'உங்கள் விவரங்களை நிரப்புங்கள், உங்கள் பதிவு கோரிக்கை நேரடியாக எங்கள் குழுவிற்கு அனுப்பப்படும்.'}
             </p>
           </div>
