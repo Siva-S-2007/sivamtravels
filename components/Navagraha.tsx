@@ -76,7 +76,7 @@ export default function Navagraha() {
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                   className="flex h-20 w-20 items-center justify-center rounded-full border border-gold/40 bg-gradient-to-br from-gold/20 to-maroon overflow-hidden"
                 >
-                  <img src="/sivamtravels-logo.png" alt="Sivam Travels" className="h-full w-full rounded-full object-cover" />
+                  <img src="/sivalingam.jpg" alt="Sivalingam" className="h-full w-full rounded-full object-cover" />
                 </motion.div>
               </div>
 
@@ -157,10 +157,10 @@ export default function Navagraha() {
                 >
                   <div className="flex items-center gap-4">
                     <span
-                      className="flex h-14 w-14 items-center justify-center rounded-full border"
+                      className="flex h-14 w-14 items-center justify-center rounded-full border overflow-hidden"
                       style={{ borderColor: active.color, backgroundColor: `${active.color}22` }}
                     >
-                      <Sparkles className="h-6 w-6" style={{ color: active.color }} />
+                      <img src="/sivamtravels-logo.png" alt="Sivam Travels" className="h-full w-full object-cover rounded-full" />
                     </span>
                     <div>
                       <h3 className="font-heading text-3xl text-white">{active.name[lang]}</h3>

@@ -8,7 +8,7 @@ import type { PackageDetail } from '@/lib/packages';
 import type { Lang } from '@/lib/data';
 
 const WHATSAPP_NUMBER = '917305707781';
-const HOTEL_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=14/1+East+Street+Thirunageswaram+Kumbakonam+612204';
+const HOTEL_MAP_URL = 'https://maps.app.goo.gl/mg76WqWqs92dn1rC7';
 
 export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; lang: Lang }) {
   const router = useRouter();
@@ -51,28 +51,11 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
 
   return (
     <div className="bg-ivory">
-      {/* Hero with back button */}
+      {/* Hero */}
       <section className="relative flex min-h-[460px] items-end overflow-hidden lg:min-h-[520px]">
         <div className="absolute inset-0">
           <img src={pkg.heroImage} alt={pkg.title[lang]} className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-charcoal/30" />
-        </div>
-
-        {/* Back button on hero */}
-        <button
-          onClick={() => router.push('/#packages')}
-          className="absolute left-6 top-6 z-20 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 font-body text-sm text-white backdrop-blur-md transition-all hover:bg-white/25 lg:left-10 lg:top-8"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          {lang === 'en' ? 'Back' : 'திரும்பு'}
-        </button>
-
-        {/* Top-right nav links */}
-        <div className="absolute right-6 top-6 z-20 flex items-center gap-4 lg:right-10 lg:top-8">
-          <a href="/" className="font-body text-sm text-white/90 transition-colors hover:text-gold">{lang === 'en' ? 'Home' : 'முகப்பு'}</a>
-          <a href="/#packages" className="font-body text-sm text-white/90 transition-colors hover:text-gold">{lang === 'en' ? 'Packages' : 'தொகுப்புகள்'}</a>
-          <a href="/#gallery" className="font-body text-sm text-white/90 transition-colors hover:text-gold">{lang === 'en' ? 'Gallery' : 'படத்தொகுப்பு'}</a>
-          <a href="/#contact" className="font-body text-sm text-white/90 transition-colors hover:text-gold">{lang === 'en' ? 'Contact' : 'தொடர்பு'}</a>
         </div>
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-12 lg:px-10 lg:pb-16">
@@ -98,6 +81,24 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
           </motion.div>
         </div>
       </section>
+
+      {/* Back button + nav bar */}
+      <div className="border-b border-gold/15 bg-ivory">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-10">
+          <button
+            onClick={() => router.push('/')}
+            className="inline-flex items-center gap-2 font-body text-sm text-maroon transition-colors hover:text-gold"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            {lang === 'en' ? 'Back to Home' : 'முகப்பிற்கு திரும்பு'}
+          </button>
+          <div className="flex items-center gap-5">
+            <a href="/#navagraha" className="font-body text-sm text-charcoal/70 transition-colors hover:text-maroon">{lang === 'en' ? 'Navagraha' : 'நவகிரகம்'}</a>
+            <a href="/#gallery" className="font-body text-sm text-charcoal/70 transition-colors hover:text-maroon">{lang === 'en' ? 'Gallery' : 'படத்தொகுப்பு'}</a>
+            <a href="/#contact" className="font-body text-sm text-charcoal/70 transition-colors hover:text-maroon">{lang === 'en' ? 'Contact' : 'தொடர்பு'}</a>
+          </div>
+        </div>
+      </div>
 
       {/* Overview */}
       <section className="py-16 lg:py-20">
@@ -131,41 +132,54 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
         </div>
       </section>
 
-      {/* Itinerary — Simple tabular format */}
+      {/* Itinerary — Bordered grid table */}
       <section className="py-16 lg:py-20">
         <div className="mx-auto max-w-4xl px-6 lg:px-10">
           <SectionLabel center>{lang === 'en' ? 'Day-wise Itinerary' : 'நாள் வாரியாக பயணதிட்டம்'}</SectionLabel>
-          <div className="mt-10 space-y-6">
-            {pkg.itinerary.map((day, di) => (
-              <motion.div
-                key={di}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.5, delay: di * 0.08 }}
-                className="overflow-hidden rounded-xl border border-gold/20 bg-white shadow-soft"
-              >
-                <div className="border-b border-gold/15 bg-gradient-to-r from-maroon/5 to-gold/5 px-6 py-4">
-                  <h3 className="font-heading text-xl font-medium text-maroon sm:text-2xl">{day.day[lang]}</h3>
-                </div>
-                {day.stops.length > 0 ? (
-                  <table className="w-full">
-                    <tbody>
-                      {day.stops.map((stop, si) => (
-                        <tr key={si} className="border-t border-gold/10 transition-colors hover:bg-gold/5">
-                          <td className="w-12 px-4 py-3 text-center font-title text-base text-gold/70">{si + 1}</td>
-                          <td className="px-4 py-3 font-body text-base text-charcoal">{stop.title[lang]}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                ) : (
-                  <div className="px-6 py-4">
-                    <p className="font-body text-base text-charcoal/60">{day.day[lang]}</p>
-                  </div>
+          <div className="mt-10 overflow-hidden rounded-xl border border-charcoal/20 bg-white shadow-soft">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="bg-maroon">
+                  <th className="border border-maroon/60 px-5 py-3 text-left font-title text-sm tracking-widest text-gold">
+                    {lang === 'en' ? 'DAY' : 'நாள்'}
+                  </th>
+                  <th className="border border-maroon/60 px-5 py-3 text-left font-title text-sm tracking-widest text-gold">
+                    {lang === 'en' ? 'TEMPLES / STOPS' : 'கோயில்கள் / நிறுத்தங்கள்'}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {pkg.itinerary.map((day, di) =>
+                  day.stops.length > 0 ? (
+                    day.stops.map((stop, si) => (
+                      <tr key={`${di}-${si}`} className="transition-colors hover:bg-gold/5">
+                        {si === 0 ? (
+                          <td
+                            className="border border-charcoal/15 bg-maroon/5 px-5 py-3 align-top font-heading text-base font-medium text-maroon"
+                            rowSpan={day.stops.length}
+                          >
+                            {day.day[lang]}
+                          </td>
+                        ) : null}
+                        <td className="border border-charcoal/15 px-5 py-3 font-body text-base text-charcoal">
+                          <span className="mr-3 inline-block w-6 text-center font-title text-sm text-gold/60">{si + 1}.</span>
+                          {stop.title[lang]}
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr key={di}>
+                      <td className="border border-charcoal/15 bg-maroon/5 px-5 py-3 font-heading text-base font-medium text-maroon">
+                        {day.day[lang]}
+                      </td>
+                      <td className="border border-charcoal/15 px-5 py-3 font-body text-base text-charcoal/50">
+                        —
+                      </td>
+                    </tr>
+                  )
                 )}
-              </motion.div>
-            ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
