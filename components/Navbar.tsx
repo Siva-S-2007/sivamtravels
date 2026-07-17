@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useApp } from '@/lib/app-context';
 import type { TranslationKey } from '@/lib/translations';
@@ -41,14 +41,11 @@ export default function Navbar() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         <a href="#home" className="group flex items-center gap-3">
-          <span
-            className={cn(
-              'flex h-10 w-10 items-center justify-center rounded-full border transition-colors',
-              scrolled ? 'border-gold/40 bg-maroon' : 'border-white/40 bg-white/10'
-            )}
-          >
-            <Sparkles className={cn('h-5 w-5 text-gold')} />
-          </span>
+          <img
+            src="/sivamtravels-logo.png"
+            alt="Sivam Travels"
+            className="h-12 w-12 rounded-full object-cover transition-all duration-300 group-hover:scale-105"
+          />
           <span className="flex flex-col leading-none">
             <span
               className={cn(

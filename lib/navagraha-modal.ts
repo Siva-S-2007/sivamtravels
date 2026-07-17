@@ -85,7 +85,7 @@ export const navagrahaModalData: Record<string, ModalData> = {
   },
   angaraka: {
     id: 'angaraka',
-    bannerImage: '/gallery/sevvaigallery.png',
+    bannerImage: '/deities/sevvai.jpg',
     overview: {
       en: 'Vaitheeswaran Kovil is the powerful Navagraha temple for Angarakan (Mars). Lord Shiva is worshipped here as Vaitheeswaran, the "Divine Healer," who cures all mental and physical ailments. This temple is also world-renowned as the center for Nadi Astrology.',
       ta: 'வைத்தீஸ்வரன் கோயில் அங்காரகனுக்கான (செவ்வாய்) வல்ல நவகிரக கோயில். இறைவன் வைத்தீஸ்வரனாக — "தெய்வீக வைத்தியராக" வழிபடப்படுகிறார். இது நாடி ஜோதிடத்திற்கு உலகப் புகழ்பெற்ற மையம்.',

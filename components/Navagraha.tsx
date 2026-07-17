@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  MapPin, CalendarDays, Clock, Sparkles, X, ArrowRight, Orbit,
+  MapPin, CalendarDays, Clock, Sparkles, X, ArrowRight,
   Landmark, Navigation,
 } from 'lucide-react';
 import { navagraha, type Deity, type Lang } from '@/lib/data';
@@ -74,11 +74,9 @@ export default function Navagraha() {
                     ],
                   }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                  className="flex h-20 w-20 items-center justify-center rounded-full border border-gold/40 bg-gradient-to-br from-gold/20 to-maroon"
+                  className="flex h-20 w-20 items-center justify-center rounded-full border border-gold/40 bg-gradient-to-br from-gold/20 to-maroon overflow-hidden"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-b from-charcoal to-maroon">
-                    <Orbit className="h-6 w-6 text-gold" />
-                  </div>
+                  <img src="/sivamtravels-logo.png" alt="Sivam Travels" className="h-full w-full rounded-full object-cover" />
                 </motion.div>
               </div>
 
@@ -179,7 +177,7 @@ export default function Navagraha() {
                 {/* Temple name + short description */}
                 <div className="px-7 py-5">
                   <h4 className="font-heading text-xl text-gold/90">{active.temple[lang]}</h4>
-                  <p className="mt-2 font-body text-sm leading-relaxed text-white/75">
+                  <p className="mt-2 font-body text-base leading-relaxed text-white/75">
                     {active.significance[lang]}
                   </p>
                 </div>
@@ -231,8 +229,8 @@ function InfoTile({
         {icon}
       </span>
       <div>
-        <p className="font-body text-[11px] tracking-wide text-white/50">{label}</p>
-        <p className="mt-0.5 font-body text-sm text-white/90">{value}</p>
+        <p className="font-body text-xs tracking-wide text-white/50">{label}</p>
+        <p className="mt-0.5 font-body text-base text-white/90">{value}</p>
       </div>
     </div>
   );
@@ -257,13 +255,13 @@ function SectionHeading({
       transition={{ duration: 0.6 }}
       className="mx-auto max-w-3xl text-center"
     >
-      <p className="font-title text-xs tracking-[0.4em] text-gold sm:text-sm">{eyebrow}</p>
+      <p className="font-title text-sm tracking-[0.4em] text-gold sm:text-base">{eyebrow}</p>
       <h2 className={`mt-4 font-heading text-4xl font-medium sm:text-5xl lg:text-[3.25rem] ${light ? 'text-white' : 'text-maroon'}`}>
         {title}
       </h2>
       <span className="mx-auto mt-5 block h-px w-16 bg-gold/50" />
       {subtitle && (
-        <p className={`mt-6 font-body text-base leading-relaxed sm:text-lg ${light ? 'text-white/75' : 'text-charcoal/70'}`}>
+        <p className={`mt-6 font-body text-lg leading-relaxed sm:text-xl ${light ? 'text-white/75' : 'text-charcoal/70'}`}>
           {subtitle}
         </p>
       )}
@@ -335,12 +333,12 @@ function DeityModal({
                 <div className="space-y-6">
                   {/* Overview */}
                   <ModalSection title={t('navagraha.significance')}>
-                    <p className="font-body text-sm leading-relaxed text-charcoal/80">{modalData.overview[lang]}</p>
+                    <p className="font-body text-base leading-relaxed text-charcoal/80">{modalData.overview[lang]}</p>
                   </ModalSection>
 
                   {/* History */}
                   <ModalSection title={t('navagraha.history')}>
-                    <p className="font-body text-sm leading-relaxed text-charcoal/80">{modalData.history[lang]}</p>
+                    <p className="font-body text-base leading-relaxed text-charcoal/80">{modalData.history[lang]}</p>
                   </ModalSection>
 
                   {/* Benefits */}
@@ -349,7 +347,7 @@ function DeityModal({
                       {modalData.benefits.map((b, i) => (
                         <span
                           key={i}
-                          className="inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-gold/5 px-3 py-1.5 font-body text-xs text-charcoal/80"
+                          className="inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-gold/5 px-3 py-1.5 font-body text-sm text-charcoal/80"
                         >
                           <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: deity.color }} />
                           {b[lang]}
@@ -360,17 +358,17 @@ function DeityModal({
 
                   {/* Special Rituals */}
                   <ModalSection title="Special Rituals / Poojas">
-                    <p className="font-body text-sm leading-relaxed text-charcoal/80">{modalData.specialRituals[lang]}</p>
+                    <p className="font-body text-base leading-relaxed text-charcoal/80">{modalData.specialRituals[lang]}</p>
                   </ModalSection>
 
                   {/* Temple Specialities */}
                   <ModalSection title="Temple Specialities">
-                    <p className="font-body text-sm leading-relaxed text-charcoal/80">{modalData.templeSpecialities[lang]}</p>
+                    <p className="font-body text-base leading-relaxed text-charcoal/80">{modalData.templeSpecialities[lang]}</p>
                   </ModalSection>
 
                   {/* Architecture */}
                   <ModalSection title="Architecture / Unique Features">
-                    <p className="font-body text-sm leading-relaxed text-charcoal/80">{modalData.architecture[lang]}</p>
+                    <p className="font-body text-base leading-relaxed text-charcoal/80">{modalData.architecture[lang]}</p>
                   </ModalSection>
 
                   {/* Visit Info */}
@@ -414,7 +412,7 @@ function DeityModal({
 function ModalSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h5 className="flex items-center gap-2 font-title text-xs tracking-[0.2em] text-maroon">
+      <h5 className="flex items-center gap-2 font-title text-sm tracking-[0.2em] text-maroon">
         <span className="h-3 w-px bg-gold" />
         {title.toUpperCase()}
       </h5>
@@ -438,8 +436,8 @@ function ModalInfo({
         {icon}
       </span>
       <div>
-        <p className="font-body text-[11px] tracking-wide text-charcoal/50">{label}</p>
-        <p className="mt-0.5 font-body text-sm text-charcoal/90">{value}</p>
+        <p className="font-body text-xs tracking-wide text-charcoal/50">{label}</p>
+        <p className="mt-0.5 font-body text-base text-charcoal/90">{value}</p>
       </div>
     </div>
   );
