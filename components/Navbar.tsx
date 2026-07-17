@@ -8,11 +8,11 @@ import { useApp } from '@/lib/app-context';
 import type { TranslationKey } from '@/lib/translations';
 
 const links: { label: TranslationKey; href: string }[] = [
-  { label: 'nav.home', href: '#home' },
-  { label: 'nav.packages', href: '#packages' },
-  { label: 'nav.navagraha', href: '#navagraha' },
-  { label: 'nav.gallery', href: '#gallery' },
-  { label: 'nav.contact', href: '#contact' },
+  { label: 'nav.home', href: '/#home' },
+  { label: 'nav.packages', href: '/#packages' },
+  { label: 'nav.navagraha', href: '/#navagraha' },
+  { label: 'nav.gallery', href: '/#gallery' },
+  { label: 'nav.contact', href: '/#contact' },
 ];
 
 export default function Navbar() {
@@ -40,7 +40,7 @@ export default function Navbar() {
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <a href="#home" className="group flex items-center gap-3">
+        <a href="/#home" className="group flex items-center gap-3">
           <img
             src="/sivamtravels-logo.png"
             alt="Sivam Travels"

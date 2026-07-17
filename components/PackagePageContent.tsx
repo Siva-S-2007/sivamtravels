@@ -60,13 +60,15 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-12 lg:px-10 lg:pb-16">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <button
-              onClick={() => router.push('/')}
-              className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 font-body text-base text-white backdrop-blur-sm transition-all hover:bg-white/25"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              {lang === 'en' ? 'Back to Home' : 'முகப்பிற்கு திரும்பு'}
-            </button>
+            <div className="mb-2">
+              <button
+                onClick={() => router.push('/')}
+                className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 font-body text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-white/25"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                {lang === 'en' ? 'Back to Home' : 'முகப்பிற்கு திரும்பு'}
+              </button>
+            </div>
             <span className="inline-flex items-center gap-2 rounded-full bg-gold/90 px-5 py-2 font-body text-base tracking-wide text-maroon">
               <Clock className="h-4 w-4" />
               {pkg.duration[lang]}
