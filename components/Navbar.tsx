@@ -7,12 +7,13 @@ import { cn, asset } from '@/lib/utils';
 import { useApp } from '@/lib/app-context';
 import type { TranslationKey } from '@/lib/translations';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const links: { label: TranslationKey; href: string }[] = [
-  { label: 'nav.home', href: '#home' },
-  { label: 'nav.packages', href: '#packages' },
-  { label: 'nav.navagraha', href: '#navagraha' },
-  { label: 'nav.gallery', href: '#gallery' },
-  { label: 'nav.contact', href: '#contact' },
+  { label: 'nav.home', href: `${basePath}/#home` },
+  { label: 'nav.packages', href: `${basePath}/#packages` },
+  { label: 'nav.navagraha', href: `${basePath}/#navagraha` },
+  { label: 'nav.gallery', href: `${basePath}/#gallery` },
+  { label: 'nav.contact', href: `${basePath}/#contact` },
 ];
 
 export default function Navbar() {
