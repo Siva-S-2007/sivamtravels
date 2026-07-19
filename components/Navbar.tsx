@@ -41,7 +41,7 @@ export default function Navbar() {
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <a href="/#home" className="group flex items-center gap-3">
+        <a href={`${basePath}/#home`} className="group flex items-center gap-3">
           <img
             src={asset('/sivamtravels-logo.png')}
             alt="Sivam Travels"
@@ -107,7 +107,7 @@ export default function Navbar() {
 
           <div className="hidden lg:block">
             <a
-              href="#booking"
+              href={`${basePath}/#booking`}
               className={cn(
                 'group inline-flex items-center gap-2 rounded-full px-6 py-2.5 font-body text-sm tracking-wide transition-all duration-300',
                 scrolled
@@ -152,7 +152,7 @@ export default function Navbar() {
               ))}
               <li>
                 <a
-                  href="#booking"
+                  href={`${basePath}/#booking`}
                   onClick={() => setOpen(false)}
                   className="mt-2 block rounded-full bg-maroon px-3 py-3 text-center font-body text-ivory"
                 >
