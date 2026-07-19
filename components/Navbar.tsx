@@ -41,7 +41,7 @@ export default function Navbar() {
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <a href={`${basePath}/#home`} className="group flex items-center gap-3">
+       <a href={basePath + "/#home"} className="group flex items-center gap-3">
           <img
             src={asset('/sivamtravels-logo.png')}
             alt="Sivam Travels"
