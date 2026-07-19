@@ -210,7 +210,7 @@ export const packageDetails: PackageDetail[] = [
     hasAccommodation: true,
     accommodationTitle: { en: 'Stay Near Rahu Temple', ta: 'ராகு கோயில் அருகே தங்கும் வசதி' },
     accommodationDescription: {
-      en: 'Comfortable rooms available near Thirunageswaram Rahu Temple for devotees wishing to stay overnight.',
+      en: 'Cheaper and more comfortable rooms than Kumbakonam, available right near Thirunageswaram Rahu Temple for devotees wishing to stay overnight. ',
       ta: 'திருநாகேஸ்வரம் ராகு கோயில் அருகே இரவு தங்க விரும்பும் பக்தர்களுக்கு வசதியான அறைகள்.',
     },
     roomPricing: roomPricingCommon,
@@ -221,12 +221,12 @@ export const packageDetails: PackageDetail[] = [
     title: { en: '3-Day Spiritual Journey', ta: '3-நாள் ஆன்மீக பயணம்' },
     duration: { en: '3 Days · 2 Nights', ta: '3 நாட்கள் · 2 இரவுகள்' },
     tagline: {
-      en: 'An immersive three-day pilgrimage from Trichy covering Navagraha and iconic temples.',
-      ta: 'திருச்சியிலிருந்து நவகிரஹ மற்றும் பிரபல கோயில்களை உள்ளடக்கிய மூன்று நாள் யாத்திரை.',
+      en: 'An immersive three-day pilgrimage, covering the complete Navagraha circuit together with iconic temples across Trichy, Thanjavur and Kumbakonam.',
+      ta: 'ததிருச்சி, தஞ்சாவூர் மற்றும் கும்பகோணம் ஆகிய பகுதிகளில் உள்ள புகழ்பெற்ற கோயில்களுடன், முழுமையான நவக்கிரகத் தலங்களையும் உள்ளடக்கிய, ஆழ்ந்த அனுபவத்தைத் தரும் மூன்று நாள் புனிதப் பயணம்.',
     },
     overview: {
-      en: 'An immersive three-day pilgrimage beginning from Trichy, covering the complete Navagraha circuit together with iconic temples across Trichy, Thanjavur and Kumbakonam.',
-      ta: 'திருச்சியிலிருந்து தொடங்கும் மூன்று நாள் யாத்திரை, திருச்சி, தஞ்சாவூர் மற்றும் கும்பகோணம் முழுவதும் உள்ள பிரபல கோயில்களுடன் முழு நவகிரஹ சுற்றுப்பயணத்தை உள்ளடக்கியது.',
+      en: 'An immersive three-day pilgrimage, covering the complete Navagraha circuit together with iconic temples across Trichy, Thanjavur and Kumbakonam.',
+      ta: 'திருச்சி, தஞ்சாவூர் மற்றும் கும்பகோணம் ஆகிய பகுதிகளில் உள்ள புகழ்பெற்ற கோயில்களுடன், முழுமையான நவக்கிரகத் தலங்களையும் உள்ளடக்கிய, ஆழ்ந்த அனுபவத்தைத் தரும் மூன்று நாள் புனிதப் பயணம்.',
     },
     heroImage: asset('/gallery/rahugallery.jpg'),
     startingPrice: '₹10,200',
@@ -303,7 +303,7 @@ export const packageDetails: PackageDetail[] = [
     hasAccommodation: true,
     accommodationTitle: { en: 'Stay Near Rahu Temple', ta: 'ராகு கோயில் அருகே தங்கும் வசதி' },
     accommodationDescription: {
-      en: 'Comfortable rooms available near Thirunageswaram Rahu Temple for devotees wishing to stay overnight.',
+      en: 'Cheaper and more comfortable rooms than Kumbakonam, available right near Thirunageswaram Rahu Temple for devotees wishing to stay overnight. ',
       ta: 'திருநாகேஸ்வரம் ராகு கோயில் அருகே இரவு தங்க விரும்பும் பக்தர்களுக்கு வசதியான அறைகள்.',
     },
     roomPricing: roomPricingCommon,
