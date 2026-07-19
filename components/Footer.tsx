@@ -47,7 +47,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <span className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-gold/40 bg-maroon">
                 <Image
-                  src="/public/sivamtravels-logo.png"
+                  src="/sivamtravels-logo.png"
                   alt="Sivam Travels"
                   fill
                   sizes="48px"
