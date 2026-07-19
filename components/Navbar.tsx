@@ -9,11 +9,11 @@ import type { TranslationKey } from '@/lib/translations';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const links: { label: TranslationKey; href: string }[] = [
-  { label: 'nav.home', href: `${basePath}/#home` },
-  { label: 'nav.packages', href: `${basePath}/#packages` },
-  { label: 'nav.navagraha', href: `${basePath}/#navagraha` },
-  { label: 'nav.gallery', href: `${basePath}/#gallery` },
-  { label: 'nav.contact', href: `${basePath}/#contact` },
+  { label: 'nav.home', href: basePath + "/#home" },
+  { label: 'nav.packages', href: basePath + "/#packages" },
+  { label: 'nav.navagraha', href: basePath + "/#navagraha" },
+  { label: 'nav.gallery', href: basePath + "/#gallery" },
+  { label: 'nav.contact', href: basePath + "/#contact" },
 ];
 
 export default function Navbar() {
@@ -41,7 +41,7 @@ export default function Navbar() {
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-       <a href={basePath + "/#home"} className="group flex items-center gap-3">
+        <a href={basePath + "/#home"} className="group flex items-center gap-3">
           <img
             src={asset('/sivamtravels-logo.png')}
             alt="Sivam Travels"
@@ -107,7 +107,7 @@ export default function Navbar() {
 
           <div className="hidden lg:block">
             <a
-              href={`${basePath}/#booking`}
+              href={basePath + "/#booking"}
               className={cn(
                 'group inline-flex items-center gap-2 rounded-full px-6 py-2.5 font-body text-sm tracking-wide transition-all duration-300',
                 scrolled
@@ -152,7 +152,7 @@ export default function Navbar() {
               ))}
               <li>
                 <a
-                  href={`${basePath}/#booking`}
+                  href={basePath + "/#booking"}
                   onClick={() => setOpen(false)}
                   className="mt-2 block rounded-full bg-maroon px-3 py-3 text-center font-body text-ivory"
                 >
