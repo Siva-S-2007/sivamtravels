@@ -222,7 +222,7 @@ export const packageDetails: PackageDetail[] = [
     duration: { en: '3 Days · 2 Nights', ta: '3 நாட்கள் · 2 இரவுகள்' },
     tagline: {
       en: 'An immersive three-day pilgrimage, covering the complete Navagraha circuit together with iconic temples across Trichy, Thanjavur and Kumbakonam.',
-      ta: 'ததிருச்சி, தஞ்சாவூர் மற்றும் கும்பகோணம் ஆகிய பகுதிகளில் உள்ள புகழ்பெற்ற கோயில்களுடன், முழுமையான நவக்கிரகத் தலங்களையும் உள்ளடக்கிய, ஆழ்ந்த அனுபவத்தைத் தரும் மூன்று நாள் புனிதப் பயணம்.',
+      ta: 'திருச்சி, தஞ்சாவூர் மற்றும் கும்பகோணம் ஆகிய பகுதிகளில் உள்ள புகழ்பெற்ற கோயில்களுடன், முழுமையான நவக்கிரகத் தலங்களையும் உள்ளடக்கிய, ஆழ்ந்த அனுபவத்தைத் தரும் மூன்று நாள் புனிதப் பயணம்.',
     },
     overview: {
       en: 'An immersive three-day pilgrimage, covering the complete Navagraha circuit together with iconic temples across Trichy, Thanjavur and Kumbakonam.',
@@ -243,17 +243,13 @@ export const packageDetails: PackageDetail[] = [
       {
         day: { en: 'Day One', ta: 'முதல் நாள்' },
         stops: [
-          { time: '', title: { en: 'Guru Navagrahastalam (Jupiter) — Apatsahayesvarar Temple, Alangudi.', ta: 'குரு நவகிரகஸ்தலம் (குரு) — அபதசாயேஸ்வரர் கோயில், ஆலங்குடி.', } },
-          { time: '', title: { en: 'Raahu Navagrahastalam (Rahu) – Naganathar Temple, Thirunageswaram.', ta: 'ராகு நவகிரகஸ்தலம் (ராகு) – நாகநாதர் கோயில், திருநாகேஸ்வரம்.', } },
-          { time: '', title: { en: 'Surya Navagrahastalam (Sun) — Sooriyanar Kovil, Thirumangalakudi.', ta: 'சூரிய நவகிரகஸ்தலம் (சூரியன்) — சூரியனார் கோவில், திருமங்கலகுடி.', } },
-          { time: '', title: { en: 'Sukra Navagrahastalam (Venus) — Agniswarar Temple, Kanjanur.', ta: 'சுக்கிர நவகிரகஸ்தலம் (சுக்கிரன்) — அக்கினீஸ்வரர் கோயில், காஞ்சனூர்.', } },
-          { time: '', title: { en: 'Uppiliappan temple - Thirunageswaram.', ta: 'உப்பிலியப்பன் கோயில் - திருநாகேஸ்வரம்.', } },
-          { time: '', title: { en: 'Sri Thenupureeswarar Durgaiamman Temple – Patteeswaram.', ta: 'ஸ்ரீ தேனுபுரீஸ்வரர் துர்கையாம்மன் கோயில் – பட்டீஸ்வரம்.', } },
-          { time: '', title: { en: 'Airavatesvara Temple - Darasuram.', ta: 'ஐராவதேஸ்வரர் கோயில் - தாரசுரம்.', } },
-          { time: '', title: { en: 'Swaminathaswamy temple - Swamimalai.', ta: 'ஸ்வாமிநாதசுவாமி கோயில் - சுவாமிமலை.', } },
-          { time: '', title: { en: 'Kumbeswara Swami Temple - Kumbakonam.', ta: 'கும்பேஸ்வர சுவாமி கோயில் - கும்பகோணம்.', } },
-          { time: '', title: { en: 'Sarangapani Temple - Kumbakonam.', ta: 'சாரங்கபாணி கோயில் - கும்பகோணம்.', } },
-        ],
+  { time: '', title: { en: 'Chandra Navagrahastalam (Moon) — Kailasanathar Temple, Thingalur.', ta: 'சந்திர நவகிரகஸ்தலம் (சந்திரன்) — கைலாசநாதர் கோயில், திங்களூர்.' } },
+  { time: '', title: { en: 'Aiyarappar Temple - Thiruvaiayaru.', ta: 'ஐயாறப்பர் கோயில் - திருவையாறு.' } },
+  { time: '', title: { en: 'Brihadisvara Temple - Thanjavur.', ta: 'பிரகதீஸ்வரர் கோயில் (பெரிய கோயில்) - தஞ்சாவூர்.' } },
+  { time: '', title: { en: 'Punnai mariamman Temple - Thanjavur.', ta: 'புன்னை மாரியம்மன் கோயில் - தஞ்சாவூர்.' } },
+  { time: '', title: { en: 'Garbharakshambigai temple - Thirukarukavur.', ta: 'கர்ப்பரட்சாம்பிகை கோயில் - திருக்கருகாவூர்.' } },
+  { time: '', title: { en: '108 Sivalayam Temple - Papanasam.', ta: '108 சிவாலயம் கோயில் - பாபநாசம்.' } }
+],
       },
       {
         day: { en: 'Night Stay', ta: 'இரவு தங்கல்' },
