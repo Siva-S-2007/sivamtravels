@@ -7,7 +7,8 @@ import type { TranslationKey } from '@/lib/translations';
 import type { Lang } from '@/lib/data';
 
 // Corrected relative path to escape components/ui/ and reach public/ at root
-import logoImg from '../../../public/sivamtravels-logo.png';
+import logo from '@/public/sivamtravels-logo.png';
+
 
 const WHATSAPP_NUMBER = '917010407781';
 const OFFICE_MAP_URL = 'https://google.com' + encodeURIComponent('Sivam Complex, 55/1 Karaikal Main Road, Thirunageswaram (Near Rahu Sthalam), Kumbakonam, Tamil Nadu 612204');
