@@ -7,7 +7,7 @@ import type { TranslationKey } from '@/lib/translations';
 import type { Lang } from '@/lib/data';
 
 // Corrected relative path to escape components/ui/ and reach public/ at root
-import logo from '@/public/sivamtravels-logo.png';
+import logo from '/public/sivamtravels-logo.png';
 
 
 const WHATSAPP_NUMBER = '917010407781';
