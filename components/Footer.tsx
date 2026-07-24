@@ -6,8 +6,11 @@ import { useApp } from '@/lib/app-context';
 import type { TranslationKey } from '@/lib/translations';
 import type { Lang } from '@/lib/data';
 
+// Corrected relative path to escape components/ui/ and reach public/ at root
+import logoImg from '../../../public/sivamtravels-logo.png';
+
 const WHATSAPP_NUMBER = '917010407781';
-const OFFICE_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Sivam Complex, 55/1 Karaikal Main Road, Thirunageswaram (Near Rahu Sthalam), Kumbakonam, Tamil Nadu 612204');
+const OFFICE_MAP_URL = 'https://google.com' + encodeURIComponent('Sivam Complex, 55/1 Karaikal Main Road, Thirunageswaram (Near Rahu Sthalam), Kumbakonam, Tamil Nadu 612204');
 
 const quickLinks: { label: TranslationKey; href: string }[] = [
   { label: 'nav.home', href: '#home' },
@@ -47,11 +50,12 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <span className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-gold/40 bg-maroon">
                 <Image
-                  src="/sivamtravels-logo.png"
+                  src={logoImg}
                   alt="Sivam Travels"
                   fill
                   sizes="48px"
                   className="object-contain p-1"
+                  priority
                 />
               </span>
               <div className="flex flex-col leading-none">
