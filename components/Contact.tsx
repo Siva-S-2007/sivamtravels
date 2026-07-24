@@ -6,22 +6,22 @@ import { SectionHeading } from './Packages';
 import { useApp } from '@/lib/app-context';
 import type { Lang } from '@/lib/data';
 
-const WHATSAPP_NUMBER = '917305707781';
+const WHATSAPP_NUMBER = '917010407781';
 const OFFICE_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Sivam Complex, 55/1 Karaikal Main Road, Thirunageswaram (Near Rahu Sthalam), Kumbakonam, Tamil Nadu 612204');
 
 const contactInfo: Record<Lang, { office: string; phone1: string; phone2: string; whatsapp: string; mapLabel: string }> = {
   en: {
     office: 'Sivam Complex, 55/1 Karaikal Main Road, Thirunageswaram (Near Rahu Sthalam), Kumbakonam, Tamil Nadu 612204',
-    phone1: '+91 73057 07781',
-    phone2: '+91 99434 04224',
-    whatsapp: '+91 73057 07781',
+    phone1: '+91 7010407781',
+    phone2: '+91 73057 07781',
+    whatsapp: '+91 7010407781',
     mapLabel: 'Thirunageswaram, Kumbakonam',
   },
   ta: {
     office: 'சிவம் காம்ப்ளெக்ஸ், 55/1 காரைக்கால் மெயின் ரோடு, திருநாகேஸ்வரம் (ராகு ஸ்தலம் அருகே), கும்பகோணம், தமிழ்நாடு 612204',
-    phone1: '+91 73057 07781',
-    phone2: '+91 99434 04224',
-    whatsapp: '+91 73057 07781',
+    phone1: '+91 7010407781',
+    phone2: '+91 73057 07781',
+    whatsapp: '+91 7010407781',
     mapLabel: 'திருநாகேஸ்வரம், கும்பகோணம்',
   },
 };
