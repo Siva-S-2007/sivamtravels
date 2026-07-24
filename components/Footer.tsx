@@ -6,10 +6,6 @@ import { useApp } from '@/lib/app-context';
 import type { TranslationKey } from '@/lib/translations';
 import type { Lang } from '@/lib/data';
 
-// Corrected relative path to escape components/ui/ and reach public/ at root
-import logo from '/public/sivamtravels-logo.png';
-
-
 const WHATSAPP_NUMBER = '917010407781';
 const OFFICE_MAP_URL = 'https://google.com' + encodeURIComponent('Sivam Complex, 55/1 Karaikal Main Road, Thirunageswaram (Near Rahu Sthalam), Kumbakonam, Tamil Nadu 612204');
 
@@ -51,7 +47,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <span className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-gold/40 bg-maroon">
                 <Image
-                  src={logoImg}
+                  src="/sivamtravels-logo.png"
                   alt="Sivam Travels"
                   fill
                   sizes="48px"
@@ -65,7 +61,6 @@ export default function Footer() {
               </div>
             </div>
             <p className="mt-5 font-body text-sm leading-relaxed text-ivory/60">{t('footer.tagline')}</p>
-
           </div>
 
           <div>
@@ -93,11 +88,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2 font-body text-sm text-ivory/70">
                 <Phone className="h-4 w-4 shrink-0 text-gold/70" />
-                <a href="tel:+917305707781" className="hover:text-gold">{info.phone1}</a>
+                <a href="tel:+917010407781" className="hover:text-gold">{info.phone1}</a>
               </li>
               <li className="flex items-center gap-2 font-body text-sm text-ivory/70">
                 <Phone className="h-4 w-4 shrink-0 text-gold/70" />
-                <a href="tel:+919943404224" className="hover:text-gold">{info.phone2}</a>
+                <a href="tel:+917305707781" className="hover:text-gold">{info.phone2}</a>
               </li>
               <li className="flex items-center gap-2 font-body text-sm text-ivory/70">
                 <Mail className="h-4 w-4 shrink-0 text-gold/70" />
