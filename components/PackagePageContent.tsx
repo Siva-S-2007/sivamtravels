@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import type { PackageDetail } from '@/lib/packages';
 import type { Lang } from '@/lib/data';
 
-const WHATSAPP_NUMBER = '917305707781';
+const WHATSAPP_NUMBER = '917010407781';
 const HOTEL_MAP_URL = 'https://maps.app.goo.gl/mg76WqWqs92dn1rC7';
 const OFFICE_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Sivam Complex, 55/1 Karaikal Main Road, Thirunageswaram (Near Rahu Sthalam), Kumbakonam, Tamil Nadu 612204');
 
