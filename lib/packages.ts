@@ -199,8 +199,8 @@ export const packageDetails: PackageDetail[] = [
       },
     ],
     vehiclePricing: [
-      { ...sedanVehicle, pricePerDay: '₹3,000 / Day × 2 = ₹6,000', coverage: '12 Hrs / 200 Km Per Day' },
-      { ...suvVehicle, pricePerDay: '₹4,300 / Day × 2 = ₹8,600', coverage: '12 Hrs / 200 Km Per Day' },
+      { ...sedanVehicle, pricePerDay: '₹3,400 / Day × 2 = ₹6,800', coverage: '12 Hrs / 200 Km Per Day' },
+      { ...suvVehicle, pricePerDay: '₹4,800 / Day × 2 = ₹9,600', coverage: '12 Hrs / 200 Km Per Day' },
     ],
     pricingNote,
     customizableNote: {
