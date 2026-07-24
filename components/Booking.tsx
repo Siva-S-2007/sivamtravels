@@ -7,7 +7,7 @@ import { packages } from '@/lib/data';
 import { useApp } from '@/lib/app-context';
 import { asset } from '@/lib/utils';
 
-const WHATSAPP_NUMBER = '917305707781';
+const WHATSAPP_NUMBER = '917010407781';
 
 export default function Booking() {
   const { lang, t, selectedPackageId, setSelectedPackageId, highlightBooking } = useApp();
