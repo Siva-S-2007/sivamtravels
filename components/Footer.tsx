@@ -6,7 +6,7 @@ import { useApp } from '@/lib/app-context';
 import type { TranslationKey } from '@/lib/translations';
 import type { Lang } from '@/lib/data';
 
-const WHATSAPP_NUMBER = '917305707781';
+const WHATSAPP_NUMBER = '917010407781';
 const OFFICE_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Sivam Complex, 55/1 Karaikal Main Road, Thirunageswaram (Near Rahu Sthalam), Kumbakonam, Tamil Nadu 612204');
 
 const quickLinks: { label: TranslationKey; href: string }[] = [
@@ -21,16 +21,16 @@ const quickLinks: { label: TranslationKey; href: string }[] = [
 const footerContact: Record<Lang, { address: string; phone1: string; phone2: string; whatsapp: string; email: string }> = {
   en: {
     address: 'Sivam Complex, 55/1 Karaikal Main Road, Thirunageswaram (Near Rahu Sthalam), Kumbakonam, Tamil Nadu 612204',
-    phone1: '+91 73057 07781',
-    phone2: '+91 99434 04224',
-    whatsapp: '+91 73057 07781',
+    phone1: '+91 7010407781',
+    phone2: '+91 73057 07781',
+    whatsapp: '+91 7010407781',
     email: 'info@sivamtravels.com',
   },
   ta: {
     address: 'சிவம் காம்ப்ளெக்ஸ், 55/1 காரைக்கால் மெயின் ரோடு, திருநாகேஸ்வரம் (ராகு ஸ்தலம் அருகே), கும்பகோணம், தமிழ்நாடு 612204',
-    phone1: '+91 73057 07781',
-    phone2: '+91 99434 04224',
-    whatsapp: '+91 73057 07781',
+    phone1: '+91 7010407781',
+    phone2: '+91 73057 07781',
+    whatsapp: '+91 7010407781',
     email: 'info@sivamtravels.com',
   },
 };
@@ -47,7 +47,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <span className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-gold/40 bg-maroon">
                 <Image
-                  src="/sivamtravels-logo.png"
+                  src="/sivamtravels logo.png"
                   alt="Sivam Travels"
                   fill
                   sizes="48px"
