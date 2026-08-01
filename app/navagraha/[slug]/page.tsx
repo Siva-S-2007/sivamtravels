@@ -38,7 +38,7 @@ const guidePages: Record<GuideSlug, GuidePage> = {
     title: 'Navagraha Doshas and Remedies',
     description:
       'Understand the astrological significance of each Navagraha, common planetary doshas and traditional remedies followed by devotees.',
-    heroImage: '/gallery/rahugallery.jpg',
+    heroImage: '/navagrahadoshasandpariharam.png',
     eyebrow: 'Spiritual Guide',
   },
   'history-beliefs': {
@@ -300,7 +300,7 @@ function OrderToVisitLayout() {
           This guide covers the Navagraha Temple Order to Visit, temple timings, travel distances, and the best itinerary to help devotees complete their spiritual journey comfortably.
         </p>
 
-        <img src="/gallery/chandrangallery.png" alt="Navagraha temple pathway and sacred complex" className="w-full h-[450px] object-cover rounded-[30px] mb-12 shadow-soft" />
+
 
         <h2 className="font-heading text-5xl text-maroon mt-20 mb-8">Best Place to Stay for Your Navagraha Temple Tour</h2>
         <p className="mb-8">
@@ -323,7 +323,7 @@ function OrderToVisitLayout() {
           Travel Tip: Avoid planning temple visits between 12:30 PM and 4:00 PM, as almost all temples will remain closed during this period. Use this time to have lunch and travel between towns.
         </p>
 
-        <img src="/gallery/gurugallery.png" alt="Temple mandapam and heritage stone architecture" className="w-full h-[450px] object-cover rounded-[30px] mb-12 shadow-soft" />
+
 
         <h2 className="font-heading text-5xl text-maroon mt-20 mb-8">Recommended Navagraha Temple Order to Visit (2 Days)</h2>
         <p className="mb-10">
@@ -364,7 +364,7 @@ function OrderToVisitLayout() {
           <li><strong>Keezhaperumpallam (Ketu):</strong> 65 km</li>
         </ul>
 
-        <img src="/gallery/rahugallery.jpg" alt="Pilgrims visiting Navagraha temple during darshan" className="w-full h-[450px] object-cover rounded-[30px] mb-12 shadow-soft" />
+
 
         <h2 className="font-heading text-5xl text-maroon mt-20 mb-8">Essential Travel Tips</h2>
         <p className="mb-8">Follow these practical tips to make your pilgrimage smoother and more comfortable:</p>
@@ -393,7 +393,7 @@ function DoshasLayout() {
           <p key={index} className="mb-8">{paragraph}</p>
         ))}
 
-        <img src="/gallery/sukrangallery.jpg" alt="Sacred temple sculpture and deepam lighting" className="w-full h-[450px] object-cover rounded-[30px] my-12 shadow-soft" />
+
 
         <div className="mt-16 space-y-20">
           {Object.entries(doshaDetails).map(([planet, detail], index) => (
@@ -435,7 +435,7 @@ function HistoryLayout() {
           <p key={index} className="mb-8">{paragraph}</p>
         ))}
 
-        <img src="/gallery/suryangallery.jpg" alt="Historic Navagraha temple with towering gopuram" className="w-full h-[450px] object-cover rounded-[30px] my-12 shadow-soft" />
+
 
         <div className="space-y-20 mt-16">
           {historySections.map((section, index) => {
@@ -458,10 +458,7 @@ function HistoryLayout() {
                   </ul>
                 )}
 
-                {/* Add an image halfway through the article to break up text */}
-                {index === 1 && (
-                  <img src="/gallery/image copy.png" alt="Stone mandapam and temple heritage corridor" className="w-full h-[450px] object-cover rounded-[30px] my-16 shadow-soft" />
-                )}
+
               </div>
             );
           })}

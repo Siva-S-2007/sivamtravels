@@ -13,8 +13,8 @@ const guideCards = [
       'Discover the traditional order for visiting all nine Navagraha temples from Kumbakonam, along with the most efficient pilgrimage route.',
     cta: 'View Temple Order ->',
     Icon: Orbit,
-    heroImage: '/gallery/suryanagallery.png',
-    exploreText: 'Explore',
+    heroImage: '/navagrahatempleorder.jpg',
+    exploreText: 'Read More',
   },
   {
     href: '/navagraha/doshas-remedies',
@@ -24,8 +24,8 @@ const guideCards = [
       'Learn the significance of each planetary dosha, recommended temple visits, prayers, and traditional remedies followed by devotees.',
     cta: 'Explore Remedies ->',
     Icon: ScrollText,
-    heroImage: '/gallery/chandrangallery.png',
-    exploreText: 'Explore',
+    heroImage: '/navagrahadoshasandpariharam.png',
+    exploreText: 'Read More',
   },
   {
     href: '/navagraha/history-beliefs',
@@ -35,8 +35,8 @@ const guideCards = [
       'Explore the history of the Navagraha temples, their spiritual importance, and the beliefs associated with each planetary deity.',
     cta: 'Read History ->',
     Icon: BookOpenText,
-    heroImage: '/gallery/sevvaigallery.png',
-    exploreText: 'Explore',
+    heroImage: '/navagrahahistory.png',
+    exploreText: 'Read More',
   },
 ];
 
