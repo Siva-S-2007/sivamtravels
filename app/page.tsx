@@ -10,6 +10,12 @@ import Booking from '@/components/Booking';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
+export const metadata = {
+  alternates: {
+    canonical: "https://www.sivamtravels.com/",
+  },
+};
+
 export default function Home() {
   return (
     <>

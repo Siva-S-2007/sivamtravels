@@ -3,38 +3,77 @@ import { packageDetails, getPackageBySlug } from '@/lib/packages';
 import PackagePageClient from './PackagePageClient';
 
 
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Best Navagraha Tour Packages from Kumbakonam | Sivam Travels',
-  description: 'Book the best Navagraha Tour Packages from Kumbakonam with Sivam Travels. Explore custom 1-day and 2-day temple itineraries at affordable rates.',
-};
-
-export default function Page() {
-  return (
-    <main>
-      <h1>Best Navagraha Tour Packages from Kumbakonam</h1>
-    </main>
-  );
-}
-
-
-
 export function generateStaticParams() {
   return packageDetails.map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const slug = params.slug;
   const pkg = getPackageBySlug(params.slug);
   if (!pkg) return { title: 'Package Not Found' };
+
   return {
     title: `${pkg.title.en} — Sivam Travels`,
     description: pkg.overview.en,
+    alternates: {
+      canonical: `https://www.sivamtravels.com/packages/${slug}`,
+    },
   };
 }
 
 export default function PackagePage({ params }: { params: { slug: string } }) {
   const pkg = getPackageBySlug(params.slug);
   if (!pkg) notFound();
-  return <PackagePageClient slug={params.slug} />;
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.sivamtravels.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Packages",
+        "item": "https://www.sivamtravels.com/packages"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": pkg.title.en,
+        "item": `https://www.sivamtravels.com/packages/${params.slug}`
+      }
+    ]
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": pkg.title.en,
+    "name": pkg.title.en,
+    "description": pkg.overview.en,
+    "url": `https://www.sivamtravels.com/packages/${params.slug}`,
+    "provider": {
+      "@type": "Organization",
+      "name": "Sivam Travels"
+    }
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <PackagePageClient slug={params.slug} />
+    </>
+  );
 }

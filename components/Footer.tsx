@@ -10,12 +10,17 @@ const WHATSAPP_NUMBER = '917010407781';
 const OFFICE_MAP_URL = 'https://google.com' + encodeURIComponent('Sivam Complex, 55/1 Karaikal Main Road, Thirunageswaram (Near Rahu Sthalam), Kumbakonam, Tamil Nadu 612204');
 
 const quickLinks: { label: TranslationKey; href: string }[] = [
-  { label: 'nav.home', href: '#home' },
-  { label: 'nav.packages', href: '#packages' },
-  { label: 'nav.navagraha', href: '#navagraha' },
-  { label: 'nav.gallery', href: '#gallery' },
-  { label: 'nav.bookNow', href: '#booking' },
-  { label: 'nav.contact', href: '#contact' },
+  { label: 'nav.home', href: '/' },
+  { label: 'nav.packages', href: '/packages' },
+  { label: 'nav.oneDayPackage', href: '/packages/one-day' },
+  { label: 'nav.twoDayPackage', href: '/packages/two-day' },
+  { label: 'nav.threeDayPackage', href: '/packages/three-day' },
+  { label: 'nav.groupTour', href: '/packages/group-tour' },
+  { label: 'nav.navagrahaOrder', href: '/navagraha/order-to-visit' },
+  { label: 'nav.navagrahaDoshas', href: '/navagraha/doshas-remedies' },
+  { label: 'nav.navagrahaHistory', href: '/navagraha/history-beliefs' },
+  { label: 'nav.gallery', href: '/gallery' },
+  { label: 'nav.contact', href: '/contact' },
 ];
 
 const footerContact: Record<Lang, { address: string; phone1: string; phone2: string; whatsapp: string; email: string }> = {

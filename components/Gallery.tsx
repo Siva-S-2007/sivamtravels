@@ -3,10 +3,13 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useCallback, useEffect } from 'react';
+import Image from 'next/image';
 import { SectionHeading } from './Packages';
 import { useApp } from '@/lib/app-context';
 import { asset } from '@/lib/utils';
 import type { Lang } from '@/lib/data';
+
+const MotionImage = motion(Image);
 
 type GalleryImage = {
   src: string;
@@ -17,15 +20,15 @@ type GalleryImage = {
 // To add more images, simply append objects to this array.
 // span options: 'row-span-2' for tall, 'col-span-2' for wide, '' for regular.
 const galleryImages: GalleryImage[] = [
-  { src: asset('/gallery/suryangallery.jpg'), alt: { en: 'Suriyan Temple', ta: 'சூரியன் கோயில்' }, span: 'row-span-2' },
-  { src: asset('/gallery/chandrangallery.png'), alt: { en: 'Chandran Temple', ta: 'சந்திரன் கோயில்' } },
-  { src: asset('/gallery/sevvaigallery.jpg'), alt: { en: 'Sevvai Temple', ta: 'செவ்வாய் கோயில்' } },
-  { src: asset('/gallery/budhangallery.png'), alt: { en: 'Budhan Temple', ta: 'புதன் கோயில்' }, span: 'row-span-2' },
-  { src: asset('/gallery/gurugallery.png'), alt: { en: 'Guru Temple', ta: 'குரு கோயில்' } },
-  { src: asset('/gallery/sukrangallery.jpg'), alt: { en: 'Sukran Temple', ta: 'சுக்கிரன் கோயில்' } },
-  { src: asset('/gallery/sanigallery.jpg'), alt: { en: 'Sani Temple', ta: 'சனி கோயில்' } },
-  { src: asset('/gallery/rahugallery.jpg'), alt: { en: 'Rahu Temple', ta: 'ராகு கோயில்' } },
-  { src: asset('/gallery/ketugallery.jpg'), alt: { en: 'Kethu Temple', ta: 'கேது கோயில்' } },
+  { src: asset('/gallery/suryangallery.jpg'), alt: { en: 'Suriyanar Temple Navagraha', ta: 'சூரியனார் கோயில் நவக்கிரகம்' }, span: 'row-span-2' },
+  { src: asset('/gallery/chandrangallery.png'), alt: { en: 'Chandran Temple Navagraha', ta: 'சந்திரன் கோயில் நவக்கிரகம்' } },
+  { src: asset('/gallery/sevvaigallery.jpg'), alt: { en: 'Sevvai Temple Navagraha', ta: 'செவ்வாய் கோயில் நவக்கிரகம்' } },
+  { src: asset('/gallery/budhangallery.png'), alt: { en: 'Budhan Temple Navagraha', ta: 'புதன் கோயில் நவக்கிரகம்' }, span: 'row-span-2' },
+  { src: asset('/gallery/gurugallery.png'), alt: { en: 'Guru Temple Navagraha', ta: 'குரு கோயில் நவக்கிரகம்' } },
+  { src: asset('/gallery/sukrangallery.jpg'), alt: { en: 'Sukran Temple Navagraha', ta: 'சுக்கிரன் கோயில் நவக்கிரகம்' } },
+  { src: asset('/gallery/sanigallery.jpg'), alt: { en: 'Sani Temple Navagraha', ta: 'சனி கோயில் நவக்கிரகம்' } },
+  { src: asset('/gallery/rahugallery.jpg'), alt: { en: 'Rahu Temple Navagraha', ta: 'ராகு கோயில் நவக்கிரகம்' } },
+  { src: asset('/gallery/ketugallery.jpg'), alt: { en: 'Kethu Temple Navagraha', ta: 'கேது கோயில் நவக்கிரகம்' } },
 ];
 
 export default function Gallery() {
@@ -72,10 +75,12 @@ export default function Gallery() {
               onClick={() => setLightbox(i)}
               className="group relative block w-full overflow-hidden rounded-2xl border border-gold/15 shadow-soft"
             >
-              <img
+              <Image
                 src={img.src}
                 alt={img.alt[lang]}
-                className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               <div className="absolute bottom-0 left-0 right-0 translate-y-2 p-4 font-heading text-lg text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
@@ -113,7 +118,7 @@ export default function Gallery() {
               <ChevronLeft className="h-6 w-6" />
             </button>
 
-            <motion.img
+            <MotionImage
               key={lightbox}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -121,7 +126,9 @@ export default function Gallery() {
               src={galleryImages[lightbox].src}
               alt={galleryImages[lightbox].alt[lang]}
               onClick={(e) => e.stopPropagation()}
-              className="max-h-[80vh] max-w-[90vw] rounded-xl object-contain shadow-luxe"
+              fill
+              sizes="100vw"
+              className="object-contain shadow-luxe"
             />
 
             <button

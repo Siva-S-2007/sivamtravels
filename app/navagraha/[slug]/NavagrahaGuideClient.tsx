@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, ChevronRight, Sparkles } from 'lucide-react';
 import { useApp } from '@/lib/app-context';
 import type { Lang } from '@/lib/data';
+import SectionLabel from '@/components/ui/section-label';
+import { motion } from 'framer-motion';
 
 type GuideSlug = 'order-to-visit' | 'doshas-remedies' | 'history-beliefs';
 
@@ -28,6 +30,52 @@ type HistorySection = {
   paragraphs: Bi[];
   items?: { title: Bi; text: Bi }[];
 };
+
+type RelatedLink = {
+  href: string;
+  title: { en: string; ta: string };
+  description?: { en: string; ta: string };
+};
+
+function getRelatedPackages(guideSlug: GuideSlug, lang: Lang): RelatedLink[] {
+  const packages = {
+    oneDay: {
+      href: '/packages/one-day',
+      title: { en: 'Navagraha One Day Tour Package', ta: 'நவகிரக ஒரு நாள் சுற்றுலா தொகுப்பு' },
+      description: {
+        en: 'Experience all nine Navagraha temples in a single day with our expertly planned tour.',
+        ta: 'எங்கள் நிபுணத்துவ சுற்றுப்பயணத்துடன் ஒரே நாளில் ஒன்பது நவகிரக கோயில்களையும் அனுபவியுங்கள்.',
+      },
+    },
+    twoDay: {
+      href: '/packages/two-day',
+      title: { en: 'Navagraha Two Day Tour Package', ta: 'நவகிரக இரண்டு நாள் சுற்றுலா தொகுப்பு' },
+      description: {
+        en: 'A comprehensive two-day pilgrimage covering all major Navagraha temples and local attractions.',
+        ta: 'அனைத்து முக்கிய நவகிரக கோயில்கள் மற்றும் உள்ளூர் இடங்களை உள்ளடக்கிய விரிவான இரண்டு நாள் யாத்திரை.',
+      },
+    },
+    threeDay: {
+      href: '/packages/three-day',
+      title: { en: 'Navagraha Three Day Tour Package', ta: 'நவகிரக மூன்று நாள் சுற்றுலா தொகுப்பு' },
+      description: {
+        en: 'An immersive three-day journey into the spiritual heartland of the Navagraha temples.',
+        ta: 'நவகிரக கோயில்களின் ஆன்மீக மையப்பகுதிக்கு மூன்று நாள் ஆழ்ந்த பயணம்.',
+      },
+    },
+  };
+
+  switch (guideSlug) {
+    case 'order-to-visit':
+      return [packages.oneDay, packages.twoDay, packages.threeDay];
+    case 'doshas-remedies':
+      return [packages.threeDay];
+    case 'history-beliefs':
+      return [packages.twoDay];
+    default:
+      return [];
+  }
+}
 
 const guidePages: Record<GuideSlug, GuidePage> = {
   'order-to-visit': {
@@ -483,6 +531,39 @@ export default function NavagrahaGuideClient({ slug: slugStr }: { slug: string }
           {slug === 'history-beliefs' ? <HistoryLayout lang={lang} /> : null}
         </article>
       </main>
+
+      {/* Related Tour Packages Section */}
+      <section className="bg-ivory py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <SectionLabel center>{lang === 'en' ? 'Related Tour Packages' : 'தொடர்புடைய சுற்றுலா தொகுப்புகள்'}</SectionLabel>
+          <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {getRelatedPackages(slug, lang).map((link, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-gold/15 bg-white shadow-soft transition-all duration-500 hover:-translate-y-1.5 hover:shadow-luxe"
+              >
+                <Link href={link.href} className="absolute inset-0" aria-label={link.title[lang]} />
+                <div className="flex flex-1 flex-col gap-4 p-5">
+                  <h3 className="font-heading text-xl font-medium text-maroon group-hover:text-gold">
+                    {link.title[lang]}
+                  </h3>
+                  {link.description && (
+                    <p className="font-body text-sm leading-relaxed text-charcoal/70">{link.description[lang]}</p>
+                  )}
+                  <div className="mt-auto flex items-center gap-2 font-body text-sm text-gold">
+                    {lang === 'en' ? 'View Details' : 'விவரங்களைப் பார்க்க'}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
@@ -609,6 +690,22 @@ function OrderToVisitLayout({ lang }: { lang: Lang }) {
             <li key={i}>{item[lang]}</li>
           ))}
         </ul>
+
+        <p className="mt-12 font-heading text-3xl text-maroon">
+          {lang === 'en' ? 'Ready to follow this itinerary? Explore our ' : 'இந்த பயணத்திட்டத்தைப் பின்பற்ற தயாரா? எங்கள் '}
+          <Link href="/packages/one-day" className="text-gold hover:underline">
+            {lang === 'en' ? 'One Day' : 'ஒரு நாள்'}
+          </Link>
+          {', '}
+          <Link href="/packages/two-day" className="text-gold hover:underline">
+            {lang === 'en' ? 'Two Day' : 'இரண்டு நாள்'}
+          </Link>
+          {', and '}
+          <Link href="/packages/three-day" className="text-gold hover:underline">
+            {lang === 'en' ? 'Three Day' : 'மூன்று நாள்'}
+          </Link>
+          {lang === 'en' ? ' Navagraha Tour Packages.' : ' நவகிரக சுற்றுலா தொகுப்புகளை ஆராயுங்கள்.'}
+        </p>
       </div>
 
       <div className="mt-24">
@@ -649,6 +746,13 @@ function DoshasLayout({ lang }: { lang: Lang }) {
             </div>
           ))}
         </div>
+
+        <p className="mt-12 font-heading text-3xl text-maroon">
+          {lang === 'en' ? 'Plan your pilgrimage with our ' : 'உங்கள் யாத்திரையை திட்டமிடுங்கள் எங்கள் '}
+          <Link href="/packages/three-day" className="text-gold hover:underline">
+            {lang === 'en' ? 'Navagraha Tour Packages from Kumbakonam.' : 'கும்பகோணத்திலிருந்து நவகிரக சுற்றுலா தொகுப்புகளுடன்.'}
+          </Link>
+        </p>
       </div>
 
       <div className="mt-24">
@@ -688,6 +792,13 @@ function HistoryLayout({ lang }: { lang: Lang }) {
             </div>
           ))}
         </div>
+
+        <p className="mt-12 font-heading text-3xl text-maroon">
+          {lang === 'en' ? 'Experience these sacred temples through our ' : 'எங்கள் மூலம் இந்த புனித கோயில்களை அனுபவியுங்கள் '}
+          <Link href="/packages/two-day" className="text-gold hover:underline">
+            {lang === 'en' ? 'Navagraha Temple Tour Packages.' : 'நவகிரக கோயில் சுற்றுலா தொகுப்புகள்.'}
+          </Link>
+        </p>
       </div>
 
       <div className="mt-24">

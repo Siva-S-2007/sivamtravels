@@ -28,12 +28,17 @@ export function generateStaticParams() {
   return Object.keys(guideMeta).map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const page = guideMeta[params.slug as GuideSlug];
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const slug = params.slug;
+  const page = guideMeta[slug as GuideSlug];
   if (!page) return { title: 'Navagraha Guide | Sivam Travels' };
+
   return {
     title: `${page.title} | Sivam Travels`,
     description: page.description,
+    alternates: {
+      canonical: `https://www.sivamtravels.com/navagraha/${slug}`,
+    },
   };
 }
 
@@ -41,8 +46,37 @@ export default function NavagrahaGuidePage({ params }: { params: { slug: string 
   const slug = params.slug as GuideSlug;
   if (!guideMeta[slug]) notFound();
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.sivamtravels.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Navagraha Guides",
+        "item": "https://www.sivamtravels.com/navagraha" // Assuming a general Navagraha guides page
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": guideMeta[slug].title,
+        "item": `https://www.sivamtravels.com/navagraha/${slug}`
+      }
+    ]
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Navbar />
       <NavagrahaGuideClient slug={params.slug} />
       <Footer />

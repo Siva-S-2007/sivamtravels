@@ -42,6 +42,59 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${cormorant.variable} ${cinzel.variable}`}>
       <body className="font-body bg-background text-foreground antialiased">
         <AppProvider>{children}</AppProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Sivam Travels",
+              "url": "https://www.sivamtravels.com",
+              "logo": "https://www.sivamtravels.com/logo.png", // Assuming you have a logo at this path
+              "sameAs": [
+                "https://www.facebook.com/sivamtravels", // Replace with actual social links
+                "https://twitter.com/sivamtravels",
+                "https://www.instagram.com/sivamtravels"
+              ]
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "TravelAgency",
+              "name": "Sivam Travels",
+              "telephone": "", // Add your phone number
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "", // Add your street address
+                "addressLocality": "Kumbakonam",
+                "addressRegion": "Tamil Nadu",
+                "postalCode": "", // Add your postal code
+                "addressCountry": "IN"
+              },
+              "url": "https://www.sivamtravels.com",
+              "priceRange": "$", // Adjust price range as appropriate
+              "areaServed": {
+                "@type": "State",
+                "name": "Tamil Nadu"
+              }
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Sivam Travels",
+              "url": "https://www.sivamtravels.com"
+            })
+          }}
+        />
       </body>
     </html>
   );

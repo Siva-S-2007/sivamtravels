@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Clock, ArrowRight, ArrowLeft, Phone, Check, Car, Star, BedDouble, Send, User, CalendarDays, Users, Baby, FileText, Package as PackageIcon, MapPin, ExternalLink, Info, CircleCheckBig, CircleX } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import Image from 'next/image';
 import type { PackageDetail } from '@/lib/packages';
 import type { Lang } from '@/lib/data';
 
@@ -29,6 +31,79 @@ const EXCLUDED_ITEMS = [
   'Entry Fees (if applicable)',
   'Travel Insurance',
 ];
+
+type RelatedLink = {
+  href: string;
+  title: { en: string; ta: string };
+  description?: { en: string; ta: string };
+};
+
+function getRelatedLinks(pkgSlug: string, lang: Lang): RelatedLink[] {
+  const guides = {
+    order: {
+      href: '/navagraha/order-to-visit',
+      title: {
+        en: 'Navagraha Temple Order to Visit',
+        ta: 'நவகிரக கோயில்கள் தரிசன வரிசை',
+      },
+      description: {
+        en: 'Discover the traditional order for visiting all nine Navagraha temples from Kumbakonam, along with the most efficient pilgrimage route.',
+        ta: 'கும்பகோணத்திலிருந்து ஒன்பது நவகிரக கோயில்களையும் தரிசிக்க பாரம்பரிய வரிசையும், சிறந்த யாத்திரை வழியும் இங்கே.',
+      },
+    },
+    doshas: {
+      href: '/navagraha/doshas-remedies',
+      title: {
+        en: 'Navagraha Doshas & Remedies',
+        ta: 'நவகிரக தோஷங்களும் பரிகாரங்களும்',
+      },
+      description: {
+        en: 'Learn the significance of each planetary dosha, recommended temple visits, prayers, and traditional remedies followed by devotees.',
+        ta: 'ஒவ்வொரு கிரக தோஷத்தின் பொருள், பரிகாரமாக செல்ல வேண்டிய கோயில்கள், பிரார்த்தனைகள் மற்றும் பக்தர்கள் பின்பற்றும் பாரம்பரிய பரிகாரங்களை அறிக.',
+      },
+    },
+    history: {
+      href: '/navagraha/history-beliefs',
+      title: {
+        en: 'Navagraha History & Beliefs',
+        ta: 'நவகிரக வரலாறும் நம்பிக்கைகளும்',
+      },
+      description: {
+        en: 'Explore the history of the Navagraha temples, their spiritual importance, and the beliefs associated with each planetary deity.',
+        ta: 'நவகிரக கோயில்களின் வரலாறு, அவற்றின் ஆன்மீக முக்கியத்துவம் மற்றும் ஒவ்வொரு கிரக தெய்வத்துடன் தொடர்புடைய நம்பிக்கைகளை ஆராய்க.',
+      },
+    },
+  };
+
+  const contactBookNow = {
+    href: '#booking',
+    title: {
+      en: 'Contact / Book Now',
+      ta: 'தொடர்பு / இப்போதே பதிவு செய்க',
+    },
+  };
+
+  const faq = {
+    href: '/faq',
+    title: {
+      en: 'Frequently Asked Questions',
+      ta: 'அடிக்கடி கேட்கப்படும் கேள்விகள்',
+    },
+  };
+
+  switch (pkgSlug) {
+    case '1-day':
+      return [guides.order, guides.doshas, guides.history];
+    case '2-day':
+      return [guides.order, guides.history, contactBookNow];
+    case '3-day':
+      return [guides.order, guides.doshas, contactBookNow];
+    case 'group-tour':
+      return [guides.order, contactBookNow, faq];
+    default:
+      return [];
+  }
+}
 
 export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; lang: Lang }) {
   const router = useRouter();
@@ -74,7 +149,7 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
       {/* Hero */}
       <section className="relative flex min-h-[460px] items-end overflow-hidden lg:min-h-[520px]">
         <div className="absolute inset-0">
-          <img src={pkg.heroImage} alt={pkg.title[lang]} className="h-full w-full object-cover" />
+          <Image src={pkg.heroImage} alt={`${pkg.title[lang]} Navagraha Tour Package`} fill priority sizes="100vw" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-charcoal/30" />
         </div>
 
@@ -143,10 +218,10 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
         </div>
       </section>
 
-      {/* Itinerary ? Bordered grid table */}
+      {/* Itinerary / Grid table */}
       <section className="py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <SectionLabel center>{lang === 'en' ? 'Day-wise Itinerary' : '???? ??????? ??????????'}</SectionLabel>
+          <SectionLabel center>{lang === 'en' ? 'Day-wise Itinerary' : 'தினசரி பயணத் திட்டம்'}</SectionLabel>
           <div className="mt-10 flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1.85fr)_minmax(320px,1fr)] lg:items-start">
             <div className="min-w-0 lg:justify-self-start">
               {/* Desktop: bordered grid table */}
@@ -155,10 +230,10 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
                   <thead>
                     <tr className="bg-maroon">
                       <th className="border border-maroon/60 px-5 py-4 text-left font-title text-base tracking-widest text-gold">
-                        {lang === 'en' ? 'DAY' : '????'}
+                        {lang === 'en' ? 'DAY' : 'நாள்'}
                       </th>
                       <th className="border border-maroon/60 px-5 py-4 text-left font-title text-base tracking-widest text-gold">
-                        {lang === 'en' ? 'TEMPLES / STOPS' : '????????? / ????????????'}
+                        {lang === 'en' ? 'TEMPLES / STOPS' : 'கோயில்கள் / இடங்கள்'}
                       </th>
                     </tr>
                   </thead>
@@ -178,7 +253,7 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
                             <td className="border border-charcoal/15 px-5 py-4 font-body text-lg text-charcoal">
                               {(() => {
                                 const title = stop.title[lang];
-                                const separatorIndex = title.indexOf(' ? ') !== -1 ? title.indexOf(' ? ') : title.indexOf(' ? ') !== -1 ? title.indexOf(' ? ') : -1;
+                                const separatorIndex = title.indexOf(' – ') !== -1 ? title.indexOf(' – ') : title.indexOf(' - ') !== -1 ? title.indexOf(' - ') : -1;
                                 if (separatorIndex === -1) return title;
                                 const templeName = title.substring(0, separatorIndex + 1);
                                 const location = title.substring(separatorIndex + 2);
@@ -221,7 +296,7 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
                             <span className="font-body text-base">
                               {(() => {
                                 const title = stop.title[lang];
-                                const separatorIndex = title.indexOf(' ? ') !== -1 ? title.indexOf(' ? ') : title.indexOf(' ? ') !== -1 ? title.indexOf(' ? ') : -1;
+                                const separatorIndex = title.indexOf(' – ') !== -1 ? title.indexOf(' – ') : title.indexOf(' - ') !== -1 ? title.indexOf(' - ') : -1;
                                 if (separatorIndex === -1) return title;
                                 const templeName = title.substring(0, separatorIndex + 1);
                                 const location = title.substring(separatorIndex + 2);
@@ -248,13 +323,13 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
                   title="What's Included"
                   items={INCLUDED_ITEMS}
                   icon={<CircleCheckBig className="h-5 w-5 text-gold" />}
-                  symbol="?"
+                  symbol="✓"
                 />
                 <InclusionCard
                   title="What's Not Included"
                   items={EXCLUDED_ITEMS}
                   icon={<CircleX className="h-5 w-5 text-maroon" />}
-                  symbol="?"
+                  symbol="✕"
                 />
               </div>
             </aside>
@@ -367,7 +442,7 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
             ))}
           </div>
 
-          {/* Pricing disclaimer — more visible */}
+          {/* Pricing disclaimer */}
           <div className="mt-5 flex items-start gap-3 rounded-xl border border-gold/30 bg-gold/10 px-5 py-4">
             <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-maroon text-xs text-gold">!</span>
             <p className="font-body text-base font-medium leading-relaxed text-maroon">{pkg.pricingNote[lang]}</p>
@@ -435,6 +510,39 @@ export default function PackagePageContent({ pkg, lang }: { pkg: PackageDetail; 
           </div>
         </section>
       )}
+
+      {/* Related Links */}
+      <section className="bg-ivory py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <SectionLabel center>{lang === 'en' ? 'Related Links' : 'தொடர்புடைய இணைப்புகள்'}</SectionLabel>
+          <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {getRelatedLinks(pkg.slug, lang).map((link, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-gold/15 bg-white shadow-soft transition-all duration-500 hover:-translate-y-1.5 hover:shadow-luxe"
+              >
+                <Link href={link.href} className="absolute inset-0" aria-label={link.title[lang]} />
+                <div className="flex flex-1 flex-col gap-4 p-5">
+                  <h3 className="font-heading text-xl font-medium text-maroon group-hover:text-gold">
+                    {link.title[lang]}
+                  </h3>
+                  {link.description && (
+                    <p className="font-body text-sm leading-relaxed text-charcoal/70">{link.description[lang]}</p>
+                  )}
+                  <div className="mt-auto flex items-center gap-2 font-body text-sm text-gold">
+                    {lang === 'en' ? 'View Details' : 'விவரங்களைப் பார்க்க'}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Booking Form */}
       <section id="booking" className="relative overflow-hidden bg-maroon py-20 lg:py-24">
@@ -719,5 +827,5 @@ function InclusionCard({
         ))}
       </ul>
     </div>
-  );
+  ); 
 }

@@ -1,11 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { MessageCircle, Send, User, Phone, CalendarDays, MapPin, Users, FileText, Package as PackageIcon, Car, BedDouble, Baby } from 'lucide-react';
 import { packages } from '@/lib/data';
 import { useApp } from '@/lib/app-context';
 import { asset } from '@/lib/utils';
+
+const MotionImage = motion(Image);
 
 const WHATSAPP_NUMBER = '917010407781';
 
@@ -66,9 +69,11 @@ export default function Booking() {
             transition={{ duration: 0.7 }}
             className="relative min-h-[420px] overflow-hidden rounded-2xl border border-gold/20"
           >
-            <img
+            <Image
               src={asset('/deities/rahu.jpg')}
-              alt="Rahu deity"
+              alt="Rahu Navagraha Deity"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-maroon/80 via-maroon/20 to-transparent" />

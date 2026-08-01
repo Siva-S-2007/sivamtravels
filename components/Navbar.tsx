@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 import { cn, asset } from '@/lib/utils';
 import { useApp } from '@/lib/app-context';
 import type { TranslationKey } from '@/lib/translations';
@@ -43,9 +44,13 @@ export default function Navbar() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 lg:px-10">
         <a href="/sivamtravels/#home" className="group flex shrink-0 items-center gap-3">
-          <img
+          <Image
             src={asset('/sivamtravels-logo.png')}
-            alt="Sivam Travels"
+            alt="Sivam Travels Logo"
+            width={48}
+            height={48}
+            priority
+            sizes="48px"
             className="h-12 w-12 rounded-full object-cover transition-all duration-300 group-hover:scale-105"
           />
           <span className="flex flex-col leading-none">

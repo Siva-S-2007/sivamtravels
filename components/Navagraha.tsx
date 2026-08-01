@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, BookOpenText, Orbit, ScrollText } from 'lucide-react';
+import Image from 'next/image';
 import { useApp } from '@/lib/app-context';
 import type { Lang } from '@/lib/data';
 
@@ -138,10 +139,12 @@ export default function Navagraha() {
               className="group relative flex flex-col overflow-hidden rounded-2xl border border-gold/15 bg-white shadow-soft transition-all duration-500 hover:-translate-y-1.5 hover:shadow-luxe"
             >
               <div className="relative h-52 overflow-hidden bg-gradient-to-br from-maroon/5 to-gold/5">
-                <img
+                <Image
                   src={card.heroImage}
                   alt={card.title[lang]}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-maroon/80 via-maroon/20 to-transparent" />
                 <h3 className="absolute bottom-4 left-4 right-4 font-heading text-xl font-medium text-white">

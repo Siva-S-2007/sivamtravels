@@ -3,6 +3,13 @@ import type { Lang } from './data';
 export type TranslationKey =
   | 'nav.home'
   | 'nav.packages'
+  | 'nav.oneDayPackage'
+  | 'nav.twoDayPackage'
+  | 'nav.threeDayPackage'
+  | 'nav.groupTour'
+  | 'nav.navagrahaOrder'
+  | 'nav.navagrahaDoshas'
+  | 'nav.navagrahaHistory'
   | 'nav.navagraha'
   | 'nav.faq'
   | 'nav.gallery'
@@ -110,6 +117,13 @@ export const translations: Record<TranslationKey, Record<Lang, string>> = {
   'nav.gallery': { en: 'Gallery', ta: 'படத்தொகுப்பு' },
   'nav.contact': { en: 'Contact', ta: 'தொடர்பு' },
   'nav.bookNow': { en: 'Book Now', ta: 'இப்போது முன்பதிவி' },
+  'nav.oneDayPackage': { en: 'One Day Package', ta: 'ஒரு நாள் தொகுப்பு' },
+  'nav.twoDayPackage': { en: 'Two Day Package', ta: 'இரண்டு நாள் தொகுப்பு' },
+  'nav.threeDayPackage': { en: 'Three Day Package', ta: 'மூன்று நாள் தொகுப்பு' },
+  'nav.groupTour': { en: 'Group Tour', ta: 'குழு சுற்றுலா' },
+  'nav.navagrahaOrder': { en: 'Temple Order Guide', ta: 'கோயில் வரிசை வழிகாட்டி' },
+  'nav.navagrahaDoshas': { en: 'Doshas & Remedies', ta: 'தோஷங்கள் & பரிகாரங்கள்' },
+  'nav.navagrahaHistory': { en: 'History & Beliefs', ta: 'வரலாறு & நம்பிக்கைகள்' },
 
   'hero.eyebrow': { en: 'Begin Your Divine Navagraha Journey', ta: 'உங்கள் தெய்வீக நவக்கிரகப் பயணத்தைத் தொடங்குங்கள்.' },
   'hero.title1': { en: 'Begin Your', ta: 'உங்கள் தெய்வீக' },

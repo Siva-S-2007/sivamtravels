@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Lock, Sparkles } from 'lucide-react';
 import { SectionHeading } from './Packages';
@@ -46,9 +47,11 @@ export default function UpcomingJourneys() {
               className="group relative overflow-hidden rounded-2xl border border-gold/15 bg-white shadow-soft"
             >
               <div className="relative h-48 overflow-hidden">
-                <img
+                <Image
                   src={j.img}
-                  alt={j.title}
+                  alt={`${j.title} Pilgrimage`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   className="h-full w-full object-cover opacity-70 transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/40 to-transparent" />
