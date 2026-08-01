@@ -23,7 +23,7 @@ const features: Record<Lang, { icon: typeof MapPinned; title: string; desc: stri
     { icon: MapPinned, title: 'Begin Your Pilgrimage at Rahu Sthalam', desc: 'Native based in Thirunageswaram, Sivam Travels offers easy Rahu Temple access, local guidance, and smooth Navagraha pilgrimage routes.' },
     
     { icon: BedDouble, title: 'Stay Near the Rahu Temple', desc: 'Comfortable, affordable rooms are located just steps from Thirunageswaram Rahu Temple, perfect for resting during your Navagraha circuit.' },
-    { icon: ShieldCheck, title: 'Safe & Reliable', desc: 'Experienced drivers, well-maintained vehicles, and round-the-clock support throughout your journey.' },
+    { icon: ShieldCheck, title: 'Safe & Reliable', desc: 'Sivam Travels provides experienced drivers, well-maintained vehicles, and round-the-clock support throughout your journey.' },
     { icon: Clock3, title: 'Thoughtful Timing', desc: 'We plan around temple hours and crowd patterns so your darshan is peaceful and unhurried.' },
     
   ],

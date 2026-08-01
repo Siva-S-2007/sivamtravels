@@ -92,7 +92,7 @@ export const packageDetails: PackageDetail[] = [
       ta: 'ஒரே நாளில் ஒன்பது புனித நவகிரக கோயில்களையும் தரிசிக்க.',
     },
     overview: {
-      en: 'Visit all nine sacred Navagraha temples in a thoughtfully planned one-day pilgrimage. This itinerary is designed for devotees who wish to complete the Navagraha circuit comfortably within a single day while experiencing peaceful darshan at every temple.',
+      en: 'Sivam Travels offers a carefully planned One Day Navagraha Tour Package covering all nine sacred Navagraha temples. This itinerary is designed for devotees who wish to complete the Navagraha circuit comfortably within a single day while experiencing peaceful darshan at every temple.',
       ta: 'ஒன்பது புனித நவகிரக கோயில்களையும் கவனமாக திட்டமிடப்பட்ட ஒருநாள யாத்திரையில் தரிசிக்க. ஒரே நாளில் நவகிரஹ சுற்றுப்பயணத்தை வசதியாக முடித்து, ஒவ்வொரு கோயிலிலும் அமைதியான தரிசனம் பெற விரும்பும் பக்தர்களுக்கான திட்டம்.',
     },
     heroImage: asset('/gallery/suryangallery.jpg'),
@@ -314,7 +314,7 @@ export const packageDetails: PackageDetail[] = [
       ta: 'தனிநபர்கள், தம்பதிகள் மற்றும் சிறு குடும்பங்களுக்கான பட்ஜெட் நட்பு பகிர்வு யாத்திரை.',
     },
     overview: {
-      en: 'A budget-friendly shared pilgrimage ideal for individual devotees, couples and small families who wish to experience the Navagraha temples with fellow pilgrims.',
+      en: 'A budget-friendly shared pilgrimage ideal for individual devotees, couples and small families who wish to experience the Navagraha temples with fellow pilgrims. Sivam Travels ensures a well-organized group experience with comfortable transport.',
       ta: 'தனிப்பட்ட பக்தர்கள், தம்பதிகள் மற்றும் சிறு குடும்பங்களுக்கு ஏற்ற பட்ஜெட் நட்பு பகிர்வு யாத்திரை, மற்ற பக்தர்களுடன் நவகிரஹ கோயில்களை அனுபவிக்க.',
     },
     heroImage: asset('/gallery/sanigallery.jpg'),

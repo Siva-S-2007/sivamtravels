@@ -15,7 +15,7 @@ const faqData: Record<Lang, { q: string; a: string }[]> = {
     },
     {
       q: 'Can all 9 Navagraha temples be visited in one day?',
-      a: 'Yes. All nine temples can be covered in our One Day Navagraha Temple Tour with an early start and proper route planning. However, devotees who prefer a slower pace often choose our Two Day Navagraha Tour from Kumbakonam for a more comfortable darshan experience.',
+      a: 'Yes. All nine temples can be covered in our One Day Navagraha Temple Tour with an early start and proper route planning. However, devotees who prefer a slower pace often choose the Two Day Navagraha Tour from Kumbakonam by Sivam Travels for a more comfortable darshan experience.',
     },
     {
       q: 'Where does the Navagraha Tour start?',
@@ -23,7 +23,7 @@ const faqData: Record<Lang, { q: string; a: string }[]> = {
     },
     {
       q: 'Which is the best place to stay for a Navagraha pilgrimage?',
-      a: 'Kumbakonam is the preferred base for most pilgrims because it is centrally located between all nine temples. We also offer comfortable accommodation near Thirunageswaram Rahu Temple, making it convenient for devotees planning their Navagraha Temple Tour.',
+      a: 'Kumbakonam is the preferred base for most pilgrims because it is centrally located between all nine temples. Sivam Travels also offers comfortable accommodation near Thirunageswaram Rahu Temple, making it convenient for devotees planning their Navagraha Temple Tour.',
     },
     {
       q: 'Do you provide pickup from Kumbakonam Railway Station?',
@@ -43,11 +43,11 @@ const faqData: Record<Lang, { q: string; a: string }[]> = {
     },
     {
       q: 'Is the tour suitable for senior citizens?',
-      a: 'Yes. Our Navagraha Temple Tour Packages are suitable for senior citizens. We carefully plan temple timings, reduce unnecessary travel, and provide comfortable vehicles to ensure a peaceful pilgrimage for elderly devotees.',
+      a: 'Yes. Our Navagraha Temple Tour Packages are suitable for senior citizens. Sivam Travels carefully plans temple timings, reduces unnecessary travel, and provides comfortable vehicles to ensure a peaceful pilgrimage for elderly devotees.',
     },
     {
       q: 'Can I customize my Navagraha Tour Package?',
-      a: 'Absolutely. We offer customized Navagraha Tour Packages based on your travel dates, preferred temples, pickup location, accommodation needs, vehicle type, and family requirements. Contact us to create a personalized pilgrimage itinerary.',
+      a: 'Absolutely. Sivam Travels offers customized Navagraha Tour Packages based on your travel dates, preferred temples, pickup location, accommodation needs, vehicle type, and family requirements. Contact us to create a personalized pilgrimage itinerary.',
     },
     {
       q: 'What is the best time to visit the Navagraha temples?',

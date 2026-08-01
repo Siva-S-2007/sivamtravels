@@ -41,8 +41,8 @@ export default function Navbar() {
           : 'bg-maroon/50 backdrop-blur-md border-b border-white/10'
       )}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <a href="/sivamtravels/#home" className="group flex items-center gap-3">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 lg:px-10">
+        <a href="/sivamtravels/#home" className="group flex shrink-0 items-center gap-3">
           <img
             src={asset('/sivamtravels-logo.png')}
             alt="Sivam Travels"
@@ -68,7 +68,7 @@ export default function Navbar() {
           </span>
         </a>
 
-        <ul className="hidden items-center gap-6 xl:flex">
+        <ul className="hidden items-center gap-5 xl:flex">
           {links.map((l) => (
             <li key={l.href}>
               <a
@@ -85,7 +85,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-3">
           {/* Language toggle */}
           <button
             onClick={toggleLang}

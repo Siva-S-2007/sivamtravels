@@ -106,7 +106,7 @@ export const translations: Record<TranslationKey, Record<Lang, string>> = {
   'nav.home': { en: 'Home', ta: 'முகப்பு' },
   'nav.packages': { en: 'Packages', ta: 'திட்டங்கள்' },
   'nav.navagraha': { en: 'Navagraha', ta: 'நவகிரகம்' },
-  'nav.faq': { en: 'FAQ', ta: 'அடிக்கடி கேட்கப்படும் கேள்விகள்' },
+  'nav.faq': { en: 'FAQ', ta: 'கேள்விகள்' },
   'nav.gallery': { en: 'Gallery', ta: 'படத்தொகுப்பு' },
   'nav.contact': { en: 'Contact', ta: 'தொடர்பு' },
   'nav.bookNow': { en: 'Book Now', ta: 'இப்போது முன்பதிவி' },
@@ -119,8 +119,8 @@ export const translations: Record<TranslationKey, Record<Lang, string>> = {
     ta: 'கும்பகோணத்தில் இருந்து சிறந்த நவகிரக சுற்றுலாத் தொகுப்பு',
   },
   'hero.description': {
-    en: 'Experience the blessings of navagrahas with comfort, care, and peace of mind.',
-    ta: 'நவக்கிரகங்களின் அருளாசியை வசதி, அக்கறை மற்றும் மன அமைதியுடன் பெற்றிடுங்கள்.',
+    en: 'Sivam Travels helps you experience the blessings of the Navagrahas with comfort, care, and peace of mind.',
+    ta: 'சிவம் டிராவல்ஸ் மூலம் நவக்கிரகங்களின் அருளாசியை வசதி, அக்கறை மற்றும் மன அமைதியுடன் பெற்றிடுங்கள்.',
   },
   'hero.explore': { en: 'Explore Packages', ta: 'திட்டங்களைப் பார்க்க' },
   'hero.bookNow': { en: 'Book Now', ta: 'இப்போது முன்பதிவி' },
@@ -128,8 +128,8 @@ export const translations: Record<TranslationKey, Record<Lang, string>> = {
   'packages.eyebrow': { en: 'NAVAGRAHA TOUR PACKAGES', ta: 'நவக்கிரகச் சுற்றுலாத் தொகுப்புகள்' },
   'packages.title': { en: 'Best Navagraha Tour Packages from Kumbakonam', ta: 'கும்பகோணத்தில் இருந்து சிறந்த நவகிரக சுற்றுலாத் தொகுப்பு' },
   'packages.subtitle': {
-    en: 'Choose from our 1-day, 2-day, and 3-day Navagraha tour packages from Kumbakonam, designed for families, pilgrims, and groups seeking a comfortable and spiritually fulfilling journey.',
-    ta: 'கும்பகோணத்திலிருந்து மேற்கொள்ளப்படும் எங்களின் 1 நாள், 2 நாள் மற்றும் 3 நாள் நவக்கிரகச் சுற்றுலாத் தொகுப்புகளில் ஒன்றைத் தேர்ந்தெடுங்கள்; இவை வசதியான மற்றும் ஆன்மீக ரீதியில் மனநிறைவளிக்கும் பயணத்தை விரும்பும் குடும்பங்கள், யாத்ரீகர்கள் மற்றும் குழுக்களுக்காகவே சிறப்பாக வடிவமைக்கப்பட்டுள்ளன.',
+    en: 'Choose from our 1-day, 2-day, and 3-day Navagraha tour packages from Kumbakonam, designed by Sivam Travels for families, pilgrims, and groups seeking a comfortable and spiritually fulfilling journey.',
+    ta: 'கும்பகோணத்திலிருந்து மேற்கொள்ளப்படும் எங்களின் 1 நாள், 2 நாள் மற்றும் 3 நாள் நவக்கிரகச் சுற்றுலாத் தொகுப்புகளில் ஒன்றைத் தேர்ந்தெடுங்கள்; இவை சிவம் டிராவல்ஸ் மூலம் வசதியான மற்றும் ஆன்மீக ரீதியில் மனநிறைவளிக்கும் பயணத்தை விரும்பும் குடும்பங்கள், யாத்ரீகர்கள் மற்றும் குழுக்களுக்காகவே சிறப்பாக வடிவமைக்கப்பட்டுள்ளன.',
   },
   'packages.explore': { en: 'Explore', ta: 'விவரம் பார்க்க' },
   'packages.price': { en: 'From', ta: 'தொடக்க' },
@@ -167,8 +167,8 @@ export const translations: Record<TranslationKey, Record<Lang, string>> = {
   'why.eyebrow': { en: 'Why Sivam Travels', ta: 'ஏன் சிவம் டிராவல்ஸ்' },
   'why.title': { en: 'The Difference is in the Devotion', ta: 'வித்தியாசம் பக்தியில் உள்ளது' },
   'why.subtitle': {
-    en: 'We do not sell tours. We curate pilgrimages — with the care, patience, and reverence that sacred travel deserves.',
-    ta: 'நாங்கள் சுற்றுலா விற்பதில்ல. புனித பயணம் தகுந்த கவனம், பொறுமை, பக்தியுடன் யாத்திரைகளை நாங்கள் தேர்வு செய்கிறோம்.',
+    en: 'Sivam Travels does not sell tours. We curate pilgrimages — with the care, patience, and reverence that sacred travel deserves.',
+    ta: 'சிவம் டிராவல்ஸ் சுற்றுலா விற்பதில்ல. புனித பயணம் தகுந்த கவனம், பொறுமை, பக்தியுடன் யாத்திரைகளை நாங்கள் தேர்வு செய்கிறோம்.',
   },
   'why.features': { en: '', ta: '' },
 
@@ -201,8 +201,8 @@ export const translations: Record<TranslationKey, Record<Lang, string>> = {
   'booking.eyebrow': { en: 'BOOKING', ta: 'முன்பதிவு' },
   'booking.title': { en: 'A few words, and we take care of the rest.', ta: 'சொல்லுங்கள், மீதியை நாங்கள் கவனிக்கிறோம்.' },
   'booking.subtitle': {
-    en: 'Send us your details and our team will reach out on WhatsApp to craft your pilgrimage.',
-    ta: 'உங்கள் விவரங்களை அனுப்புங்கள், எங்கள் அணி வாட்ஸ்அப்பில் உங்கள் யாத்திரையை திட்டமிட தொடர்பு கொள்ளும்.',
+    en: 'Send us your details and the Sivam Travels team will reach out on WhatsApp to craft your pilgrimage.',
+    ta: 'உங்கள் விவரங்களை அனுப்புங்கள், சிவம் டிராவல்ஸ் அணி வாட்ஸ்அப்பில் உங்கள் யாத்திரையை திட்டமிட தொடர்பு கொள்ளும்.',
   },
   'booking.beginJourney': { en: 'BEGIN YOUR JOURNEY', ta: 'உங்கள் பயணத்தைத் தொடங்குங்கள்' },
   'booking.heading': { en: 'WhatsApp Enquiry', ta: 'வாட்ஸ்அப் விசாரணை' },
@@ -226,8 +226,8 @@ export const translations: Record<TranslationKey, Record<Lang, string>> = {
   'contact.eyebrow': { en: 'Contact', ta: 'தொடர்பு' },
   'contact.title': { en: 'Reach the Sivam Travels Family', ta: 'சிவம் டிராவல்ஸ் குடும்பத்தை அணுகுங்கள்' },
   'contact.subtitle': {
-    en: 'We are here to answer your questions and help plan your sacred journey. Reach out any time.',
-    ta: 'உங்கள் கேள்விகளுக்கு பதிலளிக்கவும், உங்கள் புனித பயணத்தை திட்டமிடவும் நாங்கள் இங்கே உள்ளோம். எப்போது வேண்டுமானாலும் தொடர்பு கொள்ளுங்கள்.',
+    en: 'Contact Sivam Travels for personalized Navagraha Tour Packages and pilgrimage assistance. We are here to answer your questions and help plan your sacred journey.',
+    ta: 'தனிப்பயன் நவகிரக சுற்றுலா தொகுப்புகள் மற்றும் யாத்திரை உதவிக்கு சிவம் டிராவல்ஸை தொடர்பு கொள்ளுங்கள். உங்கள் கேள்விகளுக்கு பதிலளிக்கவும், உங்கள் புனித பயணத்தை திட்டமிடவும் நாங்கள் இங்கே உள்ளோம்.',
   },
   'contact.office': { en: 'Our Office', ta: 'எங்கள் அலுவலகம்' },
   'contact.phone': { en: 'Phone', ta: 'தொலைபேசி' },
@@ -239,8 +239,8 @@ export const translations: Record<TranslationKey, Record<Lang, string>> = {
   'contact.mapPlaceholder': { en: 'Map placeholder · Google Maps integration coming soon', ta: 'வரைபட இடம் · கூகுள் வரைபடம் விரைவில்' },
 
   'footer.tagline': {
-    en: 'Sacred journeys to the Navagraha temples and beyond — crafted with devotion, comfort, and grace.',
-    ta: 'நவகிரக கோயில்களுக்கான புனித யாத்திரைகள் — பக்தி, வசதி, கருணையுடன் வடிவமைக்கப்பட்டது.',
+    en: 'Sivam Travels — sacred journeys to the Navagraha temples and beyond, crafted with devotion, comfort, and grace.',
+    ta: 'சிவம் டிராவல்ஸ் — நவகிரக கோயில்களுக்கான புனித யாத்திரைகள், பக்தி, வசதி, கருணையுடன் வடிவமைக்கப்பட்டது.',
   },
   'footer.quickLinks': { en: 'QUICK LINKS', ta: 'விரைவு இணைப்புகள்' },
   'footer.contact': { en: 'CONTACT', ta: 'தொடர்பு' },
