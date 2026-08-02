@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, ChevronRight, Sparkles } from 'lucide-react';
 import { useApp } from '@/lib/app-context';
 import type { Lang } from '@/lib/data';
-import SectionLabel from '@/components/ui/section-label';
+import { SectionLabel } from '@/components/ui/section-label';
 import { motion } from 'framer-motion';
 
 type GuideSlug = 'order-to-visit' | 'doshas-remedies' | 'history-beliefs';

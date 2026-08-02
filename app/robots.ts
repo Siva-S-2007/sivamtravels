@@ -1,14 +1,14 @@
-import { MetadataRoute } from 'next';
+  import { MetadataRoute } from 'next';
 
-export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-    },
+  export default function robots(): MetadataRoute.Robots {
+    return {
+      rules: {
+        userAgent: '*',
+        allow: '/',
+      },
 
-    sitemap: 'https://www.sivamtravels.com/sitemap.xml',
+      sitemap: 'https://www.sivamtravels.com/sitemap.xml',
 
-    host: 'https://www.sivamtravels.com',
-  };
-}
+      host: 'https://www.sivamtravels.com',
+    };
+  }
